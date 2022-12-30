@@ -1,0 +1,18 @@
+@import "../../../styles.scss";
+
+.footer {
+  background-color: $color-medio;
+  & h3 {
+    width: 60%;
+    margin: 0;
+    padding: 2vw;
+  }
+  & a {
+    width: 10%;
+    text-decoration: none;
+    padding: 2vw;
+    &:visited {
+      color: white;
+    }
+  }
+}

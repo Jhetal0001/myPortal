@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+$color-primary: #303436;
+$color-claro: #ffffff;
+$color-sucundary: #03839F;
+$color-medio: #383D3F;
+$font1: 'Kaisei Tokumin', serif;
+
+body {
+  background-color: $color-primary;
+  margin: 0;
+  padding: 0;
+  font-family: $font1;
+  color: $color-claro;
+  & h3 {
+    font-size: 20px;
+  }
+  & i {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,86 @@
+@import "../../styles.scss";
+
+.section-one--leyend {
+  margin: 15vw 4vw;
+  padding: 2vw;
+  background-color: $color-sucundary;
+  border-radius: 10px;
+  box-shadow: 5px 4px 4px black;
+}
+
+.section-two {
+  position: relative;
+  background-color: $color-medio;
+  justify-content: center;
+  padding: 15vw 0;
+
+  &--developer {
+    position: absolute;
+    padding: 1vw 3vw;
+    border-radius: 10px;
+    background-color: $color-medio;
+    transform: translate(0, -65px);
+    box-shadow: 0px 2px 6px #ffffff3a;
+  }
+  &--card {
+    margin: 0 5px;
+    width: 25vw;
+    height: 25vw;
+    min-width: 80px;
+    min-height: 80px;
+    background-color: $color-sucundary;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    & a {
+      text-decoration: none;
+      &:visited{
+        color: $color-claro;
+      }
+      & div {
+        font-size: 4vw;
+      }
+
+    }
+  }
+
+}
+
+.section-three {
+  position: relative;
+  background-color: $color-primary;
+  justify-content: center;
+  padding: 15vw 0;
+  &--users {
+    position: absolute;
+    padding: 1vw 3vw;
+    border-radius: 10px;
+    background-color: $color-medio;
+    transform: translate(0px, -65px);
+    box-shadow: 0px 2px 6px #ffffff3a;
+  }
+  &--card {
+    margin: 0 5px;
+    width: 25vw;
+    height: 25vw;
+    min-width: 80px;
+    min-height: 80px;
+    background-color: $color-sucundary;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    & a {
+      text-decoration: none;
+      &:visited{
+        color: $color-claro;
+      }
+      & div {
+        font-size: 4vw;
+      }
+
+    }
+  }
+
+}
