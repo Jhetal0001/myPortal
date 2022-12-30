@@ -18,3 +18,14 @@
     }
   }
 }
+
+.app-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: $color-medio;
+  opacity: 40%;
+}

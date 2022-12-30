@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
 
   menuOver(){
     $('#menu').animate({right: '100%'});
+    $(".app-menu").fadeOut('slow');
   }
 
 

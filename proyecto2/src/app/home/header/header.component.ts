@@ -10,6 +10,11 @@ export class HeaderComponent {
   //mostrar menu
   menuView() {
      $("#menu").animate({right: '20%'});
+     $(".app-menu").fadeIn('slow');
   }
 
+  eventClickOut(){
+    $("#menu").animate({right: '100%'});
+    $(".app-menu").fadeOut('slow');
+  }
 }
