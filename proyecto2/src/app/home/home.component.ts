@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-  saludo = 'Hola!!';
+
+  developer = 'En esta seccion encontrara mas acerca de mi experiencia profesional, proyectos y articulos.';
+  users = 'Si desea puede registrarse o iniciar seción en un espacio personal';
+
   ngOnInit(): void {
   }
 

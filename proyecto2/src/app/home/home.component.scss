@@ -5,25 +5,31 @@
   padding: 2vw;
   background-color: $color-sucundary;
   border-radius: 10px;
-  box-shadow: 5px 4px 4px black;
+  box-shadow: 5px 4px 6px black;
+  text-align: justify;
 }
 
 .section-two {
   position: relative;
   background-color: $color-medio;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 15vw 0;
+  padding: 10vw 0;
 
   &--developer {
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
     background-color: $color-medio;
-    transform: translate(0, -20vw);
+    transform: translate(0, -14vw);
     box-shadow: 0px 2px 6px #ffffff3a;
   }
+  &--developer__description {
+    width: 80%;
+    text-align: center;
+  }
   &--card {
-    margin: 0 5px;
+    margin: 5px 5px;
     width: 25vw;
     height: 25vw;
     min-width: 80px;
@@ -33,6 +39,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    box-shadow: 5px 4px 6px black;
     & a {
       text-decoration: none;
       &:visited{
@@ -50,18 +57,23 @@
 .section-three {
   position: relative;
   background-color: $color-primary;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 15vw 0;
+  padding: 10vw 0;
   &--users {
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
     background-color: $color-medio;
-    transform: translate(0px, -20vw);
+    transform: translate(0px, -14vw);
     box-shadow: 0px 2px 6px #ffffff3a;
   }
+  &--users__description {
+    width: 80%;
+    text-align: center;
+  }
   &--card {
-    margin: 0 5px;
+    margin: 5px 5px;
     width: 25vw;
     height: 25vw;
     min-width: 80px;
@@ -71,6 +83,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    box-shadow: 5px 4px 6px black;
     & a {
       text-decoration: none;
       &:visited{
