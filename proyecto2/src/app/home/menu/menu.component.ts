@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+
   constructor() { }
+
+  menuOver(){
+    $('#menu').animate({right: '100%'});
+  }
+
 
   ngOnInit(): void {
   }

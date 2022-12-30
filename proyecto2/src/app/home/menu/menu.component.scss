@@ -1,0 +1,76 @@
+@import "../../../styles.scss";
+
+.menu {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $color-medio;
+  opacity: 98.5%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  & > a i {
+    padding: 10px;
+  }
+  &-section-one--home {
+    background-color: $color-primary;
+    width: 100%;
+    padding: 3vw 0;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      & i {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-section-two--cards {
+    width: 100%;
+    padding: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    & .menu-section-card {
+      display: flex;
+      margin: 10px 10px;
+      width: 25vw;
+      height: 25vw;
+      min-width: 80px;
+      min-height: 80px;
+      background-color: $color-sucundary;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 5px 4px 6px black;
+      & a {
+        text-decoration: none;
+        &:visited{
+          color: $color-claro;
+        }
+        & div {
+          font-size: 4vw;
+        }
+
+      }
+    }
+  }
+  &-section-three--config {
+    background-color: $color-primary;
+    width: 100%;
+    padding: 3vw 0;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      & i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
