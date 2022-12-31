@@ -1,9 +1,9 @@
 <header class="header d-flex">
-  <a href="#" (click)="menuView()"><i class="fa-solid fa-list"></i></a>
+  <a (click)="menuView()"><i class="fa-solid fa-list"></i></a>
   <h3>Portal JF</h3>
-  <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+  <a (click)="searchView()"><i class="fa-solid fa-magnifying-glass"></i></a>
 </header>
-
+<app-search></app-search>
 <div class="app-menu" (click)="eventClickOut()"></div>
 <app-menu></app-menu>
 

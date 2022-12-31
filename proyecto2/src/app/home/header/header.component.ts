@@ -17,4 +17,8 @@ export class HeaderComponent {
     $("#menu").animate({right: '100%'});
     $(".app-menu").fadeOut('slow');
   }
+
+  searchView() {
+    $(".search").fadeIn('slow');
+  }
 }
