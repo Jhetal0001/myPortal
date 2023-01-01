@@ -1,0 +1,169 @@
+<div class="micv">
+  <section class="micv-section-one">
+    <h1 class="micv-section-one__tittle">{{dateperson.profession}}</h1>
+    <div class="micv-section-one__photo"><img [src]="dateperson.photo" alt=""></div>
+  </section>
+  <section class="micv-section-two">
+    <div class="micv-section-two__icons">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="profile nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="true"><i class="fa-solid fa-user-tie"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="phone nav-link" id="phone-tab" data-bs-toggle="tab" data-bs-target="#phone" role="tab" aria-controls="phone" aria-selected="false" ><i class="fa-solid fa-mobile"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+         <a class="email nav-link" id="email-tab" data-bs-toggle="tab" data-bs-target="#email" role="tab" aria-controls="email" aria-selected="false"><i class="fa-solid fa-at"></i></a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="address nav-link" id="address-tab" data-bs-toggle="tab" data-bs-target="#address" role="tab" aria-controls="address" aria-selected="false"><i class="fa-solid fa-location-dot"></i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">{{dateperson.name}}</div>
+      <div class="tab-pane fade" id="phone" role="tabpanel" aria-labelledby="phone-tab">{{dateperson.phone}}</div>
+      <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">{{dateperson.email}}</div>
+      <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">{{dateperson.address}}</div>
+    </div>
+  </section>
+  <section class="micv-section-three">
+    <div class="micv-section-three__tab profil">
+      <a class="micv-section-three__tab___show">
+        <i class="fa-solid fa-plus"></i>
+        <span>{{contentcv.profilepro.name}}</span>
+      </a>
+    </div>
+    <div class="details profile-details">
+      <span>{{contentcv.profilepro.details.paragraph1}}</span><br>
+      <span>{{contentcv.profilepro.details.paragraph2}}</span><br>
+      <span>{{contentcv.profilepro.details.paragraph3}}</span>
+    </div>
+    <div class="micv-section-three__tab studies">
+      <a class="micv-section-three__tab___show">
+        <i class="fa-solid fa-plus"></i>
+        <span>{{contentcv.studies.name}}</span>
+      </a>
+    </div>
+    <div class="details studies-details">
+      <ul>
+        <li>
+          <span>{{contentcv.studies.details.school2.name}}, </span>
+          <span>{{contentcv.studies.details.school2.date}}, </span>
+          <span>{{contentcv.studies.details.school2.site}}, </span>
+          <span>{{contentcv.studies.details.school2.tittle}}.</span>
+        </li>
+        <li>
+          <span>{{contentcv.studies.details.school1.name}}, </span>
+          <span>{{contentcv.studies.details.school1.date}}, </span>
+          <span>{{contentcv.studies.details.school1.site}}, </span>
+          <span>{{contentcv.studies.details.school1.tittle}}.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="micv-section-three__tab certif">
+      <a class="micv-section-three__tab___show">
+        <i class="fa-solid fa-plus"></i>
+        <span>{{contentcv.certificates.name}}</span>
+      </a>
+    </div>
+    <div class="details certif-details">
+      <ul>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate1.url">
+          <span>{{contentcv.certificates.details.certificate1.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate1.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate1.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate2.url">
+          <span>{{contentcv.certificates.details.certificate2.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate2.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate2.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate3.url">
+          <span>{{contentcv.certificates.details.certificate3.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate3.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate3.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate4.url">
+          <span>{{contentcv.certificates.details.certificate4.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate4.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate4.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate5.url">
+          <span>{{contentcv.certificates.details.certificate5.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate5.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate5.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate6.url">
+          <span>{{contentcv.certificates.details.certificate6.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate6.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate6.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate7.url">
+          <span>{{contentcv.certificates.details.certificate7.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate7.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate7.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate8.url">
+          <span>{{contentcv.certificates.details.certificate8.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate8.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate8.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate9.url">
+          <span>{{contentcv.certificates.details.certificate9.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate9.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate9.date}}.</span>
+          </a>
+        </li>
+        <li>
+          <a [href]="contentcv.certificates.details.certificate10.url">
+          <span>{{contentcv.certificates.details.certificate10.name}}, </span>
+          <span>{{contentcv.certificates.details.certificate10.school}}, </span>
+          <span>{{contentcv.certificates.details.certificate10.date}}.</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="micv-section-three__tab experien">
+      <a class="micv-section-three__tab___show">
+        <i class="fa-solid fa-plus"></i>
+        <span>{{contentcv.experience.name}}</span>
+      </a>
+    </div>
+    <div class="details experien-details">
+      <ul>
+        <li>
+          <span><b>{{contentcv.experience.details.work2.name}}, </b></span>
+          <span>{{contentcv.experience.details.work2.position}}, </span>
+          <span>{{contentcv.experience.details.work2.date}}.</span>
+        </li>
+        <li>
+          <span><b>{{contentcv.experience.details.work1.name}}, </b></span>
+          <span>{{contentcv.experience.details.work1.position}}, </span>
+          <span>{{contentcv.experience.details.work1.date}}.</span>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+</div>
+

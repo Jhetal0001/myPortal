@@ -1,0 +1,95 @@
+@import "../../../styles.scss";
+
+.section-one--leyend {
+  margin: 15vw 4vw;
+  padding: 2vw;
+  background-color: $color-sucundary;
+  border-radius: 10px;
+  box-shadow: 5px 4px 6px black;
+  text-align: justify;
+}
+
+.section-two {
+  position: relative;
+  background-color: $color-medio;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10vw 0;
+
+  &--developer {
+    position: absolute;
+    padding: 1vw 3vw;
+    border-radius: 10px;
+    background-color: $color-medio;
+    transform: translate(0, -14vw);
+    box-shadow: 0px 2px 6px #ffffff3a;
+  }
+  &--developer__description {
+    width: 80%;
+    text-align: center;
+  }
+  &--card {
+    margin: 10px 10px;
+    width: 25vw;
+    height: 25vw;
+    min-width: 80px;
+    min-height: 80px;
+    background-color: $color-sucundary;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 4px 6px black;
+    & a {
+      text-decoration: none;
+      &:visited {
+        color: $color-claro;
+      }
+      & div {
+        font-size: 4vw;
+      }
+    }
+  }
+}
+
+.section-three {
+  position: relative;
+  background-color: $color-primary;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10vw 0;
+  &--users {
+    position: absolute;
+    padding: 1vw 3vw;
+    border-radius: 10px;
+    background-color: $color-medio;
+    transform: translate(0px, -14vw);
+    box-shadow: 0px 2px 6px #ffffff3a;
+  }
+  &--users__description {
+    width: 80%;
+    text-align: center;
+  }
+  &--card {
+    margin: 10px 10px;
+    width: 25vw;
+    height: 25vw;
+    min-width: 80px;
+    min-height: 80px;
+    background-color: $color-sucundary;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 4px 6px black;
+    & a {
+      text-decoration: none;
+      &:visited {
+        color: $color-claro;
+      }
+      & div {
+        font-size: 4vw;
+      }
+    }
+  }
+}

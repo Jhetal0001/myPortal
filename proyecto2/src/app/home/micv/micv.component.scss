@@ -1,0 +1,95 @@
+@import "../../../styles.scss";
+
+.micv {
+  background-color: $color-primary;
+  &-section-one {
+    padding: 20px;
+    text-align: center;
+    &__tittle {
+      margin-bottom: 20px;
+    }
+    &__photo {
+      width: 140px;
+      border-radius: 20px;
+      margin: auto auto;
+      overflow: hidden;
+      & img {
+        width: 160px;
+        margin-left: -10px;
+      }
+    }
+  }
+  &-section-two {
+    width: 80%;
+    height: 75px;
+    background-color: $color-medio;
+    margin: auto auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid $color-medio;
+    overflow: hidden;
+    & .nav-link:hover,.nav-link:focus {
+      border: 0;
+    }
+    &__icons .nav{
+      display: flex;
+      text-align: center;
+      border: none;
+      & li {
+        width: 25%;
+      }
+      & .profile, .phone, .email, .address {
+        border-right: 2px solid $color-medio;
+        background-color: $color-primary;
+        padding: 3px 0px;
+        color: $color-claro;
+        transition: none;
+      }
+      & .active {
+        background-color: rgba(255, 255, 255, 0.082);
+        padding: 3px 0px;
+        border: 0;
+      }
+      & .address {
+        border-right: none;
+      }
+    }
+    & .tab-pane {
+      text-align: center;
+      padding-top: 10px;
+    }
+  }
+  &-section-three {
+    width: 80%;
+    background-color: $color-medio;
+    border: 2px solid $color-medio;
+    margin: auto auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    &__tab{
+      display: flex;
+      height: 40px;
+      background-color: $color-primary;
+      margin: 2px 0;
+      align-items: center;
+      & a {
+        text-decoration: none;
+        &:hover {
+          color: $color-claro;
+        }
+      }
+      & i {
+        margin: 0 10px ;
+      }
+    }
+    & .details {
+      display: none;
+      padding: 10px;
+      text-align: justify;
+      & span {
+        font-size: 14px;
+      }
+    }
+  }
+}

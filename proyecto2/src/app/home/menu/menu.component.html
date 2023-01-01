@@ -1,13 +1,13 @@
 <main id="menu" style="right: 100%;" class="menu">
-  <a href="#" (click)="menuOver()"><i class="fa-solid fa-xmark"></i></a>
+  <a (click)="menuOver()"><i class="fa-solid fa-xmark"></i></a>
   <section class="menu-section-one--home">
-    <a href="#"><i class="fa-solid fa-house"></i><div>Home</div></a>
+    <a [routerLink]="['home']" (click)="menuOver()"><i class="fa-solid fa-house"></i><div>Home</div></a>
   </section>
   <section class="menu-section-two--cards">
-    <div class="menu-section-card"><a href="#"><i class="fa-solid fa-file"></i><div>Mi CV</div></a></div>
-    <div class="menu-section-card"><a href="#"><i class="fa-solid fa-briefcase"></i><div>Proyectos</div></a></div>
-    <div class="menu-section-card"><a hreff="#"><i class="fa-solid fa-blog"></i><div>Blog Space</div></a></div>
-    <div class="menu-section-card"><a href="#"><i class="fa-solid fa-right-to-bracket"></i><div>Log In</div></a></div>
+    <div class="menu-section-card"><a (click)="menuOver()" [routerLink]="['micv']"><i class="fa-solid fa-file"></i><div>Mi CV</div></a></div>
+    <div class="menu-section-card"><a (click)="menuOver()" [routerLink]="['proyectos']"><i class="fa-solid fa-briefcase"></i><div>Proyectos</div></a></div>
+    <div class="menu-section-card"><a (click)="menuOver()" [routerLink]="['blogspace']"><i class="fa-solid fa-blog"></i><div>Blog Space</div></a></div>
+    <div class="menu-section-card"><a (click)="menuOver()" [routerLink]="['login']"><i class="fa-solid fa-right-to-bracket"></i><div>Log In</div></a></div>
   </section>
   <section class="menu-section-three--config">
     <a href="#"><i class="fa-solid fa-plus"></i></a>
