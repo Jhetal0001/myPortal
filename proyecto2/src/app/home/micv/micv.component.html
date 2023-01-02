@@ -1,7 +1,9 @@
 <div class="micv">
   <section class="micv-section-one">
     <h1 class="micv-section-one__tittle">{{dateperson.profession}}</h1>
-    <div class="micv-section-one__photo"><img [src]="dateperson.photo" alt=""></div>
+    <a [href]="dateperson.photo" class="micv-section-one__photo">
+      <img [src]="dateperson.photo" alt="photo-perfile">
+    </a>
   </section>
   <section class="micv-section-two">
     <div class="micv-section-two__icons">
@@ -166,4 +168,3 @@
 
   </section>
 </div>
-

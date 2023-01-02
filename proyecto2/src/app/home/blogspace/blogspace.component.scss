@@ -1,0 +1,11 @@
+@import "../../../styles.scss";
+
+.blogspace-articles {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.blogspace-article {
+  margin-inline: 2vw;
+  background-color: #00000046;
+  border-radius: 10px;
+}

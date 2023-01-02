@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { LightboxModule } from 'ngx-lightbox';
 
 //Rutas
 import { app_routing } from "./app.routes";
@@ -40,7 +41,8 @@ import { SigninComponent } from './home/login/signin/signin.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    app_routing
+    app_routing,
+    LightboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
