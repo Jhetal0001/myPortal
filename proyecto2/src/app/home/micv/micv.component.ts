@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-micv',
@@ -131,8 +132,30 @@ export class MicvComponent implements OnInit {
       },
     },
   };
+  _albums:any = [];
+  constructor(private _lightbox: Lightbox) {
+    for (let prop in this.dateperson) {
+      const src = this.dateperson.photo;
+      const caption = 'Photo Perfile';
+      const thumb = this.dateperson.photo;
+      const album = {
+         src: src,
+         caption: caption,
+         thumb: thumb
+      };
 
-  constructor() {}
+      this._albums.push(album);
+    }
+  }
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._albums, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
 
   ngOnInit(): void {
     $(document).ready(function () {

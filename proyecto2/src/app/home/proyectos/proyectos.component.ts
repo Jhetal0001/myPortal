@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { Lightbox } from 'ngx-lightbox';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-proyectos',
@@ -32,31 +34,31 @@ export class ProyectosComponent implements OnInit {
 
 
 
-  constructor() {
+  _albums:any = [];
+  constructor(private _lightbox: Lightbox) {
+    for (let prop of this.projectsArray) {
+      const src = prop.img;
+      const caption = prop.name;
+      const thumb = prop.img;
+      const album = {
+         src: src,
+         caption: caption,
+         thumb: thumb
+      };
+      this._albums.push(album);
+    }
+  }
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._albums, index);
+  }
 
-   }
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
 
   ngOnInit(): void {
 
-    for(const project of this.projectsArray){
-      $('.projects-sections')
-      .append(
-        `<div class="card m-2 overflow-hidden bg-dark w-50" style="border-radius:10px; max-width:170px; width: 18rem;">
-        <a href="`+project.img+`" ><img class="card-img-top" src="`+project.img+`" alt="Card image cap"></a>
-        <div class="card-body p-0 text-center">
-          <div class="w-100 p-2">
-            <h5 class="card-title">`+project.name+`</h5>
-            <p class="card-text" style="font-size: 10px;">`+project.description+`</p>
-          </div>
-          <div class="btn-group mt-1 w-100">
-            <a href="#" class="btn btn-secondary" style="border-right: 2px solid black;"><i class="fa-solid fa-thumbs-up"></i></a>
-            <a href="#" class="btn btn-secondary" style="border-right: 2px solid black;"><i class="fa-solid fa-comment"></i></a>
-            <a href="`+project.link+`" class="btn btn-secondary"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </div>
-        </div>`
-      );
-    }
   }
-
 }
