@@ -132,6 +132,9 @@ export class MicvComponent implements OnInit {
       },
     },
   };
+
+  certificates = Object.entries(this.contentcv.certificates.details).map(i => i[1]);
+  studies = Object.entries(this.contentcv.studies.details).map(i => i[1]);
   _albums:any = [];
   constructor(private _lightbox: Lightbox) {
     for (let prop in this.dateperson) {
@@ -151,13 +154,13 @@ export class MicvComponent implements OnInit {
     // open lightbox
     this._lightbox.open(this._albums, index);
   }
-
   close(): void {
     // close lightbox programmatically
     this._lightbox.close();
   }
 
   ngOnInit(): void {
+    console.log(this.certificates)
     $(document).ready(function () {
       $('.profil').click(function () {
         $('.profile-details').toggle(300);

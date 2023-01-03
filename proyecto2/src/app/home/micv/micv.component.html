@@ -49,17 +49,11 @@
     </div>
     <div class="details studies-details">
       <ul>
-        <li>
-          <span>{{contentcv.studies.details.school2.name}}, </span>
-          <span>{{contentcv.studies.details.school2.date}}, </span>
-          <span>{{contentcv.studies.details.school2.site}}, </span>
-          <span>{{contentcv.studies.details.school2.tittle}}.</span>
-        </li>
-        <li>
-          <span>{{contentcv.studies.details.school1.name}}, </span>
-          <span>{{contentcv.studies.details.school1.date}}, </span>
-          <span>{{contentcv.studies.details.school1.site}}, </span>
-          <span>{{contentcv.studies.details.school1.tittle}}.</span>
+        <li *ngFor="let studie of studies">
+          <span>{{studie.name}}, </span>
+          <span>{{studie.date}}, </span>
+          <span>{{studie.site}}, </span>
+          <span>{{studie.tittle}}.</span>
         </li>
       </ul>
     </div>
@@ -72,74 +66,11 @@
     </div>
     <div class="details certif-details">
       <ul>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate1.url">
-          <span>{{contentcv.certificates.details.certificate1.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate1.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate1.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate2.url">
-          <span>{{contentcv.certificates.details.certificate2.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate2.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate2.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate3.url">
-          <span>{{contentcv.certificates.details.certificate3.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate3.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate3.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate4.url">
-          <span>{{contentcv.certificates.details.certificate4.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate4.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate4.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate5.url">
-          <span>{{contentcv.certificates.details.certificate5.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate5.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate5.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate6.url">
-          <span>{{contentcv.certificates.details.certificate6.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate6.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate6.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate7.url">
-          <span>{{contentcv.certificates.details.certificate7.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate7.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate7.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate8.url">
-          <span>{{contentcv.certificates.details.certificate8.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate8.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate8.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate9.url">
-          <span>{{contentcv.certificates.details.certificate9.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate9.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate9.date}}.</span>
-          </a>
-        </li>
-        <li>
-          <a [href]="contentcv.certificates.details.certificate10.url">
-          <span>{{contentcv.certificates.details.certificate10.name}}, </span>
-          <span>{{contentcv.certificates.details.certificate10.school}}, </span>
-          <span>{{contentcv.certificates.details.certificate10.date}}.</span>
+        <li *ngFor="let certificate of certificates">
+          <a [href]="certificate.url">
+          <span>{{certificate.name}}, </span>
+          <span>{{certificate.school}}, </span>
+          <span>{{certificate.date}}.</span>
           </a>
         </li>
       </ul>

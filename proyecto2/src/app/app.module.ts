@@ -20,6 +20,7 @@ import { BlogspaceComponent } from './home/blogspace/blogspace.component';
 import { LoginComponent } from './home/login/login.component';
 import { SignupComponent } from './home/login/signup/signup.component';
 import { SigninComponent } from './home/login/signin/signin.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SigninComponent } from './home/login/signin/signin.component';
     BlogspaceComponent,
     LoginComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

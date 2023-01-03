@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { Lightbox } from 'ngx-lightbox';
-import { identity } from 'rxjs';
+import { LightboxConfig, Lightbox } from 'ngx-lightbox';
+
 
 @Component({
   selector: 'app-proyectos',
@@ -35,7 +35,7 @@ export class ProyectosComponent implements OnInit {
 
 
   _albums:any = [];
-  constructor(private _lightbox: Lightbox) {
+  constructor(private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox) {
     for (let prop of this.projectsArray) {
       const src = prop.img;
       const caption = prop.name;
@@ -50,7 +50,14 @@ export class ProyectosComponent implements OnInit {
   }
   open(index: number): void {
     // open lightbox
-    this._lightbox.open(this._albums, index);
+    this._lightbox.open(this._albums, index, {
+      wrapAround: true,
+      showImageNumberLabel: true,
+      showZoom: true,
+      positionFromTop: 70,
+      alwaysShowNavOnTouchDevices: true,
+      albumLabel: '%1 of %2'
+    });
   }
 
   close(): void {

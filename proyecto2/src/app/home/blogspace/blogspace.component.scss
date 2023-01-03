@@ -3,9 +3,56 @@
 .blogspace-articles {
   overflow-x: auto;
   scroll-behavior: smooth;
+  & .card {
+    border-radius:10px;
+    min-width:170px;
+    max-width:180px;
+    width: 18rem;
+    &-img-top {
+      opacity: 15%
+    }
+  }
 }
 .blogspace-article {
   margin-inline: 2vw;
   background-color: #00000046;
   border-radius: 10px;
+  & .article {
+    padding: 10px;
+    & .article-tittle {
+      margin-top: 10px;
+    }
+    & .article-subtittle {
+      margin-top: 10px;
+      opacity: 60%;
+    }
+    & .article-pagraph {
+      margin-top: 10px;
+      text-align: justify;
+    }
+    & .article-notas {
+      width: 90%;
+      background-color: $color-medio;
+      margin: auto auto;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 20px;
+    }
+    & .article-multimedia{
+      display: flex;
+      justify-content: center;
+    }
+    & .article-img {
+      display: flex;
+      max-height: 150px;
+      overflow-x: scroll;
+      & img {
+        max-width: 190px;
+        min-width: 170px;
+      }
+    }
+    & .article-fuente {
+      font-size: 14px;
+    }
+  }
 }
