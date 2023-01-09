@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
-  developer = 'En esta seccion encontrara mas acerca de mi experiencia profesional, proyectos y articulos.';
-  users = 'Si desea puede registrarse o iniciar seción en un espacio personal';
+  developer = 'En esta sección encontrará más acerca de mi experiencia profesional, proyectos y artículos.';
+  users = 'Si desea puede registrarse o iniciar sesión en un espacio personal';
 
   constructor() { }
 

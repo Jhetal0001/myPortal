@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: $color-medio;
+  background-color: var(--color-primary);
   opacity: 98.5%;
   position: fixed;
   top: 0;
@@ -16,7 +16,7 @@
     padding: 10px;
   }
   &-section-one--home {
-    background-color: $color-primary;
+    background-color: var(--color-medio);
     width: 100%;
     padding: 3vw 0;
     & a {
@@ -42,7 +42,7 @@
       height: 80px;
       min-width: 80px;
       min-height: 80px;
-      background-color: $color-sucundary;
+      background-color: var(--color-sucundary);
       text-align: center;
       justify-content: center;
       align-items: center;
@@ -51,7 +51,7 @@
       & a {
         text-decoration: none;
         &:visited{
-          color: $color-claro;
+          color: var(--color-claro);
         }
         & div {
           font-size: 14px;
@@ -61,7 +61,7 @@
     }
   }
   &-section-three--config {
-    background-color: $color-primary;
+    background-color: var(--color-medio);
     width: 100%;
     padding: 3vw 0;
     & a {

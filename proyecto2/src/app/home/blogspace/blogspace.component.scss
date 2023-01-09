@@ -8,6 +8,7 @@
     min-width:170px;
     max-width:180px;
     width: 18rem;
+    background-color: var(--color-primary);
     &-img-top {
       opacity: 15%
     }
@@ -15,9 +16,10 @@
 }
 .blogspace-article {
   margin-inline: 2vw;
-  background-color: #00000046;
+  background-color: var(--color-medio);
   border-radius: 10px;
   & .article {
+    display: none;
     padding: 10px;
     & .article-tittle {
       margin-top: 10px;
@@ -32,7 +34,7 @@
     }
     & .article-notas {
       width: 90%;
-      background-color: $color-medio;
+      background-color: var(--color-medio);
       margin: auto auto;
       font-size: 14px;
       padding: 10px;

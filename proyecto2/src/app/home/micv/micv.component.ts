@@ -17,7 +17,7 @@ export class MicvComponent implements OnInit {
     name: 'Jhon Fredy Vásquez García',
     phone: '+57 3195493430',
     email: 'jhetal00@gmail.com',
-    address: 'Bogota D.C.',
+    address: 'Bogotá D.C.',
   };
   contentcv = {
     profilepro: {
@@ -29,7 +29,7 @@ export class MicvComponent implements OnInit {
           Python, PHP, C#, pseudocódigo, bases de datos SQL y Construcción y Ciclo de vida del software. Manejo de JavaScript,
           ECMAScript6, HTML5, CSS3, Git, y GitHub, Terminal y línea de comandos, desarrollo moderno CodeStream, Maquetación Mobile First,
           testing, smoke test, automatización con java. \n`,
-        paragraph3: `Actualmente en capacitación continua para mejorar todas las aptitudes como desarrollador FullStack,
+        paragraph3: `Actualmente, en capacitación continua para mejorar todas las aptitudes como desarrollador FullStack,
           Cuento con aptitudes para un aprendizaje rápido, buen vocabulario, excelente presentación personal, responsabilidad integral,
           empatía, humildad, respeto, tolerancia, compromiso e interés por el desarrollo de software.`,
       },
@@ -38,16 +38,16 @@ export class MicvComponent implements OnInit {
       name: 'Estudios',
       details: {
         school1: {
-          name: 'Escuela Normal Superior Maria Auxiliadora',
+          name: 'Escuela Normal Superior María Auxiliadora',
           date: '2006 - 2011',
           site: 'Villapizón',
-          tittle: 'Bachiller Academico',
+          tittle: 'Bachiller Académico',
         },
         school2: {
-          name: 'Corporacion Unificada Nacional CUN',
+          name: 'Corporación Unificada Nacional CUN',
           date: '2019 - Presente',
           site: 'Bogotá D.C.',
-          tittle: 'Ingenieria de Sistemas',
+          tittle: 'Ingeniería de Sistemas',
         },
       },
     },
@@ -131,10 +131,81 @@ export class MicvComponent implements OnInit {
         },
       },
     },
+    abilities: {
+      name : 'Habilidades Técnicas',
+      details : {
+        1 : {
+          name: 'HTML5',
+          nivel: 95
+        },
+        2 : {
+          name: 'CSS',
+          nivel: 95
+        },
+        3 : {
+          name: 'JavaScript',
+          nivel: 70
+        },
+        4 : {
+          name: 'Angular',
+          nivel: 50
+        },
+        5 : {
+          name: 'Bootstrap',
+          nivel: 85
+        },
+        6 : {
+          name: 'Java EE',
+          nivel: 60
+        },
+        7 : {
+          name: 'Spring Framework',
+          nivel: 60
+        },
+        8 : {
+          name: 'Git',
+          nivel: 80
+        },
+        9 : {
+          name: 'Terminal-Bash',
+          nivel: 60
+        },
+        10 : {
+          name: 'Oracle SQL',
+          nivel: 60
+        },
+        11 : {
+          name: 'PostgreSQL',
+          nivel: 60
+        },
+        12 : {
+          name: 'C#',
+          nivel: 50
+        },
+        13 : {
+          name: 'REST',
+          nivel: 70
+        },
+        14 : {
+          name: 'Pre-procesadores',
+          nivel: 90
+        },
+        15 : {
+          name: 'Linux Server',
+          nivel: 50
+        },
+        16 : {
+          name: 'Pruebas Unitarias',
+          nivel: 70
+        },
+        }
+    },
   };
 
   certificates = Object.entries(this.contentcv.certificates.details).map(i => i[1]);
   studies = Object.entries(this.contentcv.studies.details).map(i => i[1]);
+  abilities = Object.entries(this.contentcv.abilities.details).map(i => i[1]);
+
   _albums:any = [];
   constructor(private _lightbox: Lightbox) {
     for (let prop in this.dateperson) {
@@ -189,6 +260,14 @@ export class MicvComponent implements OnInit {
       $('.experien').click(function () {
         $('.experien-details').toggle(300);
         $('.experien')
+          .children('a')
+          .children('i')
+          .toggleClass('fa-plus')
+          .toggleClass('fa-minus');
+      });
+      $('.abilities').click(function () {
+        $('.abilities-details').toggle(300);
+        $('.abilities')
           .children('a')
           .children('i')
           .toggleClass('fa-plus')

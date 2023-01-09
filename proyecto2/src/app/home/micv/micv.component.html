@@ -37,9 +37,9 @@
       </a>
     </div>
     <div class="details profile-details">
-      <span>{{contentcv.profilepro.details.paragraph1}}</span><br>
-      <span>{{contentcv.profilepro.details.paragraph2}}</span><br>
-      <span>{{contentcv.profilepro.details.paragraph3}}</span>
+      <p>{{contentcv.profilepro.details.paragraph1}}</p>
+      <p>{{contentcv.profilepro.details.paragraph2}}</p>
+      <p>{{contentcv.profilepro.details.paragraph3}}</p>
     </div>
     <div class="micv-section-three__tab studies">
       <a class="micv-section-three__tab___show">
@@ -50,10 +50,10 @@
     <div class="details studies-details">
       <ul>
         <li *ngFor="let studie of studies">
-          <span>{{studie.name}}, </span>
-          <span>{{studie.date}}, </span>
-          <span>{{studie.site}}, </span>
-          <span>{{studie.tittle}}.</span>
+          <p>{{studie.name}}, </p>
+          <p>{{studie.date}}, </p>
+          <p>{{studie.site}}, </p>
+          <p>{{studie.tittle}}.</p>
         </li>
       </ul>
     </div>
@@ -68,9 +68,7 @@
       <ul>
         <li *ngFor="let certificate of certificates">
           <a [href]="certificate.url">
-          <span>{{certificate.name}}, </span>
-          <span>{{certificate.school}}, </span>
-          <span>{{certificate.date}}.</span>
+          <p>{{certificate.name}}, {{certificate.school}}, {{certificate.date}}.</p>
           </a>
         </li>
       </ul>
@@ -85,17 +83,32 @@
     <div class="details experien-details">
       <ul>
         <li>
-          <span><b>{{contentcv.experience.details.work2.name}}, </b></span>
-          <span>{{contentcv.experience.details.work2.position}}, </span>
-          <span>{{contentcv.experience.details.work2.date}}.</span>
+          <p><b>{{contentcv.experience.details.work2.name}}, </b></p>
+          <p>{{contentcv.experience.details.work2.position}}, </p>
+          <p>{{contentcv.experience.details.work2.date}}.</p>
         </li>
         <li>
-          <span><b>{{contentcv.experience.details.work1.name}}, </b></span>
-          <span>{{contentcv.experience.details.work1.position}}, </span>
-          <span>{{contentcv.experience.details.work1.date}}.</span>
+          <p><b>{{contentcv.experience.details.work1.name}}, </b></p>
+          <p>{{contentcv.experience.details.work1.position}}, </p>
+          <p>{{contentcv.experience.details.work1.date}}.</p>
         </li>
       </ul>
     </div>
 
+    <div class="micv-section-three__tab abilities">
+      <a class="micv-section-three__tab___show">
+        <i class="fa-solid fa-plus"></i>
+        <span>{{contentcv.abilities.name}}</span>
+      </a>
+    </div>
+    <div class="details abilities-details">
+        <div *ngFor="let abilitie of abilities">
+          <label for="abilitie">{{abilitie.name}}</label>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style]="'width:'+abilitie.nivel+'%;'">{{abilitie.name}}</div>
+          </div>
+        </div>
+    </div>
   </section>
 </div>

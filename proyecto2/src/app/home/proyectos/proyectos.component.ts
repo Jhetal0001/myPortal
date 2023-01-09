@@ -15,13 +15,13 @@ export class ProyectosComponent implements OnInit {
     {
       name: 'Keyl',
       img : '../../../assets/KeyL.png',
-      description : 'Es un proyecto basado en preprocesadores CSS y HTML, se trabaja solo maquetacion',
+      description : 'Es un proyecto basado en preprocesadores CSS y HTML, se trabaja solo maquetación',
       link : 'http://www.universidadcunaca.somee.com/'
     },
     {
       name: 'Batatabit',
       img : '../../../assets/Batatabit.png',
-      description : 'Es un proyecto hecho en clases de platzi basado en la metodologia First Mobile',
+      description : 'Es un proyecto hecho en clases de platzi basado en la metodología First Mobile',
       link : 'https://jhetal0001.github.io/'
     },
     {

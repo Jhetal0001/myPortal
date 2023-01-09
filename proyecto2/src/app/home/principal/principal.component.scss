@@ -3,7 +3,7 @@
 .section-one--leyend {
   margin: 15vw 4vw;
   padding: 2vw;
-  background-color: $color-sucundary;
+  background-color: var(--color-sucundary);
   border-radius: 10px;
   box-shadow: 5px 4px 6px black;
   text-align: justify;
@@ -11,7 +11,7 @@
 
 .section-two {
   position: relative;
-  background-color: $color-medio;
+  background-color: var(--color-medio);
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vw 0;
@@ -20,7 +20,7 @@
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
-    background-color: $color-medio;
+    background-color: var(--color-medio);
     transform: translate(0, -14vw);
     box-shadow: 0px 2px 6px #ffffff3a;
   }
@@ -34,7 +34,7 @@
     height: 25vw;
     min-width: 80px;
     min-height: 80px;
-    background-color: $color-sucundary;
+    background-color: var(--color-sucundary);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -43,10 +43,7 @@
     & a {
       text-decoration: none;
       &:visited {
-        color: $color-claro;
-      }
-      & div {
-        font-size: 4vw;
+        color: var(--color-claro);
       }
     }
   }
@@ -54,7 +51,7 @@
 
 .section-three {
   position: relative;
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vw 0;
@@ -62,7 +59,7 @@
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
-    background-color: $color-medio;
+    background-color: var(--color-medio);
     transform: translate(0px, -14vw);
     box-shadow: 0px 2px 6px #ffffff3a;
   }
@@ -76,7 +73,7 @@
     height: 25vw;
     min-width: 80px;
     min-height: 80px;
-    background-color: $color-sucundary;
+    background-color: var(--color-sucundary);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -85,10 +82,7 @@
     & a {
       text-decoration: none;
       &:visited {
-        color: $color-claro;
-      }
-      & div {
-        font-size: 4vw;
+        color: var(--color-claro);
       }
     }
   }
