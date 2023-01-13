@@ -4,16 +4,13 @@
   --color-claro: #ffffff;
   --color-sucundary: #03839F;
   --color-medio: #383D3F;
+  --color-shadow: #888888;
   --font1: 'Kaisei Tokumin', serif;
 }
-/*:root {
-  --color-primary: #d4eaff;
-  --color-claro: #00172d;
-  --color-sucundary: #2696ff;
-  --color-medio: #74bcff;
-  --font1: 'Kaisei Tokumin', serif;
-}*/
-
+//Fondo ligthbox oscuro
+gallery {
+  background: #111111ea !important;
+}
 @mixin card {
   &--card {
     background-color: var(--color-medio);

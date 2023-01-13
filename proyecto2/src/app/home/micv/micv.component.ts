@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { Lightbox } from 'ngx-lightbox';
+import {
+  Gallery,
+  GalleryItem,
+  ImageItem,
+  ThumbnailsPosition,
+  ImageSize,
+} from '@ngx-gallery/core';
 
 @Component({
   selector: 'app-micv',
@@ -132,147 +138,116 @@ export class MicvComponent implements OnInit {
       },
     },
     abilities: {
-      name : 'Habilidades Técnicas',
-      details : {
-        1 : {
+      name: 'Habilidades Técnicas',
+      details: {
+        1: {
           name: 'HTML5',
-          nivel: 95
+          nivel: 95,
         },
-        2 : {
+        2: {
           name: 'CSS',
-          nivel: 95
+          nivel: 95,
         },
-        3 : {
+        3: {
           name: 'JavaScript',
-          nivel: 70
+          nivel: 70,
         },
-        4 : {
+        4: {
           name: 'Angular',
-          nivel: 50
+          nivel: 50,
         },
-        5 : {
+        5: {
           name: 'Bootstrap',
-          nivel: 85
+          nivel: 85,
         },
-        6 : {
+        6: {
           name: 'Java EE',
-          nivel: 60
+          nivel: 60,
         },
-        7 : {
+        7: {
           name: 'Spring Framework',
-          nivel: 60
+          nivel: 60,
         },
-        8 : {
+        8: {
           name: 'Git',
-          nivel: 80
+          nivel: 80,
         },
-        9 : {
+        9: {
           name: 'Terminal-Bash',
-          nivel: 60
+          nivel: 60,
         },
-        10 : {
+        10: {
           name: 'Oracle SQL',
-          nivel: 60
+          nivel: 60,
         },
-        11 : {
+        11: {
           name: 'PostgreSQL',
-          nivel: 60
+          nivel: 60,
         },
-        12 : {
+        12: {
           name: 'C#',
-          nivel: 50
+          nivel: 50,
         },
-        13 : {
+        13: {
           name: 'REST',
-          nivel: 70
+          nivel: 70,
         },
-        14 : {
+        14: {
           name: 'Pre-procesadores',
-          nivel: 90
+          nivel: 90,
         },
-        15 : {
+        15: {
           name: 'Linux Server',
-          nivel: 50
+          nivel: 50,
         },
-        16 : {
+        16: {
           name: 'Pruebas Unitarias',
-          nivel: 70
+          nivel: 70,
         },
-        }
+      },
     },
   };
 
-  certificates = Object.entries(this.contentcv.certificates.details).map(i => i[1]);
-  studies = Object.entries(this.contentcv.studies.details).map(i => i[1]);
-  abilities = Object.entries(this.contentcv.abilities.details).map(i => i[1]);
+  certificates = Object.entries(this.contentcv.certificates.details).map(
+    (i) => i[1]
+  );
+  studies = Object.entries(this.contentcv.studies.details).map((i) => i[1]);
+  abilities = Object.entries(this.contentcv.abilities.details).map((i) => i[1]);
 
-  _albums:any = [];
-  constructor(private _lightbox: Lightbox) {
-    for (let prop in this.dateperson) {
-      const src = this.dateperson.photo;
-      const caption = 'Photo Perfile';
-      const thumb = this.dateperson.photo;
-      const album = {
-         src: src,
-         caption: caption,
-         thumb: thumb
-      };
+  items: GalleryItem[] = [];
+  constructor(public gallery: Gallery) {
+    let item = new ImageItem({ src: this.srcphoto, thumb: this.srcphoto });
+    this.items.push(item);
+  }
+  open() {
+    const lightboxGalleryRef = this.gallery.ref();
+    lightboxGalleryRef.setConfig({ thumb: false });
+    lightboxGalleryRef.load(this.items);
+  }
 
-      this._albums.push(album);
+  viewTrue = '';
+  view(section: string) {
+    if (this.viewTrue !== section) {
+       this.viewTrue = section;
+       $('.'+{section}).fadeIn('slow')
+    }else {
+       this.viewTrue = '';
     }
-  }
-  open(index: number): void {
-    // open lightbox
-    this._lightbox.open(this._albums, index);
-  }
-  close(): void {
-    // close lightbox programmatically
-    this._lightbox.close();
+
   }
 
   ngOnInit(): void {
-    console.log(this.certificates)
-    $(document).ready(function () {
-      $('.profil').click(function () {
-        $('.profile-details').toggle(300);
-        $('.profil')
-          .children('a')
-          .children('i')
-          .toggleClass('fa-plus')
-          .toggleClass('fa-minus');
-      });
-      $('.studies').click(function () {
-        $('.studies-details').toggle(300);
-        $('.studies')
-          .children('a')
-          .children('i')
-          .toggleClass('fa-plus')
-          .toggleClass('fa-minus');
-      });
-      $('.certif').click(function () {
-        $('.certif-details').toggle(300);
-        $('.certif')
-          .children('a')
-          .children('i')
-          .toggleClass('fa-plus')
-          .toggleClass('fa-minus');
-      });
-      $('.experien').click(function () {
-        $('.experien-details').toggle(300);
-        $('.experien')
-          .children('a')
-          .children('i')
-          .toggleClass('fa-plus')
-          .toggleClass('fa-minus');
-      });
-      $('.abilities').click(function () {
-        $('.abilities-details').toggle(300);
-        $('.abilities')
-          .children('a')
-          .children('i')
-          .toggleClass('fa-plus')
-          .toggleClass('fa-minus');
-      });
-    });
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    // 1. Create gallery items
+    //this.items = perfile.map(item =>
+    //  new ImageItem({ src: this.srcphoto, thumb: this.srcphoto })
+    //);
+
+    // Load items into the lightbox
+    this.open();
+    // Load item into different lightbox instance // diseño donde se corta la imagen pero se expande small img arriba
+    // With custom gallery config
+    //this.withCustomGalleryConfig();
   }
 }

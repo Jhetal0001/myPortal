@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-import { LightboxConfig, Lightbox } from 'ngx-lightbox';
-
+import {
+  Gallery,
+  GalleryItem,
+  ImageItem,
+} from '@ngx-gallery/core';
 
 @Component({
   selector: 'app-proyectos',
@@ -14,58 +16,40 @@ export class ProyectosComponent implements OnInit {
   projectsArray: any[] = [
     {
       name: 'Keyl',
+      img_small : '../../../assets/small/KeyL.png',
       img : '../../../assets/KeyL.png',
       description : 'Es un proyecto basado en preprocesadores CSS y HTML, se trabaja solo maquetación',
       link : 'http://www.universidadcunaca.somee.com/'
     },
     {
       name: 'Batatabit',
+      img_small : '../../../assets/small/Batatabit.png',
       img : '../../../assets/Batatabit.png',
       description : 'Es un proyecto hecho en clases de platzi basado en la metodología First Mobile',
       link : 'https://jhetal0001.github.io/'
     },
     {
       name: 'Game CSS',
+      img_small : '../../../assets/small/animaciones-css.png',
       img : '../../../assets/animaciones-css.png',
       description : 'Es un proyecto hecho en clases de platzi basado en animaciones CSS',
       link : 'https://animaciones-css-jf.web.app/'
     },
   ]
 
-
-
-  _albums:any = [];
-  constructor(private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox) {
-    for (let prop of this.projectsArray) {
-      const src = prop.img;
-      const caption = prop.name;
-      const thumb = prop.img;
-      const album = {
-         src: src,
-         caption: caption,
-         thumb: thumb
-      };
-      this._albums.push(album);
+  items: GalleryItem[] = [];
+  constructor(public gallery: Gallery) {
+    for (let image of this.projectsArray){
+    let item = new ImageItem({ src: image.img, thumb: image.img_small });
+    this.items.push(item);
     }
   }
-  open(index: number): void {
-    // open lightbox
-    this._lightbox.open(this._albums, index, {
-      wrapAround: true,
-      showImageNumberLabel: true,
-      showZoom: true,
-      positionFromTop: 70,
-      alwaysShowNavOnTouchDevices: true,
-      albumLabel: '%1 of %2'
-    });
+  open() {
+    this.gallery.ref().load(this.items);
   }
 
-  close(): void {
-    // close lightbox programmatically
-    this._lightbox.close();
-  }
 
   ngOnInit(): void {
-
+    this.open();
   }
 }

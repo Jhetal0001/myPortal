@@ -3,14 +3,25 @@
 .blogspace-articles {
   overflow-x: auto;
   scroll-behavior: smooth;
+  padding-bottom: 10px;
   & .card {
-    border-radius:10px;
-    min-width:170px;
-    max-width:180px;
+    border-radius: 10px;
+    min-width: 170px;
+    max-width: 180px;
     width: 18rem;
     background-color: var(--color-primary);
+    & .checked {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      opacity: 0%;
+      &:checked ~ div{
+        box-shadow: inset 0px 0px 6px 3px var(--color-shadow);
+      }
+    }
     &-img-top {
-      opacity: 15%
+      opacity: 15%;
     }
   }
 }
@@ -19,7 +30,6 @@
   background-color: var(--color-medio);
   border-radius: 10px;
   & .article {
-    display: none;
     padding: 10px;
     & .article-tittle {
       margin-top: 10px;
@@ -34,15 +44,40 @@
     }
     & .article-notas {
       width: 90%;
-      background-color: var(--color-medio);
+      background-color: var(--color-primary);
       margin: auto auto;
       font-size: 14px;
       padding: 10px;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
       border-radius: 20px;
     }
-    & .article-multimedia{
+    & .article-multimedia {
       display: flex;
       justify-content: center;
+      & > div {
+        position: relative;
+        max-width: 90%;
+        display: flex;
+        overflow: scroll;
+        & .zoomin {
+          left: 35%;
+          top: 35%;
+          transform: scale(1.7);
+          position: relative;
+          width: 100%;
+        }
+        & .zoomout {
+          width: 100%;
+        }
+        & > div {
+          position: absolute;
+          padding: 5px;
+          background-color: var(--color-medio);
+          opacity: 90%;
+          border-radius: 25%;
+        }
+      }
     }
     & .article-img {
       display: flex;

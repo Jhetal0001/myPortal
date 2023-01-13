@@ -2,7 +2,8 @@
   <section class="micv-section-one">
     <h1 class="micv-section-one__tittle">{{dateperson.profession}}</h1>
     <a class="micv-section-one__photo" >
-      <img [src]="dateperson.photo" alt="photo-perfile" (click)="open(1)">
+      <!--aqui va el anterior componente-->
+      <img [lightbox]="0" [src]="dateperson.photo" alt="photo-perfile" >
     </a>
   </section>
   <section class="micv-section-two">
@@ -30,24 +31,24 @@
     </div>
   </section>
   <section class="micv-section-three">
-    <div class="micv-section-three__tab profil">
+    <div class="micv-section-three__tab profil" (click)="view('profil')">
       <a class="micv-section-three__tab___show">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus" [ngClass]="{'fa-minus': viewTrue === 'profil', 'fa-plus' : viewTrue !==  'profil'}"></i>
         <span>{{contentcv.profilepro.name}}</span>
       </a>
     </div>
-    <div class="details profile-details">
+    <div class="details profile-details" [ngClass]="{'view': viewTrue === 'profil'}">
       <p>{{contentcv.profilepro.details.paragraph1}}</p>
       <p>{{contentcv.profilepro.details.paragraph2}}</p>
       <p>{{contentcv.profilepro.details.paragraph3}}</p>
     </div>
-    <div class="micv-section-three__tab studies">
+    <div class="micv-section-three__tab studies" (click)="view('studies')">
       <a class="micv-section-three__tab___show">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid" [ngClass]="{'fa-minus': viewTrue === 'studies',  'fa-plus' : viewTrue !==  'studies'}"></i>
         <span>{{contentcv.studies.name}}</span>
       </a>
     </div>
-    <div class="details studies-details">
+    <div class="details studies-details" [ngClass]="{'view': viewTrue === 'studies'}">
       <ul>
         <li *ngFor="let studie of studies">
           <p>{{studie.name}}, </p>
@@ -58,13 +59,13 @@
       </ul>
     </div>
 
-    <div class="micv-section-three__tab certif">
+    <div class="micv-section-three__tab certif" (click)="view('certif')">
       <a class="micv-section-three__tab___show">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus" [ngClass]="{'fa-minus': viewTrue === 'certif', 'fa-plus' : viewTrue !==  'certif'}"></i>
         <span>{{contentcv.certificates.name}}</span>
       </a>
     </div>
-    <div class="details certif-details">
+    <div class="details certif-details" [ngClass]="{'view': viewTrue === 'certif'}">
       <ul>
         <li *ngFor="let certificate of certificates">
           <a [href]="certificate.url">
@@ -74,13 +75,13 @@
       </ul>
     </div>
 
-    <div class="micv-section-three__tab experien">
+    <div class="micv-section-three__tab experien" (click)="view('experien')">
       <a class="micv-section-three__tab___show">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus" [ngClass]="{'fa-minus': viewTrue === 'experien', 'fa-plus' : viewTrue !==  'experien'}"></i>
         <span>{{contentcv.experience.name}}</span>
       </a>
     </div>
-    <div class="details experien-details">
+    <div class="details experien-details" [ngClass]="{'view': viewTrue === 'experien'}">
       <ul>
         <li>
           <p><b>{{contentcv.experience.details.work2.name}}, </b></p>
@@ -95,13 +96,13 @@
       </ul>
     </div>
 
-    <div class="micv-section-three__tab abilities">
+    <div class="micv-section-three__tab abilities" (click)="view('abilities')">
       <a class="micv-section-three__tab___show">
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus" [ngClass]="{'fa-minus': viewTrue === 'abilities', 'fa-plus' : viewTrue !==  'abilities'}"></i>
         <span>{{contentcv.abilities.name}}</span>
       </a>
     </div>
-    <div class="details abilities-details">
+    <div class="details abilities-details" [ngClass]="{'view': viewTrue === 'abilities'}">
         <div *ngFor="let abilitie of abilities">
           <label for="abilitie">{{abilitie.name}}</label>
           <div class="progress">
@@ -112,3 +113,24 @@
     </div>
   </section>
 </div>
+
+<!--//////////////////////////////////////////////////////////////////////////////////////////7-->
+<!--<div class="gallerize-example" >
+
+	<h2>Lightbox Example</h2>
+	<p class="container">
+		<img *ngFor="let item of items; index as i" style="width: 200px;"
+         [lightbox]="i"
+         [src]="item.data.thumb">
+	</p>
+
+  <h2>Another lightbox with custom gallery config</h2>
+  	<p class="container">
+		<img *ngFor="let item of items; index as i" style="width: 200px;"
+          [lightbox]="i"
+          [gallery]="'anotherLightbox'"
+          [src]="item.data.thumb">
+	</p>
+
+</div> -->
+

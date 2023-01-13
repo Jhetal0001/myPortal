@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { LightboxModule } from 'ngx-lightbox';
+
+import { GalleryModule } from '@ngx-gallery/core';
+import { LightboxModule } from '@ngx-gallery/lightbox';
 
 //Rutas
 import { app_routing } from "./app.routes";
@@ -44,6 +47,8 @@ import { SafePipe } from './safe.pipe';
     FormsModule,
     AppRoutingModule,
     app_routing,
+    BrowserAnimationsModule,
+    GalleryModule,
     LightboxModule
   ],
   providers: [],
