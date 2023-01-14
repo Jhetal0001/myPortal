@@ -2,7 +2,7 @@ import { ITheme } from './itheme.interface';
 
 export const THEMES: ITheme = {
 
-  default: {
+  blue: {
     colorprimary: '#303436',
     colorbg: '#303436',
     colorsecundary: '#42494dec',
@@ -21,6 +21,17 @@ export const THEMES: ITheme = {
     colorfontone: '#ffffff',
     colorfonttwo: '#00122D',
     font1: '"Kaisei Tokumin", serif',
+  },
+  default: {
+    colorprimary: '#01579B',
+    colorbg: '#1d3252',
+    colorsecundary: '#1d405c',
+    colorbutton: '#0091EA',
+    colorshadow: '#00838F',
+    colorfontone: '#ffffff',
+    colorfonttwo: '#ffffff',
+    font1: '"Kaisei Tokumin", serif',
   }
+
 
 };

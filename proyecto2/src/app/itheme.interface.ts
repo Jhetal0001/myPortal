@@ -12,4 +12,5 @@ export interface IThemeProperties {
 export interface ITheme {
   default: IThemeProperties;
   light?: IThemeProperties;
+  blue?: IThemeProperties;
 }
