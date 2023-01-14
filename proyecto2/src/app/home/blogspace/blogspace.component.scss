@@ -8,8 +8,7 @@
     border-radius: 10px;
     min-width: 170px;
     max-width: 180px;
-    width: 18rem;
-    background-color: var(--color-primary);
+    background-color: var(--colorprimary);
     & .checked {
       position: absolute;
       width: 100%;
@@ -17,7 +16,7 @@
       z-index: 2;
       opacity: 0%;
       &:checked ~ div{
-        box-shadow: inset 0px 0px 6px 3px var(--color-shadow);
+        box-shadow: inset 0px 0px 6px 3px var(--colorshadow);
       }
     }
     &-img-top {
@@ -27,7 +26,7 @@
 }
 .blogspace-article {
   margin-inline: 2vw;
-  background-color: var(--color-medio);
+  background-color: var(--colormedio);
   border-radius: 10px;
   & .article {
     padding: 10px;
@@ -44,7 +43,7 @@
     }
     & .article-notas {
       width: 90%;
-      background-color: var(--color-primary);
+      background-color: var(--colorprimary);
       margin: auto auto;
       font-size: 14px;
       padding: 10px;
@@ -73,7 +72,7 @@
         & > div {
           position: absolute;
           padding: 5px;
-          background-color: var(--color-medio);
+          background-color: var(--colormedio);
           opacity: 90%;
           border-radius: 25%;
         }

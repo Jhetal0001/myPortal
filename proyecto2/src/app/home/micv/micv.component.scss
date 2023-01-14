@@ -1,7 +1,7 @@
 @import "../../../styles.scss";
 
 .micv {
-  background-color: var(--color-primary);
+  background-color: var(--colorprimary);
   &-section-one {
     padding: 20px;
     text-align: center;
@@ -22,11 +22,11 @@
   &-section-two {
     width: 80%;
     height: 75px;
-    background-color: var(--color-medio);
+    background-color: var(--colormedio);
     margin: auto auto;
     margin-bottom: 20px;
     border-radius: 10px;
-    border: 2px solid var(--color-medio);
+    border: 2px solid var(--colormedio);
     overflow: hidden;
     & .nav-link:hover,.nav-link:focus {
       border: 0;
@@ -39,10 +39,10 @@
         width: 25%;
       }
       & .profile, .phone, .email, .address {
-        border-right: 2px solid var(--color-medio);
-        background-color: var(--color-primary);
+        border-right: 2px solid var(--colormedio);
+        background-color: var(--colorprimary);
         padding: 3px 0px;
-        color: var(--color-claro);
+        color: var(--colorclaro);
         transition: none;
       }
       & .active {
@@ -61,8 +61,8 @@
   }
   &-section-three {
     width: 95%;
-    background-color: var(--color-medio);
-    border: 2px solid var(--color-medio);
+    background-color: var(--colormedio);
+    border: 2px solid var(--colormedio);
     margin: auto auto;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -70,15 +70,9 @@
     &__tab{
       display: flex;
       height: 40px;
-      background-color: var(--color-primary);
+      background-color: var(--colorprimary);
       margin: 2px 0;
       align-items: center;
-      & a {
-        text-decoration: none;
-        &:hover {
-          color: var(--color-claro);
-        }
-      }
       & i {
         margin: 0 10px ;
       }
@@ -87,7 +81,6 @@
       display: none;
       padding: 10px;
       text-align: justify;
-
     }
     & .view {
       display: block;

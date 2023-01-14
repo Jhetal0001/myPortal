@@ -6,9 +6,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: var(--color-primary);
+  background-color: var(--colorprimary);
   opacity: 98.5%;
-  position: fixed;
   top: 0;
   z-index: 10;
   overflow-y: scroll;
@@ -16,7 +15,7 @@
     padding: 10px;
   }
   &-section-one--home {
-    background-color: var(--color-medio);
+    background-color: var(--colormedio);
     width: 100%;
     padding: 3vw 0;
     & a {
@@ -42,12 +41,12 @@
       height: 80px;
       min-width: 80px;
       min-height: 80px;
-      background-color: var(--color-sucundary);
+      background-color: var(--colorsucundary);
       text-align: center;
       justify-content: center;
       align-items: center;
       border-radius: 10px;
-      box-shadow: 5px 4px 6px var(--color-shadow);
+      box-shadow: 5px 4px 6px var(--colorshadow);
       & a {
         text-decoration: none;
         &:visited{
@@ -61,7 +60,7 @@
     }
   }
   &-section-three--config {
-    background-color: var(--color-medio);
+    background-color: var(--colormedio);
     width: 100%;
     padding: 3vw 0;
     & a {

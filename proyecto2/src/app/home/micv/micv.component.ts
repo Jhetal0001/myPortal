@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import {
   Gallery,
   GalleryItem,
   ImageItem,
-  ThumbnailsPosition,
-  ImageSize,
 } from '@ngx-gallery/core';
 
 @Component({
@@ -229,7 +226,6 @@ export class MicvComponent implements OnInit {
   view(section: string) {
     if (this.viewTrue !== section) {
        this.viewTrue = section;
-       $('.'+{section}).fadeIn('slow')
     }else {
        this.viewTrue = '';
     }

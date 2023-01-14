@@ -1,8 +1,8 @@
 @import "../../../styles.scss";
 
 .footer {
-  background-color: var(--color-medio);
-  box-shadow: 0px -4px 6px var(--color-shadow);
+  background-color: var(--colormedio);
+  box-shadow: 0px -4px 6px var(--colorshadow);
   position: relative;
   & h3 {
     width: 60%;
@@ -14,7 +14,7 @@
     text-decoration: none;
     padding: 2vw;
     &:visited {
-      color: var(--color-claro);
+      color: var(--colorclaro);
     }
   }
 }

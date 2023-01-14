@@ -1,11 +1,14 @@
 <header class="header d-flex">
-  <a (click)="menuView()"><i class="fa-solid fa-list"></i></a>
+  <div class="menu" (click)="menuView()"><i class="fa-solid fa-list"></i></div>
   <h3>Portal JF</h3>
-  <a class="modo"><i class="fa fa-sun-o" aria-hidden="true"></i></a>
-  <a (click)="searchView()"><i class="fa-solid fa-magnifying-glass"></i></a>
+  <div class="modo">
+    <i [ngStyle]="{'opacity': colorTheme === 'light'? '90%' : '10%'}" (click)="changeTheme('light')" class="fa-solid fa-lightbulb"></i>
+    <i [ngStyle]="{'opacity': colorTheme === 'default'? '90%' : '10%'}" (click)="changeTheme('default')" class="fa-solid fa-moon" aria-hidden="true"></i></div>
+  <div class="search" ><i (click)="searchView()" class="fa-solid fa-magnifying-glass"></i></div>
 </header>
-<app-search></app-search>
-<div class="app-menu" (click)="eventClickOut()"></div>
-<app-menu></app-menu>
+<app-search (closed)="searchView()" [ngClass]="{'searchShow' : searchShow , 'searchHidde' : !searchShow}"></app-search>
+<div class="app-menu" (click)="menuView()" [ngClass]="{'menuShow' : menuShow , 'menuHidde' : !menuShow}">
+  <app-menu></app-menu>
+</div>
 
 

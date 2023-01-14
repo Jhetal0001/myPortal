@@ -11,12 +11,6 @@ export class MenuComponent implements OnInit {
 
   constructor() { }
 
-  menuOver(){
-    $('#menu').animate({right: '100%'});
-    $(".app-menu").fadeOut('slow');
-  }
-
-
   ngOnInit(): void {
   }
 

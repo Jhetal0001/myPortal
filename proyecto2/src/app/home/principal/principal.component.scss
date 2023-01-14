@@ -3,15 +3,15 @@
 .section-one--leyend {
   margin: 15vw 4vw;
   padding: 2vw;
-  background-color: var(--color-sucundary);
+  background-color: var(--colorsucundary);
   border-radius: 10px;
-  box-shadow: 5px 4px 6px var(--color-shadow);
+  box-shadow: 5px 4px 6px var(--colorshadow);
   text-align: justify;
 }
 
 .section-two {
   position: relative;
-  background-color: var(--color-medio);
+  background-color: var(--colormedio);
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vw 0;
@@ -20,9 +20,9 @@
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
-    background-color: var(--color-medio);
+    background-color: var(--colormedio);
     transform: translate(0, -14vw);
-    box-shadow: 0px 2px 6px var(--color-shadow);
+    box-shadow: 0px 2px 6px var(--colorshadow);
   }
   &--developer__description {
     width: 80%;
@@ -34,16 +34,16 @@
     height: 25vw;
     min-width: 80px;
     min-height: 80px;
-    background-color: var(--color-sucundary);
+    background-color: var(--colorsucundary);
     text-align: center;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 5px 4px 6px var(--color-shadow);
+    box-shadow: 5px 4px 6px var(--colorshadow);
     & a {
       text-decoration: none;
       &:visited {
-        color: var(--color-claro);
+        color: var(--colorclaro);
       }
     }
   }
@@ -51,7 +51,7 @@
 
 .section-three {
   position: relative;
-  background-color: var(--color-primary);
+  background-color: var(--colorprimary);
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vw 0;
@@ -59,9 +59,9 @@
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
-    background-color: var(--color-medio);
+    background-color: var(--colormedio);
     transform: translate(0px, -14vw);
-    box-shadow: 0px 2px 6px var(--color-shadow);
+    box-shadow: 0px 2px 6px var(--colorshadow);
   }
   &--users__description {
     width: 80%;
@@ -73,16 +73,16 @@
     height: 25vw;
     min-width: 80px;
     min-height: 80px;
-    background-color: var(--color-sucundary);
+    background-color: var(--colorsucundary);
     text-align: center;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 5px 4px 6px var(--color-shadow);
+    box-shadow: 5px 4px 6px var(--colorshadow);
     & a {
       text-decoration: none;
       &:visited {
-        color: var(--color-claro);
+        color: var(--colorclaro);
       }
     }
   }
