@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
   constructor(private themeService: ThemeService) {}
 
   changeTheme(theme: string): void {
-    console.log('Theme: ', theme);
     this.themeService.setTheme(theme);
   }
 

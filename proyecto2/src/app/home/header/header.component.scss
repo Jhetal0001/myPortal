@@ -26,18 +26,25 @@
     background-color: var(--colorsecundary);
     border-radius: 25px;
     position: relative;
-    color: var(--colorfonttwo);
+    color: var(--colorfontone);
+    padding: 3px 0;
     & > .fa-lightbulb, .fa-moon {
       opacity: 90%;
       position: absolute;
-      margin: 3px 0;
+      font-size: 16px;
     }
     & > .fa-lightbulb {
-      left: 8px;
+      left: 3px;
       opacity: 10%;
+      background-color: var(--colorprimary);
+      padding: 4px 6px;
+      border-radius: 50%;
     }
     & > .fa-moon {
-      right: 8px;
+      right: 3px;
+      background-color: var(--colorprimary);
+      padding: 4px 6px;
+      border-radius: 50%;
     }
 
   }
