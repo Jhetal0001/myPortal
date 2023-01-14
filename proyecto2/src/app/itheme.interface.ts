@@ -1,9 +1,11 @@
 export interface IThemeProperties {
   colorprimary: string;
-  colorclaro: string;
-  colorsucundary: string;
-  colormedio: string;
+  colorbg: string;
+  colorsecundary: string;
+  colorbutton: string;
   colorshadow: string;
+  colorfontone: string;
+  colorfonttwo: string;
   font1: string;
 }
 

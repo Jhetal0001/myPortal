@@ -1,12 +1,13 @@
 @import "../../../styles.scss";
 
 .micv {
-  background-color: var(--colorprimary);
+  padding-bottom: 30px;
   &-section-one {
     padding: 20px;
     text-align: center;
     &__tittle {
       margin-bottom: 20px;
+      color: var(--colorfonttwo);
     }
     &__photo {
       width: 140px;
@@ -22,31 +23,34 @@
   &-section-two {
     width: 80%;
     height: 75px;
-    background-color: var(--colormedio);
+    background-color: var(--colorsecundary);
     margin: auto auto;
     margin-bottom: 20px;
     border-radius: 10px;
-    border: 2px solid var(--colormedio);
+    border: 2px solid var(--colorsecundary);
     overflow: hidden;
     & .nav-link:hover,.nav-link:focus {
       border: 0;
     }
+    & .tab-content {
+      background-color: var(--colorsecundary);
+    }
     &__icons .nav{
       display: flex;
       text-align: center;
-      border: none;
+      border-bottom: 1px solid var(--colorprimary);
       & li {
         width: 25%;
       }
       & .profile, .phone, .email, .address {
-        border-right: 2px solid var(--colormedio);
         background-color: var(--colorprimary);
+        border-right: 1px solid var(--colorprimary);
         padding: 3px 0px;
-        color: var(--colorclaro);
+        color: var(--colorfontone);
         transition: none;
       }
       & .active {
-        background-color: rgba(255, 255, 255, 0.082);
+        background-color: var(--colorbutton);
         padding: 3px 0px;
         border: 0;
       }
@@ -57,14 +61,13 @@
     & .tab-pane {
       text-align: center;
       padding-top: 10px;
+      color: var(--colorfonttwo);
     }
   }
   &-section-three {
     width: 95%;
-    background-color: var(--colormedio);
-    border: 2px solid var(--colormedio);
+    background-color: var(--colorsecundary);
     margin: auto auto;
-    margin-bottom: 30px;
     border-radius: 10px;
     overflow: hidden;
     &__tab{
@@ -73,6 +76,8 @@
       background-color: var(--colorprimary);
       margin: 2px 0;
       align-items: center;
+      border: 1px solid var(--colorsecundary);
+      border-radius: 10px;
       & i {
         margin: 0 10px ;
       }
@@ -81,6 +86,10 @@
       display: none;
       padding: 10px;
       text-align: justify;
+      color: var(--colorfonttwo);
+      & a {
+        color: var(--colorfonttwo);
+      }
     }
     & .view {
       display: block;

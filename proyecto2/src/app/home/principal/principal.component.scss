@@ -1,32 +1,35 @@
 @import "../../../styles.scss";
 
-.section-one--leyend {
-  margin: 15vw 4vw;
-  padding: 2vw;
-  background-color: var(--colorsucundary);
-  border-radius: 10px;
-  box-shadow: 5px 4px 6px var(--colorshadow);
-  text-align: justify;
+.section-one {
+  &--leyend {
+    margin: 15vw 4vw;
+    padding: 2vw;
+    background-color: var(--colorsecundary);
+    border-radius: 10px;
+    box-shadow: 5px 4px 6px var(--colorshadow);
+    text-align: justify;
+    color: var(--colorfonttwo);
+  }
 }
 
 .section-two {
   position: relative;
-  background-color: var(--colormedio);
+  background-color: var(--colorsecundary);
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vw 0;
-
   &--developer {
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
-    background-color: var(--colormedio);
+    background-color: var(--colorprimary);
     transform: translate(0, -14vw);
     box-shadow: 0px 2px 6px var(--colorshadow);
   }
   &--developer__description {
     width: 80%;
     text-align: center;
+    color: var(--colorfonttwo);
   }
   &--card {
     margin: 10px 10px;
@@ -34,7 +37,7 @@
     height: 25vw;
     min-width: 80px;
     min-height: 80px;
-    background-color: var(--colorsucundary);
+    background-color: var(--colorbutton);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -43,15 +46,13 @@
     & a {
       text-decoration: none;
       &:visited {
-        color: var(--colorclaro);
+        color: var(--colorfontone);
       }
     }
   }
 }
-
 .section-three {
   position: relative;
-  background-color: var(--colorprimary);
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vw 0;
@@ -59,13 +60,14 @@
     position: absolute;
     padding: 1vw 3vw;
     border-radius: 10px;
-    background-color: var(--colormedio);
+    background-color: var(--colorprimary);
     transform: translate(0px, -14vw);
     box-shadow: 0px 2px 6px var(--colorshadow);
   }
   &--users__description {
     width: 80%;
     text-align: center;
+    color: var(--colorfonttwo);
   }
   &--card {
     margin: 10px 10px;
@@ -73,7 +75,7 @@
     height: 25vw;
     min-width: 80px;
     min-height: 80px;
-    background-color: var(--colorsucundary);
+    background-color: var(--colorbutton);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -82,7 +84,7 @@
     & a {
       text-decoration: none;
       &:visited {
-        color: var(--colorclaro);
+        color: var(--colorfontone);
       }
     }
   }

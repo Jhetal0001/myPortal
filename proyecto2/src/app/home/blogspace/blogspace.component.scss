@@ -26,8 +26,13 @@
 }
 .blogspace-article {
   margin-inline: 2vw;
-  background-color: var(--colormedio);
+  background-color: var(--colorsecundary);
   border-radius: 10px;
+  color: var(--colorfonttwo);
+  & a {
+    text-decoration: none;
+    color: var(--colorfonttwo);
+  }
   & .article {
     padding: 10px;
     & .article-tittle {
@@ -43,7 +48,7 @@
     }
     & .article-notas {
       width: 90%;
-      background-color: var(--colorprimary);
+      background-color: var(--colorbg);
       margin: auto auto;
       font-size: 14px;
       padding: 10px;
@@ -72,7 +77,7 @@
         & > div {
           position: absolute;
           padding: 5px;
-          background-color: var(--colormedio);
+          background-color: var(--colorbutton);
           opacity: 90%;
           border-radius: 25%;
         }

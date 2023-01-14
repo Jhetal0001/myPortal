@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --colorprimary: #303436;
-  --colorclaro: #ffffff;
-  --colorsucundary: #03839F;
-  --colormedio: #383D3F;
-  --colorshadow: #888888;
+  --colorbg: #303436;
+  --colorsecundary: #42494dec;
+  --colorbutton: #0d7aa0;
+  --colorshadow: #222222;
+  --colorfontone: #ffffff;
+  --colorfonttwo: #ffffff;
   --font1: 'Kaisei Tokumin', serif;
 }
 //Fondo ligthbox oscuro
@@ -58,21 +60,21 @@ gallery {
 
 
 body {
-  background-color: var(--colorprimary);
+  background-color: var(--colorbg);
   margin: 0;
   padding: 0;
   font-family: var(--font1);
-  color: var(--colorclaro);
+  color: var(--colorfontone);
   & h3 {
     font-size: 20px;
   }
   & i {
     font-size: 20px;
   }
-  & a {
-    color: var(--colorclaro);
-  }
   & p {
     font-size: 16px;
+  }
+  & a {
+    color: var(--colorfontone)
   }
 }

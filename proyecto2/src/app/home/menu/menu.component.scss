@@ -6,16 +6,19 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: var(--colorprimary);
+  background-color: var(--colorsecundary);
   opacity: 98.5%;
   top: 0;
   z-index: 10;
   overflow-y: scroll;
+  & a:visited {
+    color: var(--colorfontone);
+  }
   & > a i {
     padding: 10px;
   }
   &-section-one--home {
-    background-color: var(--colormedio);
+    background-color: var(--colorprimary);
     width: 100%;
     padding: 3vw 0;
     & a {
@@ -23,6 +26,7 @@
       justify-content: center;
       align-items: center;
       text-decoration: none;
+      color: var(--colorfontone);
       & i {
         margin-right: 10px;
       }
@@ -41,7 +45,7 @@
       height: 80px;
       min-width: 80px;
       min-height: 80px;
-      background-color: var(--colorsucundary);
+      background-color: var(--colorbutton);
       text-align: center;
       justify-content: center;
       align-items: center;
@@ -49,9 +53,6 @@
       box-shadow: 5px 4px 6px var(--colorshadow);
       & a {
         text-decoration: none;
-        &:visited{
-          color: var(--color-claro);
-        }
         & div {
           font-size: 14px;
         }
@@ -60,7 +61,7 @@
     }
   }
   &-section-three--config {
-    background-color: var(--colormedio);
+    background-color: var(--colorprimary);
     width: 100%;
     padding: 3vw 0;
     & a {

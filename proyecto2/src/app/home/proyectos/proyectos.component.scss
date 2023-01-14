@@ -1,19 +1,21 @@
 @import "../../../styles.scss";
 
 .projects {
+  color: var(--colorfonttwo);
   &-sections {
     flex-wrap: wrap;
     & .card {
       border-radius:10px;
       max-width:170px;
       width: 18rem;
-      background-color: var(--colorprimary);
+      background-color: var(--colorsecundary);
       &-text {
-        font-size: 10px;      }
+        font-size: 10px;
+      }
     }
     & .btn {
-      background-color: var(--colormedio);
-      color: var(--colorclaro);
+      background-color: var(--colorprimary);
+      color: var(--colorfontone);
     }
   }
 }
