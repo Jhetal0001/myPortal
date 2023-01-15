@@ -213,7 +213,7 @@ export class MicvComponent implements OnInit {
 
   items: GalleryItem[] = [];
   constructor(public gallery: Gallery) {
-    let item = new ImageItem({ src: this.srcphoto, thumb: this.srcphoto });
+    const item = new ImageItem({ src: this.srcphoto, thumb: this.srcphoto });
     this.items.push(item);
   }
   open() {

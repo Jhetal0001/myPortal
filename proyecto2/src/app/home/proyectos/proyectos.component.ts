@@ -13,7 +13,7 @@ import {
 export class ProyectosComponent implements OnInit {
 
   //Aqui se digitan los proyectos para cada card
-  projectsArray: any[] = [
+  projectsArray = [
     {
       name: 'Keyl',
       img_small : '../../../assets/small/KeyL.png',
@@ -39,8 +39,8 @@ export class ProyectosComponent implements OnInit {
 
   items: GalleryItem[] = [];
   constructor(public gallery: Gallery) {
-    for (let image of this.projectsArray){
-    let item = new ImageItem({ src: image.img, thumb: image.img_small });
+    for (const image of this.projectsArray){
+    const item = new ImageItem({ src: image.img, thumb: image.img_small });
     this.items.push(item);
     }
   }

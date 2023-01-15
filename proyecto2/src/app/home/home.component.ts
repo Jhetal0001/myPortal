@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from '../theme.service';
 
 @Component({
@@ -6,15 +6,12 @@ import { ThemeService } from '../theme.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(private themeService: ThemeService) {}
 
   changeTheme(theme: string): void {
     this.themeService.setTheme(theme);
-  }
-
-  ngOnInit(): void {
   }
 
 }

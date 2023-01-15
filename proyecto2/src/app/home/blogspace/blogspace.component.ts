@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import {
   Gallery,
   GalleryItem,
@@ -14,9 +13,10 @@ import {
 export class BlogspaceComponent implements OnInit {
 
   // Variable para visualizar articulo
-  art:number | undefined;
+  art!: number;
 
-  articles: any[] = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  articles: any = [
     {
       name: '¿Qué es HTML?',
       img: '../../../assets/small/Que-es-el-HTML-small.png',
@@ -424,24 +424,24 @@ export class BlogspaceComponent implements OnInit {
   items3: GalleryItem[] = [];
   items4: GalleryItem[] = [];
   constructor(public gallery: Gallery) {
-    for (let image of this.images0) {
-      let item = new ImageItem({ src: image, thumb: image });
+    for (const image of this.images0) {
+      const item = new ImageItem({ src: image, thumb: image });
       this.items0.push(item);
     }
-    for (let image of this.images1) {
-      let item = new ImageItem({ src: image, thumb: image });
+    for (const image of this.images1) {
+      const item = new ImageItem({ src: image, thumb: image });
       this.items1.push(item);
     }
-    for (let image of this.images2) {
-      let item = new ImageItem({ src: image, thumb: image });
+    for (const image of this.images2) {
+      const item = new ImageItem({ src: image, thumb: image });
       this.items2.push(item);
     }
-    for (let image of this.images3) {
-      let item = new ImageItem({ src: image, thumb: image });
+    for (const image of this.images3) {
+      const item = new ImageItem({ src: image, thumb: image });
       this.items3.push(item);
     }
-    for (let image of this.images4) {
-      let item = new ImageItem({ src: image, thumb: image });
+    for (const image of this.images4) {
+      const item = new ImageItem({ src: image, thumb: image });
       this.items4.push(item);
     }
   }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import * as $ from "jquery";
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -21,16 +20,11 @@ export class HeaderComponent {
 
   @Output() theme = new EventEmitter();
 
-  constructor() {}
-
-  colorTheme: string = 'default';
+  colorTheme = 'default';
   changeTheme(e: string) {
     this.theme.emit(e);
     this.colorTheme = e;
   }
 
-  ngOnInit(): void {
-
-  }
 }
 

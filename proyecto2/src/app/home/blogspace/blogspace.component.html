@@ -24,7 +24,7 @@
     </div>
   </article>
   <section class="mb-3 blogspace-article">
-    <div class="article" id="0" *ngIf="art == 0">
+    <div class="article" id="0" *ngIf="art === 0">
       <h1 class="article-tittle">{{articles[0].name}}</h1>
       <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[0].content.date}}</em></span>
       <h3 class="article-subtittle">{{articles[0].description}}</h3>
@@ -50,7 +50,7 @@
       </div>
       <a [href]="articles[0].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[0].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
-    <div class="article" id="1" *ngIf="art == 1">
+    <div class="article" id="1" *ngIf="art === 1">
       <h1 class="article-tittle">{{articles[1].name}}</h1>
       <span class="article-date"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[1].content.date}}</em></span>
       <h3 class="article-subtittle">{{articles[1].description}}</h3>
@@ -84,7 +84,7 @@
       </div>
       <a [href]="articles[1].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[1].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
-    <div class="article" id="2" *ngIf="art == 2">
+    <div class="article" id="2" *ngIf="art === 2">
       <h1 class="article-tittle">{{articles[2].name}}</h1>
       <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[2].content.date}}</em></span> <br>
       <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[2].content.autor}}</em></span>
@@ -222,7 +222,7 @@
       </div>
       <a [href]="articles[2].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[2].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
-    <div class="article" id="3" *ngIf="art == 3">
+    <div class="article" id="3" *ngIf="art === 3">
       <h1 class="article-tittle">{{articles[3].name}}</h1>
       <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[3].content.date}}</em></span><br>
       <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[2].content.autor}}</em></span>
@@ -272,7 +272,7 @@
       </div>
       <a [href]="articles[3].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[3].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
-    <div class="article" id="4" *ngIf="art == 4">
+    <div class="article" id="4" *ngIf="art === 4">
       <h1 class="article-tittle">{{articles[4].name}}</h1>
       <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[4].content.date}}</em></span><br>
       <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[4].content.autor}}</em></span>

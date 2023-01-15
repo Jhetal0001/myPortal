@@ -10,7 +10,8 @@
     margin: 0;
     padding: 2vw;
   }
-  & .search, .menu {
+  & .search,
+  .menu {
     width: 10%;
     text-decoration: none;
     padding: 2vw;
@@ -28,11 +29,12 @@
     position: relative;
     color: var(--colorfontone);
     padding: 3px 0;
-    & > .fa-lightbulb, .fa-moon {
+    & > .fa-lightbulb,
+    .fa-moon {
       opacity: 90%;
       position: absolute;
       font-size: 16px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
     & > .fa-lightbulb {
       left: 3px;
@@ -47,7 +49,6 @@
       padding: 4px 6px;
       border-radius: 50%;
     }
-
   }
 }
 
@@ -58,7 +59,7 @@
   height: 100vh;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.466);
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .menuHidde {
@@ -70,9 +71,8 @@
   opacity: 1;
 }
 
-
 app-search {
-  transition: opacity 1s, transform .2s;
+  transition: opacity 1s, transform 0.2s;
   background-color: var(--colorsecundary);
   position: fixed;
   width: 100%;
