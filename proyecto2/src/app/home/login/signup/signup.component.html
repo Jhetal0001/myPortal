@@ -1,1 +1,29 @@
-<p>signup works!</p>
+<div class="login">
+  <h2 class="login-title">Iniciar Sesión</h2>
+  <button *ngIf="loginForm === false" class="login-button" type="submit" (click)="showLogin()">
+    Iniciar con Correo
+  </button>
+  <form class="login-form" *ngIf="loginForm === true"
+    novalidate (ngSubmit)="onSubmit()" [formGroup]="formLogin"
+  >
+    <label for="email">
+      <input class="login-form--email" type="email" placeholder="example@mail.com"
+      [class.btn-outline-danger]="formLogin.controls['email'].hasError('email')"
+      name="email" formControlName="email">
+    </label><br>
+    <span class="text-danger" *ngIf="formLogin.controls['email'].touched && formLogin.controls['email'].hasError('email')">Ingrese un email Valido!</span>
+    <label for="password">
+      <input placeholder="Password" class="login-form--pass"
+      type="password" name="password" formControlName="password">
+    </label><br>
+    <span class="text-danger" *ngIf="errorLogin">Email o Contraseña Erroneo</span>
+    <button class="login-form--button" type="submit" [disabled]="formLogin.invalid">Iniciar Sesión</button>
+  </form>
+  <hr>
+  <button class="signin-button" type="submit">
+    <a [routerLink]="['signin']">Registrate</a>
+  </button>
+  <button class="login-google" (click)="onClick()" type="submit">
+    <i class="fa-brands fa-google"></i>  Google
+  </button>
+</div>

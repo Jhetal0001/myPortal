@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { IThemeProperties } from './itheme.interface';
-import { THEMES } from './theme-config';
+import { IThemeProperties } from '../itheme.interface';
+import { THEMES } from '../theme-config';
 
 @Injectable({
   providedIn: 'root'

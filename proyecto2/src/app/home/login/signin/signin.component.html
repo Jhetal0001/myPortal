@@ -1,1 +1,91 @@
-<p>aqui podras realizar Registro proximamente</p>
+<div class="signin">
+  <h2 class="signin-title">Registrate</h2>
+  <!--Formulario de registro-->
+  <form class="signin-form" novalidate (ngSubmit)="onSubmit()">
+
+    <div *ngIf="section === 0" class="date-personal" [formGroup]="datePesonal">
+      <label for="name">
+        <input placeholder="Nombre" class="signin-form--name" [class.btn-outline-danger]="datePesonal.controls['name'].touched && datePesonal.controls['name'].hasError('required')"
+        name="name"  type="name" formControlName="name">
+      </label><br>
+      <label for="lastname">
+        <input placeholder="Apellido" class="signin-form--lastname" [class.btn-outline-danger]="datePesonal.controls['lastname'].touched && datePesonal.controls['lastname'].hasError('required')"
+        name="lastname"  type="lastname" formControlName="lastname">
+      </label><br>
+      <label for="sex">
+        <input placeholder="Sexo" class="signin-form--sex" [class.btn-outline-danger]="datePesonal.controls['sex'].touched && datePesonal.controls['sex'].hasError('required')"
+        name="sex"  type="sex" formControlName="sex">
+      </label><br>
+      <span class="text-danger" *ngIf="datePesonal.invalid && datePesonal.controls['name'].touched ">Todos los campos son requeridos!</span>
+      <div class="button-nav">
+        <button (click)="backForm()" disabled> Atras</button>
+        <button [disabled]="datePesonal.invalid" (click)="nextForm()">Siguiente</button>
+      </div>
+    </div>
+
+    <div *ngIf="section === 1" class="date-contact" [formGroup]="dateContact">
+      <label for="email">
+        <input placeholder="example@mail.com" class="signin-form--email" [class.btn-outline-danger]="dateContact.controls['email'].hasError('email')"
+        name="email"  type="email" formControlName="email">
+      </label><br>
+    <span class="text-danger" *ngIf="dateContact.controls['email'].hasError('email')">Ingrese un email Valido!</span>
+      <label for="phone">
+        <input placeholder="Celular" class="signin-form--phone" [class.btn-outline-danger]="dateContact.controls['phone'].touched && dateContact.controls['phone'].hasError('minlength')"
+        name="phone"  type="phone" formControlName="phone">
+      </label><br>
+      <span class="text-danger" *ngIf="dateContact.invalid && dateContact.controls['email'].touched ">Todos los campos son requeridos!</span>
+      <div class="button-nav">
+        <button (click)="backForm()">Atras</button>
+        <button [disabled]="dateContact.invalid" (click)="nextForm()">Siguiente</button>
+      </div>
+    </div>
+
+    <div *ngIf="section === 2" class="date-address" [formGroup]="dateAddress">
+      <label for="country">
+        <input placeholder="Pais" class="signin-form--country" [class.btn-outline-danger]="dateAddress.controls['country'].touched && dateAddress.controls['country'].hasError('required')"
+        name="country"  type="country" formControlName="country">
+      </label><br>
+      <label for="city">
+        <input placeholder="Ciudad" class="signin-form--city" [class.btn-outline-danger]="dateAddress.controls['city'].touched && dateAddress.controls['city'].hasError('required')"
+        name="city"  type="city" formControlName="city">
+      </label><br>
+      <label for="address">
+        <input placeholder="Dirección" class="signin-form--address" [class.btn-outline-danger]="dateAddress.controls['address'].touched && dateAddress.controls['address'].hasError('required')"
+        name="address"  type="address" formControlName="address">
+      </label><br>
+      <span class="text-danger" *ngIf="dateAddress.invalid && dateAddress.controls['country'].touched ">Todos los campos son requeridos!</span>
+      <div class="button-nav">
+        <button (click)="backForm()">Atras</button>
+        <button [disabled]="dateAddress.invalid" (click)="nextForm()">Siguiente</button>
+      </div>
+    </div>
+
+    <div *ngIf="section === 3" class="date-password" [formGroup]="datePassword">
+      <label for="password">
+        <input id="password" pattern="(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*" [class.btn-outline-danger]="datePassword.controls['password'].hasError('pattern')"
+        placeholder="password" class="signin-form--pass" name="password"  type="password" formControlName="password">
+      </label><br>
+      <div class="text-danger" *ngIf="datePassword.controls['password'].hasError('pattern')">* Debe tener mayusculas, minusculas y números!</div>
+      <div class="text-danger" *ngIf="datePassword.controls['password'].hasError('minlength')">* Debe tener minimo 6 caracteres!</div>
+      <label for="password">
+        <input placeholder="Confirm Password" class="signin-form--pass"
+        type="password" formControlName="confirmPassword">
+      </label><br>
+      <div class="text-danger" *ngIf="datePassword.controls['confirmPassword'].touched && datePassword.hasError('isValid')">* Las contraseñas deben ser iguales!</div>
+      <button class="signin-form--button" [disabled]="datePassword.invalid" type="submit">Registrar</button>
+      <div class="button-nav">
+        <button (click)="backForm()">Atras</button>
+        <button disabled (click)="nextForm()">Siguiente</button>
+      </div>
+    </div>
+
+  </form>
+
+  <hr>
+  <button class="login-button">
+    <a [routerLink]="['../']">Iniciar Sesión</a>
+  </button>
+  <button class="signin-google">
+    <i class="fa-brands fa-google"></i>  Google
+  </button>
+</div>

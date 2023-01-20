@@ -7,17 +7,19 @@ import { BlogspaceComponent } from "./home/blogspace/blogspace.component";
 import { LoginComponent } from "./home/login/login.component";
 import { SignupComponent } from "./home/login/signup/signup.component";
 import { SigninComponent } from "./home/login/signin/signin.component";
+import { HomeUserComponent } from "./home-user/home-user.component";
+import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from "@angular/fire/auth-guard";
 
 const app_routes: Routes = [
   {
-    path: 'home', component: HomeComponent,
+    path: 'home', component: HomeComponent, ...canActivate(() => redirectLoggedInTo(['homeSession'])),
     children: [
       { path: '', component: PrincipalComponent },
       { path: 'micv', component: MicvComponent },
       { path: 'proyectos', component: ProyectosComponent },
       { path: 'blogspace', component: BlogspaceComponent },
       {
-        path: 'login', component: LoginComponent ,
+        path: 'login', component: LoginComponent,
         children: [
           { path: '', component: SignupComponent },
           { path: 'signin', component: SigninComponent },
@@ -25,8 +27,10 @@ const app_routes: Routes = [
       }
     ]
   },
+  { path: 'homeSession', component: HomeUserComponent, ...canActivate(() => redirectUnauthorizedTo(['home/login']))},
 
-  { path: '**', pathMatch: 'full', redirectTo: 'home'}
+  { path: '**', pathMatch: 'full', redirectTo: 'home'},
+
 ];
 
 

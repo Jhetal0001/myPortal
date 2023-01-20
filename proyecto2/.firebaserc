@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "portal-jf"
+  },
+  "targets": {
+    "portal-jf": {
+      "hosting": {
+        "proyecto2": [
+          "portal-jf"
+        ]
+      }
+    }
   }
 }

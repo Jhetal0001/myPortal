@@ -1,0 +1,67 @@
+.login {
+  max-width: 500px;
+  padding: 5% 5%;
+  margin: 0 auto;
+  margin: 10% 10%;
+  background-color: var(--colorsecundary);
+  border-radius: 20px;
+  &-title {
+    text-align: center;
+    margin-bottom: 5%;
+    color: var(--colorfonttwo);
+  }
+  & > button {
+    width: 100%;
+    font-size: 4.5vw;
+    color: var(--colorfontone);
+    background-color: var(--colorbutton);
+    padding: 3%;
+    font-weight: 500;
+    border: none;
+    & i {
+      font-size: 20px;
+    }
+  }
+  &-button {
+    border-radius: 10px 10px 0 0;
+  }
+  &-google {
+    margin-top: 3px;
+    border-radius: 0 0 10px 10px;
+  }
+  &-form {
+    & label {
+      width: 100%;
+    }
+    & input {
+      width: 100%;
+      font-size: 4vw;
+      color: var(--colorfonttwo);
+      background-color: var(--colorbg);
+      padding: 2%;
+      font-weight: 400;
+      text-align: center;
+      border-color: var(--colorsecundary);
+      border-style: solid;
+      border-width: 2px;
+      outline-color: var(--colorbutton);
+    }
+    &--email {
+      border-radius: 10px 10px 0 0;
+    }
+    &--button {
+      margin-top: 5px;
+      width: 100%;
+      font-size: 4vw;
+      color: var(--colorfontone);
+      background-color: var(--colorbutton);
+      padding: 2%;
+      font-weight: 400;
+      border: none;
+      border-radius: 0 0 10px 10px;
+      &:disabled {
+        background-color: grey;
+      }
+    }
+  }
+}

@@ -115,6 +115,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "proyecto2:build:production",
+            "firebaseProject": "portal-jf",
+            "firebaseHostingSite": "portal-jf"
+          }
         }
       }
     }

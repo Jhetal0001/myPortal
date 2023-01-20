@@ -13,51 +13,6 @@
 gallery {
   background: #111111ea !important;
 }
-@mixin card {
-  &--card {
-    background-color: var(--colormedio);
-    display: flex;
-    flex-direction: column;
-    width: 150px;
-    height: auto;
-    border: 1px solid var(--colorprimary);
-    border-radius: 10px;
-    overflow: hidden;
-    & .card__img {
-      & img {
-        height: 120px;
-      }
-    }
-    & .card__tittle {
-      font-size: 14px;
-      text-align: center;
-      margin-top: 10px;
-    }
-    & .card__description {
-      font-size: 10px;
-      text-align: center;
-      margin: 0 5px;
-    }
-    & .card__icons {
-      display: flex;
-      width: 100%;
-      justify-content: space-around;
-      border-top: 1px solid var(--colorprimary);
-      margin-top: 10px;
-      & .icon-likes, .icon-comment, .icon-link {
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-        border-right: 1px solid var(--colorprimary);
-      }
-      & .icon-link {
-        border: 0;
-      }
-    }
-  }
-}
-
 
 body {
   background-color: var(--colorbg);
