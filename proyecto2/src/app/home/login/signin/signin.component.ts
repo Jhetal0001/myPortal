@@ -17,7 +17,6 @@ export class SigninComponent  {
   datePassword: FormGroup;
   section = 0;
 
-
   public passwordValidator(): ValidatorFn {
     return (formGroup: AbstractControl) => {
       const password:string = formGroup.get('password')?.value;
@@ -30,7 +29,7 @@ export class SigninComponent  {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) {
     this.datePesonal = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -55,17 +54,30 @@ export class SigninComponent  {
     })
   }
 
+  getUser(id: string) {
+    this.userService.getUser(id)
+    .then(data => {
+      console.log(`result componen : ${data}`, data);
+    }).catch(error => console.log(error));
+  }
 
   onSubmit() {
+    const formulario = Object.assign(this.dateContact.value, this.datePesonal.value, this.dateAddress.value);
     const email = this.dateContact.get('email')?.value;
     const password = this.datePassword.get('password')?.value;
     this.userService.register(email, password)
     .then(response => {
-      console.log(response)
+      console.log(`El response: ${response.user.uid}`)
+      const userid = response.user.uid;
+      formulario.id = userid;
+      this.userService.createUser(formulario);
+      this.getUser(userid);
       this.router.navigate(['homeSession'])
     })
     .catch(error => {console.log(error)})
   }
+
+
 
   nextForm() {
     this.section++

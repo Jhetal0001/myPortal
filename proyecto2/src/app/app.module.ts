@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { SafePipe } from './safe.pipe';
 
 import { GalleryModule } from '@ngx-gallery/core';
 import { LightboxModule } from '@ngx-gallery/lightbox';
@@ -23,14 +26,18 @@ import { BlogspaceComponent } from './home/blogspace/blogspace.component';
 import { LoginComponent } from './home/login/login.component';
 import { SignupComponent } from './home/login/signup/signup.component';
 import { SigninComponent } from './home/login/signin/signin.component';
-import { SafePipe } from './safe.pipe';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
 import { HomeUserComponent } from './home-user/home-user.component';
 import { ProfileHeaderComponent } from './components/session/profile-header/profile-header.component';
 import { MenuUserComponent } from './components/session/menu-user/menu-user.component';
 import { DarkModeComponent } from './components/header/dark-mode/dark-mode.component';
+import { ProfileComponent } from './home-user/profile/profile.component';
+import { NewsComponent } from './home-user/news/news.component';
+import { GalleryComponent } from './home-user/gallery/gallery.component';
+import { FavoritesComponent } from './home-user/favorites/favorites.component';
+import { SocialsComponent } from './home-user/socials/socials.component';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -52,6 +59,11 @@ import { DarkModeComponent } from './components/header/dark-mode/dark-mode.compo
     ProfileHeaderComponent,
     MenuUserComponent,
     DarkModeComponent,
+    ProfileComponent,
+    NewsComponent,
+    GalleryComponent,
+    FavoritesComponent,
+    SocialsComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +75,9 @@ import { DarkModeComponent } from './components/header/dark-mode/dark-mode.compo
     LightboxModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

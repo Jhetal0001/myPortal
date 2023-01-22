@@ -1,0 +1,77 @@
+.menu {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--colorsecundary);
+  opacity: 98.5%;
+  top: 0;
+  z-index: 10;
+  overflow-y: scroll;
+  & a:visited {
+    color: var(--colorfontone);
+  }
+  & > a i {
+    padding: 10px;
+  }
+  &-section-one--home {
+    background-color: var(--colorprimary);
+    width: 100%;
+    padding: 3vw 0;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: var(--colorfontone);
+      & i {
+        margin-right: 10px;
+      }
+    }
+  }
+  &-section-two--cards {
+    width: 100%;
+    padding: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    & .menu-section-card {
+      display: flex;
+      margin: 10px 10px;
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      min-height: 80px;
+      background-color: var(--colorbutton);
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 5px 4px 6px var(--colorshadow);
+      & a {
+        text-decoration: none;
+        & div {
+          font-size: 14px;
+        }
+        & > i {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+  &-section-three--config {
+    background-color: var(--colorprimary);
+    width: 100%;
+    padding: 3vw 0;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      & i {
+        margin-right: 10px;
+      }
+    }
+  }
+}

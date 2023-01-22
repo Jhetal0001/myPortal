@@ -1,0 +1,43 @@
+<section class="profile">
+  <div class="profile-front">
+    <img src="https://pbs.twimg.com/media/EnKch6oXEAIEUUl.jpg" alt="front">
+  </div>
+  <div class="profile-details">
+    <div class="profile-photo" >
+      <img [src]="userProfile?.imgurl === undefined ? '../../../assets/small/profile-default.svg' : userProfile?.imgurl " alt="profile">
+    </div>
+    <div class="profile-personal">
+      <h3 class="profile-name">{{userProfile?.name}}</h3>
+      <p class="profile-city">{{userProfile?.city}}</p>
+      <p class="profile-email">{{userProfile?.email}}</p>
+      <p class="profile-phone">{{userProfile?.phone}}</p>
+    </div>
+    <div class="profile-socials">
+      <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+      <a href=""><i class="fa-brands fa-instagram"></i></a>
+      <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+      <a href=""><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="activity">
+  <div class="activity-items">
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+  </div>
+</section>
+<section></section>

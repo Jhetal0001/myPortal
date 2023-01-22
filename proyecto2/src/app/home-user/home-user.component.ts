@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ThemeService } from '../services/theme.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,18 +9,13 @@ import { UserService } from '../services/user.service';
 })
 export class HomeUserComponent {
 
-
   constructor(
+    private themeService: ThemeService,
     private userService: UserService,
-    private router: Router,
-  ) {}
+    ){}
 
-  onClick() {
-    this.userService.logout()
-    .then(() => {
-      this.router.navigate(['home'])
-    })
-    .catch(error => console.log(error))
+  changeTheme(theme: string): void {
+    this.themeService.setTheme(theme);
   }
 
 }
