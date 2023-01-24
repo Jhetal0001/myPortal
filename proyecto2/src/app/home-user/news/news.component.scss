@@ -16,9 +16,7 @@
       background-color: var(--colorsecundary);
       text-indent: 0.01px;
       border: none;
-      padding-right: 10px ;
-      position: relative;
-      z-index: 1;
+      padding-right: 10px;
       border-radius: 10px;
     }
   }
@@ -34,7 +32,8 @@
   .character,
   .comic,
   .serie {
-    width: 45%;
+    min-width: 150px;
+    max-width: 170px;
     background-color: var(--colorsecundary);
     margin: 0 auto;
     margin-top: 20px;
@@ -56,4 +55,8 @@
 }
 button {
   @include button-forms;
+  margin-bottom: 20px;
+  & i {
+    font-size: 30px;
+  }
 }
