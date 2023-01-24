@@ -36,11 +36,8 @@ async getUser(id: string) {
   let validator;
   await this.userService.getUser(id)
   .then(data => {
-    console.log(data);
     validator = data;
-    console.log(`result componen : ${data}`, data);
   }).catch(error => console.log(error));
-  console.log('se valida punto base', validator)
   return validator;
 }
 
@@ -65,7 +62,6 @@ onClick() {
     const userId = result.user.uid;
     const validator = await this.getUser(userId);
     GoogleAuthProvider.credentialFromResult(result);
-    console.log(validator)
      if (!validator) {
       const formulario: User = {email:''};
       formulario.name = result.user.displayName;

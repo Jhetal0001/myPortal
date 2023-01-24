@@ -1,1 +1,38 @@
-<p>news works!</p>
+<nav class="nav">
+  <div class="nav-content">
+    <select [(ngModel)]="select " (change)="selection(select)" name="sections">
+      <option *ngFor="let item of sections" [value]="item.valor">
+        {{item.valor}}
+      </option>
+    </select>
+  </div>
+</nav>
+
+<div class="characters" *ngIf="select === 'Characters'">
+  <div class="character" *ngFor="let newItem of news">
+    <div class="character-image"><img [src]="newItem.thumbnail?.path+'.'+newItem.thumbnail?.extension" alt="imgNews"></div>
+    <div class="character-source">
+      <a [href]="newItem.urls?.url" class="character-url"><h2 class="character-name">{{newItem?.name}}</h2></a>
+    </div>
+  </div>
+</div>
+
+<div class="comics" *ngIf="select === 'Comics'">
+  <div class="comic" *ngFor="let newItem of news">
+    <div class="comic-image"><img [src]="newItem.thumbnail?.path+'.'+newItem.thumbnail?.extension" alt="imgNews"></div>
+    <div class="comic-source">
+      <a [href]="newItem.urls?.url" class="comic-url"><h2 class="comic-name">{{newItem?.title}}</h2></a>
+    </div>
+  </div>
+</div>
+
+<div class="series" *ngIf="select === 'Series'">
+  <div class="serie" *ngFor="let newItem of news">
+    <div class="serie-image"><img [src]="newItem.thumbnail?.path+'.'+newItem.thumbnail?.extension" alt="imgNews"></div>
+    <div class="serie-source">
+      <a [href]="newItem.urls?.url" class="serie-url"><h2 class="serie-name">{{newItem?.title}}</h2></a>
+    </div>
+  </div>
+</div>
+
+<button (click)="onClick(select)"><i class="fa-solid fa-plus"></i></button>

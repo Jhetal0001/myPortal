@@ -85,7 +85,7 @@
   <button class="login-button">
     <a [routerLink]="['../']">Iniciar Sesión</a>
   </button>
-  <button class="signin-google">
+  <button (click)="onClick()" class="signin-google">
     <i class="fa-brands fa-google"></i>  Google
   </button>
 </div>

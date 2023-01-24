@@ -1,0 +1,59 @@
+@import "../../global.scss";
+
+.nav {
+  width: 98%;
+  display: flex;
+  margin-top: 20px;
+  padding-right: 10px;
+  justify-content: flex-end;
+  &-content {
+    background-color: var(--colorsecundary);
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: relative;
+    & select {
+      color: var(--colorfonttwo);
+      background-color: var(--colorsecundary);
+      text-indent: 0.01px;
+      border: none;
+      padding-right: 10px ;
+      position: relative;
+      z-index: 1;
+      border-radius: 10px;
+    }
+  }
+}
+
+.characters,
+.comics,
+.series {
+  width: 99%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  .character,
+  .comic,
+  .serie {
+    width: 45%;
+    background-color: var(--colorsecundary);
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    &-image {
+      & > img {
+        width: 100%;
+      }
+    }
+    &-source {
+      padding: 10px 10px;
+      & h2 {
+        font-size: 18px;
+        color: var(--colorfonttwo);
+      }
+    }
+  }
+}
+button {
+  @include button-forms;
+}

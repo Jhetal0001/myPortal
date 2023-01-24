@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { User } from 'src/app/models/user.model';
 
 import { UserService } from '../../../services/user.service';
 
@@ -54,11 +56,14 @@ export class SigninComponent  {
     })
   }
 
-  getUser(id: string) {
-    this.userService.getUser(id)
+  async getUser(id: string) {
+    let validator;
+    await this.userService.getUser(id)
     .then(data => {
+      validator = data;
       console.log(`result componen : ${data}`, data);
     }).catch(error => console.log(error));
+    return validator;
   }
 
   onSubmit() {
@@ -77,6 +82,28 @@ export class SigninComponent  {
     .catch(error => {console.log(error)})
   }
 
+  onClick() {
+    this.userService.loginWithGoogle()
+    .then(async (result) => {
+      const userId = result.user.uid;
+      const validator = await this.getUser(userId);
+      GoogleAuthProvider.credentialFromResult(result);
+       if (!validator) {
+        const formulario: User = {email:''};
+        formulario.name = result.user.displayName;
+        formulario.email = result.user.email;
+        formulario.emailVerified = result.user.emailVerified;
+        formulario.phone = result.user.phoneNumber;
+        formulario.imgurl = result.user.photoURL;
+        formulario.id = result.user.uid;
+        this.userService.createUser(formulario);
+        this.getUser(userId);
+      }
+      this.router.navigate(['homeSession']);
+    })
+    .catch(error => console.log(error))
+
+  }
 
 
   nextForm() {
