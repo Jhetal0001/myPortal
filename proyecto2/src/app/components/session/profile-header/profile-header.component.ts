@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { doc, Firestore, onSnapshot } from '@angular/fire/firestore';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,10 +21,14 @@ export class ProfileHeaderComponent implements OnInit {
   }
 
   imgProfile: string | null | undefined;
+  private id: string;
 
   constructor (
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+    private firestore: Firestore
+  ) {
+    this.id = localStorage.getItem('id')!;
+  }
 
   @Output() theme = new EventEmitter();
 
@@ -33,7 +39,9 @@ export class ProfileHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    this.userService.getUser(localStorage.getItem('id')!).then((data) => this.imgProfile = data?.imgurl)
+    onSnapshot(doc(this.firestore, "user", this.id), (result) => {
+      const imgurl = result.data();
+      this.imgProfile = imgurl?.['imgurl'];
+    });
   }
 }

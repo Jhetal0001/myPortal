@@ -1,10 +1,12 @@
 <section class="profile">
   <div class="profile-front">
-    <img src="https://pbs.twimg.com/media/EnKch6oXEAIEUUl.jpg" alt="front">
+    <img [src]="userProfile?.imgFront === undefined ? '../../../assets/small/profile-default.svg' : userProfile?.imgFront" alt="front">
+    <label class="profile-front-change"><i class="fa-solid fa-camera"></i><input name="change" type="file" (change)="uploadImg('imgFront', $event)" placeholder="Change"></label>
   </div>
   <div class="profile-details">
     <div class="profile-photo" >
       <img [src]="userProfile?.imgurl === undefined ? '../../../assets/small/profile-default.svg' : userProfile?.imgurl " alt="profile">
+      <label class="profile-photo-change" ><i class="fa-solid fa-camera"></i><input name="change" type="file" (change)="uploadImg('profile', $event)" placeholder="Change"></label>
     </div>
     <div class="profile-personal">
       <h3 class="profile-name">{{userProfile?.name}}</h3>

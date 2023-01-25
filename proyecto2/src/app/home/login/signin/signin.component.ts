@@ -75,7 +75,7 @@ export class SigninComponent  {
       console.log(`El response: ${response.user.uid}`)
       const userid = response.user.uid;
       formulario.id = userid;
-      this.userService.createUser(formulario);
+      this.userService.createUser(userid, formulario);
       this.getUser(userid);
       this.router.navigate(['homeSession'])
     })
@@ -96,7 +96,7 @@ export class SigninComponent  {
         formulario.phone = result.user.phoneNumber;
         formulario.imgurl = result.user.photoURL;
         formulario.id = result.user.uid;
-        this.userService.createUser(formulario);
+        this.userService.createUser(userId, formulario);
         this.getUser(userId);
       }
       this.router.navigate(['homeSession']);

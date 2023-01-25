@@ -70,7 +70,7 @@ onClick() {
       formulario.phone = result.user.phoneNumber;
       formulario.imgurl = result.user.photoURL;
       formulario.id = result.user.uid;
-      this.userService.createUser(formulario);
+      this.userService.createUser(userId, formulario);
       this.getUser(userId);
     }
     this.router.navigate(['homeSession']);

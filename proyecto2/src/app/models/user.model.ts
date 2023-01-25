@@ -9,5 +9,6 @@ export interface User {
   city?: string ;
   address?: string ;
   imgurl?: string | null;
-  emailVerified?: boolean ;
+  emailVerified?: boolean;
+  imgFront?: string | null;
 }
