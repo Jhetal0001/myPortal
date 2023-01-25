@@ -55,9 +55,9 @@
 }
 
 .profile-photo-change, .profile-front-change {
+  display: flex;
   width: 100%;
   position: absolute;
-  left: 0;
   text-align: center;
   bottom: 0;
   & > i {
@@ -65,13 +65,20 @@
     padding: 5px;
     border-radius: 50%;
     color: var(--colorfonttwo);
-    opacity: 30%;
-  }
-  & > input {
-    display: none;
+    opacity: 90%;
   }
 }
-.profile-front-change { text-align: end; }
+.profile-front-change {
+
+  justify-content: flex-end; }
+.profile-photo-change {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #0000004d;
+}
 .activity {
   height: 200px;
   &-items {
@@ -99,4 +106,8 @@
     }
 
   }
+}
+
+.show {
+  display: flex;
 }

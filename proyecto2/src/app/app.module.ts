@@ -40,6 +40,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { UploadPhotoComponent } from './components/session/upload-photo/upload-photo.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     GalleryComponent,
     FavoritesComponent,
     SocialsComponent,
+    UploadPhotoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+
+<div class="upload-front" [class.show]="showFront" (click)="show('front')">
+  <label class="upload-front-photo"><i class="fa-solid fa-image"></i> Atualizar foto de Portada<input name="change" type="file" (change)="uploadImg('imgFront', $event)" placeholder="Change"></label>
+</div>
+
+<div class="upload-profile" [class.show]="showProfile" (click)="show('profile')">
+  <label class="upload-profile-photo" ><i class="fa-solid fa-image"></i>  Atualizar foto de Perfil<input name="change" type="file" (change)="uploadImg('profile', $event)" placeholder="Change"></label>
+</div>

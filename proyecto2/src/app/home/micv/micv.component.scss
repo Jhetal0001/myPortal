@@ -27,7 +27,7 @@
     margin: auto auto;
     margin-bottom: 20px;
     border-radius: 10px;
-    border: 2px solid var(--colorsecundary);
+    border: 1px solid var(--colorfonttwo);
     overflow: hidden;
     & .nav-link:hover,.nav-link:focus {
       border: 0;
@@ -76,7 +76,7 @@
       background-color: var(--colorprimary);
       margin: 2px 0;
       align-items: center;
-      border: 1px solid var(--colorsecundary);
+      border: 1px solid var(--colorfonttwo);
       border-radius: 10px;
       & i {
         margin: 0 10px ;

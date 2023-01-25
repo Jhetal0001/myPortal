@@ -2,13 +2,17 @@
 
 .section-one {
   &--leyend {
-    margin: 15vw 4vw;
+    margin: 5vw 4vw 10vw;
     padding: 2vw;
     background-color: var(--colorsecundary);
     border-radius: 10px;
     box-shadow: 5px 4px 6px var(--colorshadow);
     text-align: justify;
     color: var(--colorfonttwo);
+    & span > span {
+      color: var(--colorbutton);
+      font-weight: 700;
+    }
   }
 }
 
