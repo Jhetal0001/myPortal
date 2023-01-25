@@ -14,6 +14,8 @@ import { User } from '../../../models/user.model';
 export class SignupComponent  {
 
 loginForm = false;
+alertActive = '';
+alertMessage = '';
 
 showLogin(){
   return (this.loginForm = true);
@@ -37,7 +39,11 @@ async getUser(id: string) {
   await this.userService.getUser(id)
   .then(data => {
     validator = data;
-  }).catch(error => console.log(error));
+  }).catch(error => {
+    this.alertActive = 'danger';
+    this.alertMessage = error
+    this.hide()
+  })
   return validator;
 }
 
@@ -52,7 +58,9 @@ onSubmit() {
     this.router.navigate(['homeSession']);
   })
   .catch(error => {
-    return this.errorLogin = error;
+    this.alertActive = 'danger';
+    this.alertMessage = error
+    this.hide()
   })
 }
 
@@ -75,8 +83,18 @@ onClick() {
     }
     this.router.navigate(['homeSession']);
   })
-  .catch(error => console.log(error))
+  .catch(error => {
+    this.alertActive = 'danger';
+    this.alertMessage = error
+    this.hide()
+  })
+}
 
+hide(){
+  setTimeout(()=>{
+  this.alertActive = '';
+  this.alertMessage = '';
+  }, 5000)
 }
 
 }

@@ -41,6 +41,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { UploadPhotoComponent } from './components/session/upload-photo/upload-photo.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { UploadPhotoComponent } from './components/session/upload-photo/upload-p
     FavoritesComponent,
     SocialsComponent,
     UploadPhotoComponent,
+    AlertsComponent,
   ],
   imports: [
     BrowserModule,

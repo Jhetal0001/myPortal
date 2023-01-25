@@ -18,6 +18,8 @@ export class SigninComponent  {
   dateAddress: FormGroup;
   datePassword: FormGroup;
   section = 0;
+  alertActive= '';
+  alertMessage= '';
 
   public passwordValidator(): ValidatorFn {
     return (formGroup: AbstractControl) => {
@@ -61,8 +63,11 @@ export class SigninComponent  {
     await this.userService.getUser(id)
     .then(data => {
       validator = data;
-      console.log(`result componen : ${data}`, data);
-    }).catch(error => console.log(error));
+    }).catch(error => {
+      this.alertActive = 'danger';
+      this.alertMessage = error;
+      this.hide()
+    });
     return validator;
   }
 
@@ -72,14 +77,17 @@ export class SigninComponent  {
     const password = this.datePassword.get('password')?.value;
     this.userService.register(email, password)
     .then(response => {
-      console.log(`El response: ${response.user.uid}`)
       const userid = response.user.uid;
       formulario.id = userid;
       this.userService.createUser(userid, formulario);
       this.getUser(userid);
       this.router.navigate(['homeSession'])
     })
-    .catch(error => {console.log(error)})
+    .catch(error => {
+        this.alertActive = 'danger';
+        this.alertMessage = error;
+        this.hide()
+    })
   }
 
   onClick() {
@@ -99,12 +107,25 @@ export class SigninComponent  {
         this.userService.createUser(userId, formulario);
         this.getUser(userId);
       }
-      this.router.navigate(['homeSession']);
+      this.alertActive = 'success';
+      this.alertMessage = 'Registro Exitoso';
+      setTimeout(() => {
+      this.router.navigate(['homeSession']);}, 1000)
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      this.alertActive = 'danger';
+      this.alertMessage = error
+      this.hide()
+    })
 
   }
 
+  hide(){
+    setTimeout(()=>{
+    this.alertActive = '';
+    this.alertMessage = '';
+    }, 5000)
+  }
 
   nextForm() {
     this.section++

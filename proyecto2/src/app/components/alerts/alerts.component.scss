@@ -1,0 +1,9 @@
+div {
+  position: absolute;
+  width: 100%;
+  transform: translate(0%, -300%);
+  transition: all 1s;
+}
+.show {
+  transform: translate(0%, 0%);
+}

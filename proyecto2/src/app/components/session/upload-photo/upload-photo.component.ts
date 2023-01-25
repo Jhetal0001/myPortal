@@ -18,6 +18,8 @@ export class UploadPhotoComponent {
 
   private id: string;
   private idPhoto = Math.random().toString(36).substring(2);
+  alertActive = '';
+  alertMessage = '';
 
   constructor(
     private userService: UserService,
@@ -31,8 +33,16 @@ export class UploadPhotoComponent {
     const imgRef = ref(this.storage, `users/${localStorage.getItem('id')}/${tag}/${tag}_${this.idPhoto}`);
 
     await uploadBytes(imgRef, file)
-    .then(() => console.log('Success'))
-    .catch(error => console.log(error))
+    .then(() => {
+      this.alertActive = 'success';
+      this.alertMessage = 'La imagen cargo exitosamente';
+      this.hideAlert()
+    })
+    .catch(error => {
+      this.alertActive = 'danger';
+      this.alertMessage = error;
+      this.hideAlert()
+    })
 
     getDownloadURL(imgRef)
       .then(urlImage => {
@@ -41,6 +51,11 @@ export class UploadPhotoComponent {
         }else if (tag === 'imgFront') {
           this.userService.updatePhotoFront(this.id, urlImage)
         }
+      })
+      .catch(() => {
+        this.alertActive = 'danger';
+        this.alertMessage = 'Se produjo un error al cargar la imagen, intenta de nuevo';
+        this.hideAlert()
       });
   }
   show(e: string) {
@@ -51,6 +66,13 @@ export class UploadPhotoComponent {
       this.showProfileEvent.emit(false);
       this.showProfile = false
     }
+  }
+
+  hideAlert(){
+    setTimeout(()=>{
+    this.alertActive = '';
+    this.alertMessage = '';
+    }, 5000)
   }
 
 }
