@@ -93,3 +93,20 @@
     }
   }
 }
+
+.comments {
+  padding: 40px 10px;
+  text-align: center;
+  background-color: var(--colorprimary);
+  &-button {
+    padding: 10px 30px;
+    background-color: var(--colorsecundary);
+    color: var(--colorfonttwo);
+    border-radius: 10px;
+  }
+}
+.app-comments {
+  text-align: left;
+  position: relative;
+  z-index: 100;
+}

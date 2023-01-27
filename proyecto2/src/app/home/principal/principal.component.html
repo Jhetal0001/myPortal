@@ -55,4 +55,12 @@
       >
     </div>
   </section>
+  <hr>
+  <section class="comments">
+    <p>“Su opinión es muy importante. Por favor, deja tu opinión en el botón de comentarios”</p>
+    <a class="comments-button" (click)="comments = true">Comentar</a>
+  </section>
+  <div *ngIf="comments" [@enterAnimation] class="app-comments">
+    <app-comments [nameProject]="nameProject" [sectionShow]="comments" (sectionHide)="comments = false"></app-comments>
+  </div>
 </article>

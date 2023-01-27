@@ -4,11 +4,15 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   padding: 20px 10px;
   background-color: var(--colorsecundary);
   border-radius: 10px;
+  &-title {
+    color: var(--colorfonttwo);
+    margin: 10px 0 0 10px;
+  }
   &-img {
     max-width: 100px;
     max-height: 100px;

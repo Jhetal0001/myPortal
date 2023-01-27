@@ -41,6 +41,16 @@
       & p {
         margin: 0;
         font-size: 12px;
+        & span, i {
+          font-size: 10px;
+        }
+      }
+      & .profile-password {
+        background: var(--colorbutton);
+        padding: 2px 5px;
+        border-radius: 10px;
+        color: var(--colorfontone);
+        font-size: 10px;
       }
     }
     & .profile-socials {

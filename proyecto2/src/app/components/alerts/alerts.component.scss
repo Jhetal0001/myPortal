@@ -3,6 +3,7 @@ div {
   width: 100%;
   transform: translate(0%, -300%);
   transition: all 1s;
+  z-index: 100;
 }
 .show {
   transform: translate(0%, 0%);

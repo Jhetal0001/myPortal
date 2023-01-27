@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  Gallery,
-  GalleryItem,
-  ImageItem,
-} from '@ngx-gallery/core';
+import { Gallery, GalleryItem, ImageItem } from '@ngx-gallery/core';
 
 @Component({
   selector: 'app-blogspace',
@@ -11,7 +7,6 @@ import {
   styleUrls: ['./blogspace.component.scss'],
 })
 export class BlogspaceComponent implements OnInit {
-
   // Variable para visualizar articulo
   art!: number;
 
@@ -456,7 +451,7 @@ export class BlogspaceComponent implements OnInit {
 
   zoomin = false;
   zoom() {
-      this.zoomin = !this.zoomin;
+    this.zoomin = !this.zoomin;
   }
   ngOnInit(): void {
     this.open();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { animate, group, state, style, transition, trigger } from '@angular/animations';
 import {
   Gallery,
   GalleryItem,
@@ -7,6 +8,29 @@ import {
 
 @Component({
   selector: 'app-micv',
+  animations: [
+    trigger('enterAnimation', [
+        state('void', style({
+          opacity: 0,
+          height: 0
+        })),
+        transition(':enter', [
+          animate('300ms', style({
+            opacity: 1,
+            height: '*'
+          }))
+        ]),
+        transition(':leave', [
+          group([
+            animate('300ms', style({
+              opacity: 0,
+              height: 0,
+            }))
+          ]),
+        ])
+      ]
+    )
+  ],
   templateUrl: './micv.component.html',
   styleUrls: ['./micv.component.scss'],
 })
@@ -233,17 +257,6 @@ export class MicvComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //////////////////////////////////////////////////////////////////////////////////////////
-
-    // 1. Create gallery items
-    //this.items = perfile.map(item =>
-    //  new ImageItem({ src: this.srcphoto, thumb: this.srcphoto })
-    //);
-
-    // Load items into the lightbox
     this.open();
-    // Load item into different lightbox instance // diseño donde se corta la imagen pero se expande small img arriba
-    // With custom gallery config
-    //this.withCustomGalleryConfig();
   }
 }

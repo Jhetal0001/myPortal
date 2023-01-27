@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile,
+  updateEmail,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  getAuth,
 } from '@angular/fire/auth';
 import { User } from '../models/user.model';
 
@@ -32,6 +38,10 @@ export class UserService {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
+  emailVerification() {
+    return sendEmailVerification(this.auth.currentUser!)
+  }
+
   loginWithGoogle(){
     return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
@@ -56,11 +66,6 @@ export class UserService {
     return updateDoc(doc(this.firestore, 'user', id), {imgFront: urlImage});
   }
 
-  //getAll(id: string) {
-  //  return onSnapshot(doc(this.firestore, "user", id), (result) => {
-  //    console.log("vuelta de data: ", result.data());
-  //  });
-  //}
 
   async getUser(id: string): Promise<User|undefined> {
     localStorage.setItem('id', id)
@@ -70,13 +75,20 @@ export class UserService {
     querySnapshot.forEach(doc => {
       const data = doc.data();
       result = Object.assign(data);
-      //this.idUser = Object.assign(result);
-      //this.userProfile$.next(this.idUser);
     });
     return result;
   }
 
-  //getUserProfile$():Observable<User>{
-  //  return this.userProfile$.asObservable();
-  //}
+  updateProfile(name:string, photoURL: string, email: string) {
+    updateProfile(this.auth.currentUser!, {
+      displayName: name, photoURL: photoURL
+    })
+    updateEmail(this.auth.currentUser!, email)
+  }
+
+  resetPassword(email: string) {
+    const auth = getAuth();
+    return sendPasswordResetEmail(auth, email)
+  }
+
 }

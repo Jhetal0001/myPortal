@@ -30,6 +30,12 @@
     border-radius: 0 0 10px 10px;
   }
   &-form {
+    & .profile-password {
+      font-size: 12px;
+      color: var(--colorfonttwo);
+      text-align: end;
+      margin: 0 5px 0 0;
+    }
     & label {
       width: 100%;
     }

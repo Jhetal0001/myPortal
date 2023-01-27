@@ -1,12 +1,35 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-principal',
+  animations: [
+    trigger('enterAnimation', [
+        state('void', style({
+          opacity: 0
+        })),
+        transition(':enter', [
+          animate('300ms', style({
+            opacity: 1
+          }))
+        ]),
+        transition(':leave', [
+          animate('300ms', style({
+            opacity: 0
+          }))
+        ])
+      ]
+    )
+  ],
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.scss'],
 })
 export class PrincipalComponent {
   leerMas = '';
+
+  comments = false;
+  nameProject = 'Portal-JF';
+
 
   principal = {
     intro: `¡Hola! Mi nombre es Jhon Vásquez, Bienvenida/o a mi proyecto de presentación, aquí podrá conocer acerca de mí,

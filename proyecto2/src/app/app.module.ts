@@ -42,6 +42,8 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { UploadPhotoComponent } from './components/session/upload-photo/upload-photo.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
+import { CommentsComponent } from './home/proyectos/comments/comments.component';
+import { TimmeAgoPipe } from './pipes/timme-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { AlertsComponent } from './components/alerts/alerts.component';
     SocialsComponent,
     UploadPhotoComponent,
     AlertsComponent,
+    CommentsComponent,
+    TimmeAgoPipe,
   ],
   imports: [
     BrowserModule,

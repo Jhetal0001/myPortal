@@ -2,6 +2,7 @@
   [showFront]="showFront" [showProfile]="showProfile"
   (showFrontEvent)="showFront = $event" (showProfileEvent)="showProfile = $event"
   ></app-upload-photo>
+<app-alerts [active]="alertActive" [message]="alertMessage"></app-alerts>
 
 <section class="profile">
   <div class="profile-front">
@@ -16,8 +17,14 @@
     <div class="profile-personal">
       <h3 class="profile-name">{{userProfile?.name}} {{userProfile?.lastname}}</h3>
       <p class="profile-city">{{userProfile?.city}}</p>
-      <p class="profile-email">{{userProfile?.email}}</p>
+      <p class="profile-email">{{userProfile?.email}}
+        <span [ngStyle]="infoAuth.emailVerified? {'color': 'green'} : {'color': 'red'}">
+          <i class="fa-solid fa-circle-check" *ngIf="infoAuth.emailVerified"></i>
+          {{infoAuth.emailVerified? '' : 'No Verificado!'}}
+        </span>
+      </p>
       <p class="profile-phone">{{userProfile?.phone}}</p>
+      <span class="profile-password" (click)="resetPassword()">Restablecer Contraseña</span>
     </div>
     <div class="profile-socials">
       <a href=""><i class="fa-brands fa-facebook-f"></i></a>

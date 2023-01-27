@@ -1,6 +1,8 @@
+
 <nav class="nav">
+  <h2 class="nav-title">Marvel API</h2>
   <div class="nav-content">
-    <select [(ngModel)]="select " (change)="selection(select)" name="sections">
+    <select [(ngModel)]="select " (change)="onClick(select)" name="sections">
       <option *ngFor="let item of sections" [value]="item.valor">
         {{item.valor}}
       </option>

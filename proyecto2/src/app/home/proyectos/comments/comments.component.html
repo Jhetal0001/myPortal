@@ -1,0 +1,21 @@
+<section class="comments">
+  <div class="comments-closed"><i class="fa-solid fa-xmark" (click)="hideSection(false)"></i></div>
+  <div class="comment">
+    <form class="comment-add" [formGroup]="formComment" (ngSubmit)="onSubmit()">
+      <label for="nombre"></label><input type="text" placeholder="alias" name="nombre" formControlName="nombre" required>
+      <textarea name="comments" placeholder="minimo 20 caracteres" cols="40" rows="2" formControlName="textArea" required></textarea>
+      <div class="comment-add-buttons">
+        <button class="comment-add-button" type="reset">Limpiar</button>
+        <button class="comment-add-button" type="reset" [disabled]="!formComment.valid" (click)="onSubmit()">Comentar</button>
+      </div>
+    </form>
+  </div>
+  <hr />
+  <div class="comments-view">
+    <div class="comment-view" *ngFor="let item of comments">
+        <p><span>{{item.nombre}}</span>{{item.textArea}}</p>
+        <em>{{ item.time | timmeAgo }}</em>
+        <hr />
+    </div>
+  </div>
+</section>

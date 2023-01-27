@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/models/news.model';
 import { MarvelService } from 'src/app/services/marvel.service';
@@ -10,7 +11,7 @@ import { MarvelService } from 'src/app/services/marvel.service';
 export class NewsComponent implements OnInit {
 
   news: News[] ;
-  limit = 4;
+  limit = 20;
   offset = 0;
 
   sections = [
@@ -18,8 +19,7 @@ export class NewsComponent implements OnInit {
     {valor:'Comics'},
     {valor:'Series'}
   ];
-  select = '';
-  selections = 'Characters';
+  select = 'Characters';
 
   constructor(
     private marvelService :MarvelService,
@@ -32,66 +32,32 @@ export class NewsComponent implements OnInit {
     }];
   }
 
-  selection(select: string) {
-    if (this.select === 'Characters') {
-      this.marvelService.getCharacters(4, 0)
-     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-     .subscribe((data: any) => {
-      this.news = data.data.results;
-      this.offset += this.limit
-     });
-    } else if (this.select === 'Comics') {
-      this.marvelService.getComics(4, 0)
-     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-     .subscribe((data: any) => {
-      this.news = data.data.results;
-      this.offset += this.limit
-     });
-    } else if (this.select === 'Series') {
-      this.marvelService.getSeries(4, 0)
-     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-     .subscribe((data: any) => {
-      this.news = data.data.results;
-      this.offset += this.limit
-     });
-    }
-    this.selections = select;
-  }
-
   ngOnInit(): void {
-    this.select = this.selections;
-    this.marvelService.getCharacters(4, 0)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.marvelService.getCharacters(40, 0)
     .subscribe((data: any) => {
      this.news = data.data.results;
-     this.offset += this.limit
     });
   }
 
   onClick(select: string) {
     if (select === 'Characters') {
       this.marvelService.getCharacters(this.limit, this.offset)
-       // eslint-disable-next-line @typescript-eslint/no-explicit-any
        .subscribe((data: any) => {
         this.news = data.data.results;
-        this.offset += this.limit;
        });
     }
     if (select === 'Comics') {
       this.marvelService.getComics(this.limit, this.offset)
-       // eslint-disable-next-line @typescript-eslint/no-explicit-any
        .subscribe((data: any) => {
         this.news = data.data.results;
-        this.offset += this.limit;
        });
     }
     if (select === 'Series') {
       this.marvelService.getSeries(this.limit, this.offset)
-       // eslint-disable-next-line @typescript-eslint/no-explicit-any
        .subscribe((data: any) => {
         this.news = data.data.results;
-        this.offset += this.limit;
        });
     }
+    this.offset += this.limit;
   }
 }

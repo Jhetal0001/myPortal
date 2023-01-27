@@ -83,16 +83,13 @@
       }
     }
     & .details {
-      display: none;
+      display: block;
       padding: 10px;
       text-align: justify;
       color: var(--colorfonttwo);
       & a {
         color: var(--colorfonttwo);
       }
-    }
-    & .view {
-      display: block;
     }
   }
 }

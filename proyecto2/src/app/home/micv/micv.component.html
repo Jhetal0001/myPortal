@@ -37,7 +37,7 @@
         <span>{{contentcv.profilepro.name}}</span>
       </div>
     </div>
-    <div class="details profile-details" [ngClass]="{'view': viewTrue === 'profil'}">
+    <div class="details profile-details" [@enterAnimation] *ngIf="viewTrue === 'profil'">
       <p>{{contentcv.profilepro.details.paragraph1}}</p>
       <p>{{contentcv.profilepro.details.paragraph2}}</p>
       <p>{{contentcv.profilepro.details.paragraph3}}</p>
@@ -48,7 +48,7 @@
         <span>{{contentcv.studies.name}}</span>
       </div>
     </div>
-    <div class="details studies-details" [ngClass]="{'view': viewTrue === 'studies'}">
+    <div class="details studies-details" [@enterAnimation] *ngIf="viewTrue === 'studies'">
       <ul>
         <li *ngFor="let studie of studies">
           <p>{{studie.name}}, </p>
@@ -65,10 +65,10 @@
         <span>{{contentcv.certificates.name}}</span>
       </div>
     </div>
-    <div class="details certif-details" [ngClass]="{'view': viewTrue === 'certif'}">
+    <div class="details certif-details" [@enterAnimation] *ngIf="viewTrue === 'certif'">
       <ul>
         <li *ngFor="let certificate of certificates">
-          <a [href]="certificate.url">
+          <a [href]="certificate.url" target="_blank">
           <p>{{certificate.name}}, {{certificate.school}}, {{certificate.date}}.</p>
           </a>
         </li>
@@ -81,7 +81,7 @@
         <span>{{contentcv.experience.name}}</span>
       </div>
     </div>
-    <div class="details experien-details" [ngClass]="{'view': viewTrue === 'experien'}">
+    <div class="details experien-details" [@enterAnimation] *ngIf="viewTrue === 'experien'">
       <ul>
         <li>
           <p><b>{{contentcv.experience.details.work2.name}}, </b></p>
@@ -102,7 +102,7 @@
         <span>{{contentcv.abilities.name}}</span>
       </div>
     </div>
-    <div class="details abilities-details" [ngClass]="{'view': viewTrue === 'abilities'}">
+    <div class="details abilities-details" [@enterAnimation] *ngIf="viewTrue === 'abilities'">
         <div *ngFor="let abilitie of abilities">
           <label for="abilitie">{{abilitie.name}}</label>
           <div class="progress">
@@ -113,24 +113,3 @@
     </div>
   </section>
 </div>
-
-<!--//////////////////////////////////////////////////////////////////////////////////////////7-->
-<!--<div class="gallerize-example" >
-
-	<h2>Lightbox Example</h2>
-	<p class="container">
-		<img *ngFor="let item of items; index as i" style="width: 200px;"
-         [lightbox]="i"
-         [src]="item.data.thumb">
-	</p>
-
-  <h2>Another lightbox with custom gallery config</h2>
-  	<p class="container">
-		<img *ngFor="let item of items; index as i" style="width: 200px;"
-          [lightbox]="i"
-          [gallery]="'anotherLightbox'"
-          [src]="item.data.thumb">
-	</p>
-
-</div> -->
-

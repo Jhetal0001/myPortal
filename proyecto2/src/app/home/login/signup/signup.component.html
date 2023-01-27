@@ -19,6 +19,7 @@
       type="password" name="password" formControlName="password">
     </label><br>
     <span class="text-danger" *ngIf="errorLogin">Email o Contraseña Erroneo</span>
+    <p class="profile-password" (click)="resetPassword()">Restablecer Contraseña</p>
     <button class="login-form--button" type="submit" [disabled]="formLogin.invalid">Iniciar Sesión</button>
   </form>
   <hr>

@@ -81,7 +81,12 @@ export class SigninComponent  {
       formulario.id = userid;
       this.userService.createUser(userid, formulario);
       this.getUser(userid);
-      this.router.navigate(['homeSession'])
+      this.userService.emailVerification().then(() => {
+        this.alertActive = 'info';
+        this.alertMessage = 'Se envio un codigo de verificacion a tu email';
+        this.hide()
+      });
+      setTimeout(()=> {this.router.navigate(['homeSession'])}, 3000)
     })
     .catch(error => {
         this.alertActive = 'danger';
