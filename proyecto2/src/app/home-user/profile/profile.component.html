@@ -6,12 +6,14 @@
 
 <section class="profile">
   <div class="profile-front">
-    <img [routerLink]="['gallery']" [src]="userProfile?.imgFront === undefined ? '../../../assets/small/profile-default.svg' : userProfile?.imgFront" alt="front">
+    <img [routerLink]="['gallery']" *ngIf="userProfile?.imgFront !== undefined" [src]="userProfile?.imgFront" alt="front">
+    <i (click)="showFront = !showFront" *ngIf="userProfile?.imgFront === undefined" class="fas fa-image"></i>
     <label class="profile-front-change"><i class="fa-solid fa-camera" (click)="showFront = !showFront"></i></label>
   </div>
   <div class="profile-details">
     <div class="profile-photo" >
-      <img (click)="viewUpload()" [src]="userProfile?.imgurl === undefined ? '../../../assets/small/profile-default.svg' : userProfile?.imgurl " alt="profile">
+      <img (click)="viewUpload()" *ngIf="userProfile?.imgurl !== undefined" [src]="userProfile?.imgurl" alt="profile">
+      <i (click)="viewUpload()" *ngIf="userProfile?.imgFront === undefined" class="fas fa-user"></i>
       <label (click)="viewUpload()" class="profile-photo-change" [class.show]="view"><i class="fa-solid fa-camera" (click)="showProfile = !showProfile"></i></label>
     </div>
     <div class="profile-personal">
@@ -19,7 +21,7 @@
       <p class="profile-city">{{userProfile?.city}}</p>
       <p class="profile-email">{{userProfile?.email}}
         <span [ngStyle]="infoAuth.emailVerified? {'color': 'green'} : {'color': 'red'}">
-          <i class="fa-solid fa-circle-check" *ngIf="infoAuth.emailVerified"></i>
+          <i title="Email Verificado" class="fa-solid fa-circle-check" *ngIf="infoAuth.emailVerified"></i>
           {{infoAuth.emailVerified? '' : 'No Verificado!'}}
         </span>
       </p>
@@ -37,21 +39,21 @@
 
 <section class="activity">
   <div class="activity-items">
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
-    <div class="activity-items--item"><img src="../../../assets/small/profile-default.svg" alt=""></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
+    <div class="activity-items--item"><i class="fas fa-user"></i></div>
   </div>
 </section>
 <section></section>

@@ -54,7 +54,6 @@
         & div {
           font-size: 14px;
         }
-
       }
     }
   }
@@ -70,6 +69,38 @@
       & i {
         margin-right: 10px;
       }
+    }
+  }
+}
+
+.menu-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .menu-desktop {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    & > a:hover, :focus, :active {
+      transform: scale(1.2);
+    }
+    & a:hover, :focus, :active {
+      color: var(--colorfontone);
+    }
+    & .menu-desktop-section-card {
+      & i {
+        background-color: var(--colorbutton);
+        padding: 12px 12px;
+        border-radius: 50%;
+      }
+      &:hover, :focus, :active {
+      transform: scale(1.2);
+     }
     }
   }
 }

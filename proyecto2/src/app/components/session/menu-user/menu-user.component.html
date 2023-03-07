@@ -17,3 +17,13 @@
     <a (click)="onClick()"><i class="fa-solid fa-right-from-bracket">  </i>  LogOut</a>
   </section>
 </main>
+
+<main id="menu-desktop" class="menu-desktop">
+    <a title="Ir a pagina Principal" [routerLink]="['home-user']"><i class="fa-solid fa-house"></i></a>
+    <div title="Marvel" class="menu-desktop-section-card"><a [routerLink]="['news']"><i class="fa-solid fa-newspaper"></i></a></div>
+    <div title="Galeria" class="menu-desktop-section-card"><a [routerLink]="['gallery']"><i class="fa-solid fa-images"></i></a></div>
+    <div title="Favoritos" class="menu-desktop-section-card"><a [routerLink]="['favorites']"><i class="fa-solid fa-star"></i></a></div>
+    <div title="Social" class="menu-desktop-section-card"><a [routerLink]="['socials']"><i class="fa-solid fa-users"></i></a></div>
+    <a title="Configuraciones" href="#"><i class="fa-solid fa-gear"></i></a>
+    <a title="Cerrar Sesión" (click)="onClick()"><i class="fa-solid fa-right-from-bracket">  </i>  LogOut</a>
+</main>

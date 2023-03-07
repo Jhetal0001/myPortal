@@ -4,7 +4,7 @@
     <a [routerLink]="['home']"><i class="fa-solid fa-house"></i><div>Home</div></a>
   </section>
   <section class="menu-section-two--cards">
-    <div class="menu-section-card"><a [routerLink]="['micv']"><i class="fa-solid fa-file"></i><div>Mi CV</div></a></div>
+    <div class="menu-section-card"><a [routerLink]="['micv']"><i class="fas fa-address-book"></i><div>Mi CV</div></a></div>
     <div class="menu-section-card"><a [routerLink]="['proyectos']"><i class="fa-solid fa-briefcase"></i><div>Proyectos</div></a></div>
     <div class="menu-section-card"><a [routerLink]="['blogspace']"><i class="fa-solid fa-blog"></i><div>Blog Space</div></a></div>
     <div class="menu-section-card"><a [routerLink]="['login']"><i class="fa-solid fa-right-to-bracket"></i><div>Log In</div></a></div>
@@ -12,4 +12,13 @@
   <section class="menu-section-three--config">
     <a href="#"><i class="fa-solid fa-plus"></i></a>
   </section>
+</main>
+
+<main id="menu-desktop" style="right: 100%;" class="menu-desktop">
+    <a title="Ir a pagina Principal" [routerLink]="['home']"><i class="fa-solid fa-house"></i></a>
+    <div class="menu-desktop-section-card"><a title="Mi Hoja de Vida" [routerLink]="['micv']"><i class="fas fa-address-book"></i></a></div>
+    <div class="menu-desktop-section-card"><a title="Mis Articulos" [routerLink]="['blogspace']"><i class="fa-solid fa-blog"></i></a></div>
+    <div class="menu-desktop-section-card"><a title="Mis Proyectos" [routerLink]="['proyectos']"><i class="fa-solid fa-briefcase"></i></a></div>
+    <div class="menu-desktop-section-card"><a title="Iniciar Sesión" [routerLink]="['login']"><i class="fa-solid fa-right-to-bracket"></i></a></div>
+    <a href="#"><i class="fa-solid fa-plus"></i></a>
 </main>

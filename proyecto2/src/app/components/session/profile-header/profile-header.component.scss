@@ -6,12 +6,8 @@
   justify-content: space-around;
   align-items: center;
   & .menu {
+    width: 60%;
     margin-left: 10px;
-  }
-  & h3 {
-    width: 50%;
-    margin: 0;
-    padding: 2vw;
   }
   & .modo {
     padding: 2px;
@@ -52,10 +48,21 @@
     width: 40px;
     height: 40px;
     overflow: hidden;
+    border: 1px solid var(--colorsecundary);
     border-radius: 50%;
     margin: 3px 3px 3px 0;
-    & > a img {
-      width: 100%;
+    text-align: center;
+    & > a {
+      &:hover {
+        color: var(--colorfontone);
+      }
+      & img {
+        width: 100%;
+      }
+      & i {
+        padding: 4px;
+        font-size: 25px;
+      }
     }
   }
 }
@@ -77,5 +84,30 @@
 .menuShow {
   transform: translateX(0%);
   opacity: 1;
+}
+
+.app-menu-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .header h3 {
+    width: auto;
+  }
+  .app-menu-desktop {
+    & app-menu-user {
+      width: 100%;
+    }
+    display: flex;
+    width: 60%;
+    align-items: center;
+  }
+  .menu {
+    display: none;
+  }
+  .fa-lightbulb:hover,
+  .fa-moon:hover, .fa-magnifying-glass:hover {
+    transform: scale(1.2);
+  }
 }
 

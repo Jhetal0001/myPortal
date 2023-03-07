@@ -1,11 +1,17 @@
 <header class="header d-flex">
   <div class="menu" (click)="menuView()"><i class="fa-solid fa-list"></i></div>
-  <h3></h3>
+  <!-- <h3></h3> -->
+  <div class="app-menu-desktop"><app-menu-user></app-menu-user></div>
   <div class="modo">
     <i [ngStyle]="{'opacity': colorTheme === 'light'? '90%' : '10%'}" (click)="changeTheme('light')" class="fa-solid fa-lightbulb"></i>
     <i [ngStyle]="{'opacity': colorTheme === 'default'? '90%' : '10%'}" (click)="changeTheme('default')" class="fa-solid fa-moon" aria-hidden="true"></i></div>
   <div class="config" ><i class="fa-solid fa-bell"></i></div>
-  <div class="perfile-photo"><a [routerLink]="['home-user']"><img [src]="imgProfile === undefined ? '../../../assets/small/profile-default.svg' : imgProfile" alt="mini-photo"></a></div>
+  <div class="perfile-photo">
+    <a [routerLink]="['home-user']">
+      <img *ngIf="imgProfile !== undefined" [src]="imgProfile" alt="mini-photo">
+      <i *ngIf="imgProfile === undefined" class="fas fa-user"></i>
+    </a>
+  </div>
 </header>
 <div class="app-menu" (click)="menuView()" [ngClass]="{'menuShow' : menuShow , 'menuHidde' : !menuShow}">
   <app-menu-user></app-menu-user>

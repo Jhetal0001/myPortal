@@ -41,9 +41,9 @@ export class PrincipalComponent {
       verá  información de todos los comics, personajes y series de Marvel, ya por último os agradezco dejarme un comentario
       en el apartado al pie de página. ¡Gracias por su visita!`,
     introherramientas: `Este proyecto fue creado usando tecnologia Angular 15 'rxjs v7, formularios reactivos, @ngx-gallery, routes',
-      bootstrap, typeScrip v4, Preproce...`,
+      bootstrap, typeScript v4, Preproce...`,
     herramientas: `Este proyecto fue creado usando tecnología Angular 15 'rxjs v7, formularios reactivos, @ngx-gallery, routes',
-      bootstrap, typeScrip v4, Preprocesador CSS 'Sass', firebase v7 'Authentication, firestore, storage de firebase',
+      bootstrap, typeScript v4, Preprocesador CSS 'Sass', firebase v7 'Authentication, firestore, storage de firebase',
       APIs REST 'Api pública de Marvel', Metodologia Firsmobile, Git 'Github', al pie de pagina puede visualizar codigo fuente
       en el icono de Github, npm v8, node v18.`,
     developer:

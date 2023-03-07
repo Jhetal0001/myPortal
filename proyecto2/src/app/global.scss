@@ -1,6 +1,6 @@
 @mixin button-forms {
   width: 100%;
-  font-size: 4vw;
+  font-size: 16px;
   color: var(--colorfontone);
   background-color: var(--colorbutton);
   padding: 5px;
@@ -18,7 +18,7 @@
 
 @mixin button-forms-small {
   width: 48%;
-  font-size: 3.5vw;
+  font-size: 14px;
   color: var(--colorfontone);
   background-color: var(--colorbutton);
   padding: 2%;

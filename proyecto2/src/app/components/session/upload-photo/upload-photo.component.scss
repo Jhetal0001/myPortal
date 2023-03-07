@@ -46,3 +46,28 @@
 .show {
   display: flex;
 }
+
+@media screen and (min-width: 768px) {
+  .upload-front {
+    & div {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    &-photo {
+      transform: translateY(280px);
+    }
+  }
+  .upload-profile {
+    & div {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    &-photo {
+      transform: translate(125px, 280px);
+    }
+  }
+}

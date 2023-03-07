@@ -93,3 +93,20 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .micv-section-two {
+    max-width: 400px;
+  }
+  .micv-section-three {
+    max-width: 80%;
+    & .abilities-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      & > div {
+        width: 40%;
+      }
+    }
+  }
+}
