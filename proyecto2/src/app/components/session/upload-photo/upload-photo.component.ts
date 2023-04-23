@@ -3,6 +3,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { getDownloadURL, ref, uploadBytes, Storage } from '@angular/fire/storage';
 import { UserService } from 'src/app/services/user.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-upload-photo',
@@ -18,12 +19,11 @@ export class UploadPhotoComponent {
 
   private id: string;
   private idPhoto = Math.random().toString(36).substring(2);
-  alertActive = '';
-  alertMessage = '';
 
   constructor(
     private userService: UserService,
     private storage: Storage,
+    private UTILS: UtilsService
   ) {
     this.id = localStorage.getItem('id')!;
   }
@@ -34,14 +34,10 @@ export class UploadPhotoComponent {
 
     await uploadBytes(imgRef, file)
     .then(() => {
-      this.alertActive = 'success';
-      this.alertMessage = 'La imagen cargo exitosamente';
-      this.hideAlert()
+      this.UTILS.showAlert('La imagen cargo exitosamente' ,'success');
     })
     .catch(error => {
-      this.alertActive = 'danger';
-      this.alertMessage = error;
-      this.hideAlert()
+      this.UTILS.showAlert(error ,'danger');
     })
 
     getDownloadURL(imgRef)
@@ -53,9 +49,7 @@ export class UploadPhotoComponent {
         }
       })
       .catch(() => {
-        this.alertActive = 'danger';
-        this.alertMessage = 'Se produjo un error al cargar la imagen, intenta de nuevo';
-        this.hideAlert()
+        this.UTILS.showAlert('Se produjo un error al cargar la imagen, intenta de nuevo','danger');
       });
   }
   show(e: string) {
@@ -67,12 +61,4 @@ export class UploadPhotoComponent {
       this.showProfile = false
     }
   }
-
-  hideAlert(){
-    setTimeout(()=>{
-    this.alertActive = '';
-    this.alertMessage = '';
-    }, 5000)
-  }
-
 }

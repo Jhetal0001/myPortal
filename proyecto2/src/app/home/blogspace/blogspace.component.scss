@@ -61,25 +61,9 @@
       justify-content: center;
       & > div {
         position: relative;
-        max-width: 90%;
-        display: flex;
-        overflow: scroll;
-        & .zoomin {
-          left: 35%;
-          top: 35%;
-          transform: scale(1.7);
-          position: relative;
-          width: 100%;
-        }
-        & .zoomout {
-          width: 100%;
-        }
-        & > div {
-          position: absolute;
-          padding: 5px;
-          background-color: var(--colorbutton);
-          opacity: 90%;
-          border-radius: 25%;
+        max-width: 60%;
+        & img {
+          max-width: 100%;
         }
       }
     }

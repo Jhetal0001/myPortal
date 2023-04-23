@@ -3,6 +3,7 @@ import { GoogleAuthProvider } from '@angular/fire/auth';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -11,9 +12,8 @@ import { User } from '../../../models/user.model';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
+
   loginForm = false;
-  alertActive = '';
-  alertMessage = '';
 
   showLogin() {
     return (this.loginForm = true);
@@ -22,7 +22,7 @@ export class SignupComponent {
   formLogin: FormGroup;
   errorLogin: boolean | null = null;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private UTILS: UtilsService) {
     this.formLogin = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
@@ -37,9 +37,7 @@ export class SignupComponent {
         validator = data;
       })
       .catch((error) => {
-        this.alertActive = 'danger';
-        this.alertMessage = error.message;
-        this.hide();
+        this.UTILS.showAlert(error, 'danger');
       });
     return validator;
   }
@@ -56,9 +54,7 @@ export class SignupComponent {
         this.router.navigate(['homeSession']);
       })
       .catch((error) => {
-        this.alertActive = 'danger';
-        this.alertMessage = error.message;
-        this.hide();
+        this.UTILS.showAlert(error, 'danger');
       });
   }
 
@@ -83,9 +79,8 @@ export class SignupComponent {
         this.router.navigate(['homeSession']);
       })
       .catch((error) => {
-        this.alertActive = 'danger';
-        this.alertMessage = error.message;
-        this.hide();
+        this.UTILS.showAlert(error.message, 'danger');
+
       });
   }
   resetPassword() {
@@ -94,26 +89,14 @@ export class SignupComponent {
       this.userService
         .resetPassword(email)
         .then(() => {
-          this.alertActive = 'info';
-          this.alertMessage = `Se ha enviado el link al email: '${email}' para restrablecer la contraseña`;
-          this.hide();
+          this.UTILS.showAlert(`Se ha enviado el link al email: '${email}' para restrablecer la contraseña`, 'info');
         })
         .catch((error) => {
-          this.alertActive = 'danger';
-          this.alertMessage = error.message;
-          this.hide();
+          this.UTILS.showAlert(error.message, 'danger');
+
         });
     } else {
-      this.alertActive = 'danger';
-      this.alertMessage = 'Debe digitar un email';
-      this.hide();
+      this.UTILS.showAlert('Debe digitar un email', 'danger');
     }
-  }
-
-  hide() {
-    setTimeout(() => {
-      this.alertActive = '';
-      this.alertMessage = '';
-    }, 5000);
   }
 }

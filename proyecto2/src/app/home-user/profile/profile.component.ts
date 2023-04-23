@@ -4,6 +4,7 @@ import { User } from '../../models/user.model';
 import { onSnapshot, Firestore, doc } from '@angular/fire/firestore';
 import { getAuth } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+
   userProfile: User | undefined = {};
   private id: string;
   view = false;
@@ -23,12 +25,11 @@ export class ProfileComponent implements OnInit {
     photoURL: '',
     emailVerified: false,
   };
-  alertActive = '';
-  alertMessage = '';
 
   constructor(
     private firestore: Firestore,
-    private userService: UserService
+    private userService: UserService,
+    private UTILS: UtilsService
     ) {
     this.id = localStorage.getItem('id')!;
   }
@@ -53,24 +54,15 @@ export class ProfileComponent implements OnInit {
   resetPassword() {
     this.userService.resetPassword(this.infoAuth.email)
       .then(() => {
-        this.alertActive = 'info';
-        this.alertMessage = `Se ha enviado el link al email: '${this.infoAuth.email}' para restrablecer la contraseña`
-        this.hide();
+        this.UTILS.showAlert(`Se ha enviado el link al email: '${this.infoAuth.email}' para restrablecer la contraseña` ,'info');
       })
       .catch((error) => {
-        this.alertActive = 'danger';
-        this.alertMessage = error.message;
-        this.hide();
+        this.UTILS.showAlert(error ,'danger');
       });
   }
 
   viewUpload() {
     this.view = !this.view;
   }
-  hide(){
-    setTimeout(()=>{
-    this.alertActive = '';
-    this.alertMessage = '';
-    }, 5000)
-  }
+
 }

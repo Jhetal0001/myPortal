@@ -44,6 +44,8 @@ import { UploadPhotoComponent } from './components/session/upload-photo/upload-p
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { CommentsComponent } from './home/proyectos/comments/comments.component';
 import { TimmeAgoPipe } from './pipes/timme-ago.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
+import { UtilsService } from './services/utils.service';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,7 @@ import { TimmeAgoPipe } from './pipes/timme-ago.pipe';
     AlertsComponent,
     CommentsComponent,
     TimmeAgoPipe,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,9 +92,9 @@ import { TimmeAgoPipe } from './pipes/timme-ago.pipe';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
   ],
-  providers: [],
+  providers: [UtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { User } from 'src/app/models/user.model';
 
 import { UserService } from '../../../services/user.service';
+import { UtilsService } from '../../../services/utils.service';
 
 @Component({
   selector: 'app-signin',
@@ -34,6 +35,7 @@ export class SigninComponent  {
   constructor(
     private userService: UserService,
     private router: Router,
+    private UTILS: UtilsService
   ) {
     this.datePesonal = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -64,9 +66,7 @@ export class SigninComponent  {
     .then(data => {
       validator = data;
     }).catch(error => {
-      this.alertActive = 'danger';
-      this.alertMessage = error;
-      this.hide()
+      this.UTILS.showAlert(error, 'danger')
     });
     return validator;
   }
@@ -82,16 +82,12 @@ export class SigninComponent  {
       this.userService.createUser(userid, formulario);
       this.getUser(userid);
       this.userService.emailVerification().then(() => {
-        this.alertActive = 'info';
-        this.alertMessage = 'Se envio un codigo de verificacion a tu email';
-        this.hide()
+        this.UTILS.showAlert('Se envio un codigo de verificacion a tu email', 'info')
       });
       setTimeout(()=> {this.router.navigate(['homeSession'])}, 3000)
     })
     .catch(error => {
-        this.alertActive = 'danger';
-        this.alertMessage = error;
-        this.hide()
+        this.UTILS.showAlert(error, 'danger')
     })
   }
 
@@ -112,26 +108,15 @@ export class SigninComponent  {
         this.userService.createUser(userId, formulario);
         this.getUser(userId);
       }
-      this.alertActive = 'success';
-      this.alertMessage = 'Registro Exitoso';
+      this.UTILS.showAlert('Registro Exitoso' ,'success');
       setTimeout(() => {
       this.router.navigate(['homeSession']);}, 1000)
     })
     .catch(error => {
-      this.alertActive = 'danger';
-      this.alertMessage = error
-      this.hide()
+      this.UTILS.showAlert(error, 'danger')
     })
 
   }
-
-  hide(){
-    setTimeout(()=>{
-    this.alertActive = '';
-    this.alertMessage = '';
-    }, 5000)
-  }
-
   nextForm() {
     this.section++
   }

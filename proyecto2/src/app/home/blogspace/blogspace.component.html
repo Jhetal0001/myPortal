@@ -1,4 +1,4 @@
-<div class="blogspace">
+<div class="blogspace" *ngIf="(loading$ | async) === false">
   <article class="blogspace-articles d-flex mt-3 mb-3">
     <div
       *ngFor="let article of articles, let i = index" (click)="art=i"
@@ -24,31 +24,31 @@
     </div>
   </article>
   <section class="mb-3 blogspace-article">
-    <div class="article" id="0" *ngIf="art === 0">
-      <h1 class="article-tittle">{{articles[0].name}}</h1>
-      <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[0].content.date}}</em></span>
-      <h3 class="article-subtittle">{{articles[0].description}}</h3>
-      <p class="article-pagraph">{{articles[0].content.text1}}</p>
-      <p class="article-pagraph">{{articles[0].content.text2}}</p>
-      <p class="article-pagraph">{{articles[0].content.text3}}</p>
-      <p class="article-pagraph">{{articles[0].content.text4}}</p>
-      <p class="article-pagraph">{{articles[0].content.text5}}</p>
+    <div class="article" id="2" *ngIf="art === 2">
+      <h1 class="article-tittle">{{articles[2].name}}</h1>
+      <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[2].content.date}}</em></span>
+      <h3 class="article-subtittle">{{articles[2].description}}</h3>
+      <p class="article-pagraph">{{articles[2].content.text1}}</p>
+      <p class="article-pagraph">{{articles[2].content.text2}}</p>
+      <p class="article-pagraph">{{articles[2].content.text3}}</p>
+      <p class="article-pagraph">{{articles[2].content.text4}}</p>
+      <p class="article-pagraph">{{articles[2].content.text5}}</p>
       <div class="article-notas">
-        <span class="notas"><em>{{articles[0].content.nota}}</em></span>
+        <span class="notas"><em>{{articles[2].content.nota}}</em></span>
       </div>
-      <p class="article-pagraph">{{articles[0].content.text6}}</p>
-      <h3 class="article-pagraph">{{articles[0].content.titleVideo}}</h3>
-      <p class="article-pagraph">{{articles[0].content.textVideo}}</p>
+      <p class="article-pagraph">{{articles[2].content.text6}}</p>
+      <h3 class="article-pagraph">{{articles[2].content.titleVideo}}</h3>
+      <p class="article-pagraph">{{articles[2].content.textVideo}}</p>
       <div class="article-multimedia">
-        <iframe [src]="articles[0].content.iframe | safe" [title]="articles[0].name"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        <iframe [src]="articles[2].content.iframe | safe" [title]="articles[2].name"
+        frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
       </div>
-      <p class="article-pagraph">{{articles[0].content.text7}}</p>
+      <p class="article-pagraph">{{articles[2].content.text7}}</p>
       <div class="mt-3 mb-3 article-img">
-        <img *ngFor="let img of images0, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'0'">
+        <img *ngFor="let img of articles[2].content.images, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'2'">
       </div>
-      <a [href]="articles[0].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[0].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a [href]="articles[2].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[2].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
     <div class="article" id="1" *ngIf="art === 1">
       <h1 class="article-tittle">{{articles[1].name}}</h1>
@@ -80,182 +80,33 @@
         <li class="article-list-1">{{articles[1].content.textlist6}}</li>
       </ul>
       <div class="mt-3 mb-3 article-img">
-        <img *ngFor="let img of images1, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'1'">
+        <img *ngFor="let img of articles[1].content.images, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'1'">
       </div>
       <a [href]="articles[1].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[1].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
-    <div class="article" id="2" *ngIf="art === 2">
-      <h1 class="article-tittle">{{articles[2].name}}</h1>
-      <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[2].content.date}}</em></span> <br>
-      <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[2].content.autor}}</em></span>
-      <h3 class="article-subtittle">{{articles[2].description}}</h3>
-      <p class="article-pagraph">{{articles[2].content.text1}}</p>
-      <p class="article-pagraph">{{articles[2].content.text2}}</p>
-      <p class="article-pagraph">{{articles[2].content.text3}}</p>
-      <h1 class="article-tittle">{{articles[2].content.tittle2}}</h1>
-      <p class="article-pagraph">{{articles[2].content.text4}}</p>
-      <p class="article-pagraph">{{articles[2].content.textVideo1}}</p>
-      <div class="article-multimedia">
-        <iframe [src]="articles[2].content.iframe | safe" [title]="articles[2].name"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text5}}</p>
-      <h1 class="article-tittle">{{articles[2].content.tittle3}}</h1>
-      <p class="article-pagraph">{{articles[2].content.text6}}</p>
-      <p class="article-pagraph">{{articles[2].content.text7}}</p>
-      <p class="article-pagraph">{{articles[2].content.text8}}</p>
-      <h3 class="article-pagraph">{{articles[2].content.subTittle1}}</h3>
-      <p class="article-pagraph">{{articles[2].content.text9}}</p>
-      <p class="article-pagraph">{{articles[2].content.text10}}</p>
-      <p class="article-pagraph">{{articles[2].content.text11}}</p>
-      <ul class="article-list">
-        <li class="article-list-2">{{articles[2].content.textlist1}}</li>
-        <li class="article-list-1">{{articles[2].content.textlist2}}</li>
-        <li class="article-list-1">{{articles[2].content.textlist3}}</li>
-        <li class="article-list-1">{{articles[2].content.textlist4}}</li>
-      </ul>
-      <p class="article-pagraph">{{articles[2].content.text12}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[2].content.img1" alt="Image Usos posibles Javascript">
-        </div>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text13}}</p>
-      <h1 class="article-tittle">{{articles[2].content.tittle4}}</h1>
-      <p class="article-pagraph">{{articles[2].content.text14}}</p>
-      <p class="article-pagraph">{{articles[2].content.text15}}</p>
-      <p class="article-pagraph">{{articles[2].content.text16}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[2].content.img2" alt="Image Usos posibles Javascript">
-        </div>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text17}}</p>
-      <h3 class="article-pagraph">{{articles[2].content.subTittle2}}</h3>
-      <p class="article-pagraph">{{articles[2].content.text18}}</p>
-      <p class="article-pagraph">{{articles[2].content.text19}}</p>
-      <p class="article-pagraph">{{articles[2].content.text20}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota1}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text21}}</p>
-      <p class="article-pagraph">{{articles[2].content.text22}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota2}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text23}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota3}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text24}}</p>
-      <h1 class="article-tittle">{{articles[2].content.tittle5}}</h1>
-      <p class="article-pagraph">{{articles[2].content.text25}}</p>
-      <div class="article-multimedia">
-        <iframe [src]="articles[2].content.iframe2 | safe" [title]="articles[2].name"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text26}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota4}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text27}}</p>
-      <p class="article-pagraph">{{articles[2].content.text28}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota5}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text29}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota6}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text30}}</p>
-      <p class="article-pagraph">{{articles[2].content.text31}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota7}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text32}}</p>
-      <p class="article-pagraph">{{articles[2].content.text33}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota8}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text34}}</p>
-      <p class="article-pagraph">{{articles[2].content.text35}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[2].content.img3" alt="Image Usos posibles Javascript">
-        </div>
-      </div>
-      <span class="article-font-img"><a [href]="articles[2].content.fontImg"><em>Fuente Image</em></a></span>
-      <p class="article-pagraph">{{articles[2].content.text36}}</p>
-      <p class="article-pagraph">{{articles[2].content.text37}}</p>
-      <h1 class="article-tittle">{{articles[2].content.tittle6}}</h1>
-      <p class="article-pagraph">{{articles[2].content.text38}}</p>
-      <p class="article-pagraph">{{articles[2].content.text39}}</p>
-      <h3 class="article-pagraph">{{articles[2].content.subTittle3}}</h3>
-      <p class="article-pagraph">{{articles[2].content.text40}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota9}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text41}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota10}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text42}}</p>
-      <p class="article-pagraph">{{articles[2].content.text43}}</p>
-      <h3 class="article-pagraph">{{articles[2].content.subTittle4}}</h3>
-      <p class="article-pagraph">{{articles[2].content.text44}}</p>
-      <div class="article-notas">
-        <span class="notas"><em>{{articles[2].content.nota11}}</em></span>
-      </div>
-      <p class="article-pagraph">{{articles[2].content.text45}}</p>
-      <p class="article-pagraph">{{articles[2].content.text46}}</p>
-      <h1 class="article-tittle">{{articles[2].content.tittle7}}</h1>
-      <p class="article-pagraph">{{articles[2].content.text47}}</p>
-      <p class="article-pagraph">{{articles[2].content.text48}}</p>
-      <p class="article-pagraph">{{articles[2].content.text49}}</p>
-      <div class="mt-3 mb-3 article-img">
-        <img *ngFor="let img of images2, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'2'">
-      </div>
-      <a [href]="articles[2].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[2].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-    </div>
     <div class="article" id="3" *ngIf="art === 3">
       <h1 class="article-tittle">{{articles[3].name}}</h1>
-      <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[3].content.date}}</em></span><br>
-      <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[2].content.autor}}</em></span>
-      <p class="article-pagraph">{{articles[3].content.text1}}</p>
+      <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[3].content.date}}</em></span> <br>
+      <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[3].content.autor}}</em></span>
       <h3 class="article-subtittle">{{articles[3].description}}</h3>
-      <div class="article-notas">
-        <p class="notas"><em>{{articles[3].content.nota1}}</em></p>
-      </div>
+      <p class="article-pagraph">{{articles[3].content.text1}}</p>
       <p class="article-pagraph">{{articles[3].content.text2}}</p>
       <p class="article-pagraph">{{articles[3].content.text3}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[3].content.img1" alt="Image Usos posibles Javascript">
-        </div>
-      </div>
-      <span class="article-img-descrip"><em>{{articles[3].content.descripImg}}</em></span>
-      <h3 class="article-subtittle">{{articles[3].content.subTittle2}}</h3>
+      <h1 class="article-tittle">{{articles[3].content.tittle2}}</h1>
       <p class="article-pagraph">{{articles[3].content.text4}}</p>
-      <p class="article-pagraph">{{articles[3].content.text5}}</p>
-      <h3 class="article-subtittle">{{articles[3].content.subTittle3}}</h3>
-      <p class="article-pagraph"><b>{{articles[3].content.text6_1}}</b><span>{{articles[3].content.text6_2}}</span></p>
-      <p class="article-pagraph"><b>{{articles[3].content.text7_1}}</b><span>{{articles[3].content.text7_2}}</span></p>
-      <p class="article-pagraph"><b>{{articles[3].content.text8_1}}</b><span>{{articles[3].content.text8_2}}</span></p>
-      <p class="article-pagraph"><b>{{articles[3].content.text9_1}}</b><span>{{articles[3].content.text9_2}}</span></p>
-      <div class="article-notas">
-        <p class="notas"><em>{{articles[3].content.nota2_1}}</em></p>
-        <p class="notas"><em>{{articles[3].content.nota2_2}}</em></p>
-        <p class="notas"><em>{{articles[3].content.nota2_3}}</em></p>
-        <a [href]="articles[3].content.nota2_img_link1"><img [src]="articles[3].content.nota2_img1" style="max-width:20%" alt="Image Usos posibles Javascript"></a>
-        <a [href]="articles[3].content.nota2_img_link2"><img [src]="articles[3].content.nota2_img2" style="max-width:20%" alt="Image Usos posibles Javascript"></a>
+      <p class="article-pagraph">{{articles[3].content.textVideo1}}</p>
+      <div class="article-multimedia">
+        <iframe [src]="articles[3].content.iframe | safe" [title]="articles[3].name"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
       </div>
-      <h3 class="article-pagraph">{{articles[3].content.subTittle4}}</h3>
+      <p class="article-pagraph">{{articles[3].content.text5}}</p>
+      <h1 class="article-tittle">{{articles[3].content.tittle3}}</h1>
+      <p class="article-pagraph">{{articles[3].content.text6}}</p>
+      <p class="article-pagraph">{{articles[3].content.text7}}</p>
+      <p class="article-pagraph">{{articles[3].content.text8}}</p>
+      <h3 class="article-pagraph">{{articles[3].content.subTittle1}}</h3>
+      <p class="article-pagraph">{{articles[3].content.text9}}</p>
       <p class="article-pagraph">{{articles[3].content.text10}}</p>
       <p class="article-pagraph">{{articles[3].content.text11}}</p>
       <ul class="article-list">
@@ -263,12 +114,108 @@
         <li class="article-list-1">{{articles[3].content.textlist2}}</li>
         <li class="article-list-1">{{articles[3].content.textlist3}}</li>
         <li class="article-list-1">{{articles[3].content.textlist4}}</li>
-        <li class="article-list-1">{{articles[3].content.textlist5}}</li>
-        <li class="article-list-1">{{articles[3].content.textlist6}}</li>
       </ul>
-      <p class="article-pagraph"><b>{{articles[3].content.text12_bold1}}</b><a [href]="articles[3].content.text12_bold2_link"><b>{{articles[3].content.text12_bold2}}</b></a></p>
+      <p class="article-pagraph">{{articles[3].content.text12}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[3].content.img1)" [src]="articles[3].content.img1" alt="Image Usos posibles Javascript">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text13}}</p>
+      <h1 class="article-tittle">{{articles[3].content.tittle4}}</h1>
+      <p class="article-pagraph">{{articles[3].content.text14}}</p>
+      <p class="article-pagraph">{{articles[3].content.text15}}</p>
+      <p class="article-pagraph">{{articles[3].content.text16}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[3].content.img2)" [src]="articles[3].content.img2" alt="Image Usos posibles Javascript">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text17}}</p>
+      <h3 class="article-pagraph">{{articles[3].content.subTittle2}}</h3>
+      <p class="article-pagraph">{{articles[3].content.text18}}</p>
+      <p class="article-pagraph">{{articles[3].content.text19}}</p>
+      <p class="article-pagraph">{{articles[3].content.text20}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota1}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text21}}</p>
+      <p class="article-pagraph">{{articles[3].content.text22}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota2}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text23}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota3}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text24}}</p>
+      <h1 class="article-tittle">{{articles[3].content.tittle5}}</h1>
+      <p class="article-pagraph">{{articles[3].content.text25}}</p>
+      <div class="article-multimedia">
+        <iframe [src]="articles[3].content.iframe2 | safe" [title]="articles[2].name"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text26}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota4}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text27}}</p>
+      <p class="article-pagraph">{{articles[3].content.text28}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota5}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text29}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota6}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text30}}</p>
+      <p class="article-pagraph">{{articles[3].content.text31}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota7}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text32}}</p>
+      <p class="article-pagraph">{{articles[3].content.text33}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota8}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text34}}</p>
+      <p class="article-pagraph">{{articles[3].content.text35}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[3].content.img3)" [src]="articles[3].content.img3" alt="Image Usos posibles Javascript">
+        </div>
+      </div>
+      <span class="article-font-img"><a [href]="articles[3].content.fontImg"><em>Fuente Image</em></a></span>
+      <p class="article-pagraph">{{articles[3].content.text36}}</p>
+      <p class="article-pagraph">{{articles[3].content.text37}}</p>
+      <h1 class="article-tittle">{{articles[3].content.tittle6}}</h1>
+      <p class="article-pagraph">{{articles[3].content.text38}}</p>
+      <p class="article-pagraph">{{articles[3].content.text39}}</p>
+      <h3 class="article-pagraph">{{articles[3].content.subTittle3}}</h3>
+      <p class="article-pagraph">{{articles[3].content.text40}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota9}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text41}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota10}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text42}}</p>
+      <p class="article-pagraph">{{articles[3].content.text43}}</p>
+      <h3 class="article-pagraph">{{articles[3].content.subTittle4}}</h3>
+      <p class="article-pagraph">{{articles[3].content.text44}}</p>
+      <div class="article-notas">
+        <span class="notas"><em>{{articles[3].content.nota11}}</em></span>
+      </div>
+      <p class="article-pagraph">{{articles[3].content.text45}}</p>
+      <p class="article-pagraph">{{articles[3].content.text46}}</p>
+      <h1 class="article-tittle">{{articles[3].content.tittle7}}</h1>
+      <p class="article-pagraph">{{articles[3].content.text47}}</p>
+      <p class="article-pagraph">{{articles[3].content.text48}}</p>
+      <p class="article-pagraph">{{articles[3].content.text49}}</p>
       <div class="mt-3 mb-3 article-img">
-        <img *ngFor="let img of images3, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'3'">
+        <img *ngFor="let img of articles[3].content.images, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'3'">
       </div>
       <a [href]="articles[3].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[3].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
@@ -277,153 +224,192 @@
       <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[4].content.date}}</em></span><br>
       <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[4].content.autor}}</em></span>
       <p class="article-pagraph">{{articles[4].content.text1}}</p>
+      <h3 class="article-subtittle">{{articles[4].description}}</h3>
+      <div class="article-notas">
+        <p class="notas"><em>{{articles[4].content.nota1}}</em></p>
+      </div>
       <p class="article-pagraph">{{articles[4].content.text2}}</p>
       <p class="article-pagraph">{{articles[4].content.text3}}</p>
-      <h2 class="article-tittle">{{articles[4].content.tittle1}}</h2>
-      <p class="article-pagraph">{{articles[4].content.text4}}</p>
-      <h2 class="article-tittle">{{articles[4].content.tittle2}}</h2>
-      <p class="article-pagraph">{{articles[4].content.text5}}</p>
-      <p class="article-pagraph">{{articles[4].content.text6}}</p>
-      <p class="article-pagraph">{{articles[4].content.text7}}</p>
-      <h2 class="article-tittle">{{articles[4].content.tittle3}}</h2>
-      <p class="article-pagraph">{{articles[4].content.text8}}</p>
-      <p class="article-pagraph">{{articles[4].content.text9}}</p>
-      <h2 class="article-tittle">{{articles[4].content.tittle4}}</h2>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle1}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text10}}</p>
       <div class="article-multimedia">
         <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img1" alt="Image Usos posibles Javascript">
+          <img [lightbox]="0" (click)="openLigthbox(articles[4].content.img1)" [src]="articles[4].content.img1" alt="Image Usos posibles Javascript">
         </div>
       </div>
-      <p class="article-pagraph">{{articles[4].content.text11}}</p>
+      <span class="article-img-descrip"><em>{{articles[4].content.descripImg}}</em></span>
       <h3 class="article-subtittle">{{articles[4].content.subTittle2}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text12}}</p>
+      <p class="article-pagraph">{{articles[4].content.text4}}</p>
+      <p class="article-pagraph">{{articles[4].content.text5}}</p>
       <h3 class="article-subtittle">{{articles[4].content.subTittle3}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text13}}</p>
-      <p class="article-pagraph">{{articles[4].content.text14}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle4}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text15}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle5}}</h3>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img2" alt="Image">
-        </div>
+      <p class="article-pagraph"><b>{{articles[4].content.text6_1}}</b><span>{{articles[4].content.text6_2}}</span></p>
+      <p class="article-pagraph"><b>{{articles[4].content.text7_1}}</b><span>{{articles[4].content.text7_2}}</span></p>
+      <p class="article-pagraph"><b>{{articles[4].content.text8_1}}</b><span>{{articles[4].content.text8_2}}</span></p>
+      <p class="article-pagraph"><b>{{articles[4].content.text9_1}}</b><span>{{articles[4].content.text9_2}}</span></p>
+      <div class="article-notas">
+        <p class="notas"><em>{{articles[4].content.nota2_1}}</em></p>
+        <p class="notas"><em>{{articles[4].content.nota2_2}}</em></p>
+        <p class="notas"><em>{{articles[4].content.nota2_3}}</em></p>
+        <a [href]="articles[4].content.nota2_img_link1"><img [src]="articles[4].content.nota2_img1" style="max-width:20%" alt="Image Usos posibles Javascript"></a>
+        <a [href]="articles[4].content.nota2_img_link2"><img [src]="articles[4].content.nota2_img2" style="max-width:20%" alt="Image Usos posibles Javascript"></a>
       </div>
-      <p class="article-pagraph">{{articles[4].content.text16}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle6}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text17}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle7}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text18}}</p>
-      <p class="article-pagraph">{{articles[4].content.text19}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img3" alt="Image">
-        </div>
-      </div>
-      <p class="article-pagraph">{{articles[4].content.text20}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img4" alt="Image">
-        </div>
-      </div>
-      <p class="article-pagraph">{{articles[4].content.text21}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img5" alt="Image">
-        </div>
-      </div>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle8}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text22}}</p>
-      <p class="article-pagraph">{{articles[4].content.text23}}</p>
-      <p class="article-pagraph">{{articles[4].content.text24}}</p>
-      <p class="article-pagraph">{{articles[4].content.text25}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img6" alt="Image">
-        </div>
-      </div>
-      <p class="article-pagraph">{{articles[4].content.text26}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img7" alt="Image">
-        </div>
-      </div>
-      <p class="article-pagraph">{{articles[4].content.text27}}</p>
-      <div class="article-multimedia">
-        <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img8" alt="Image">
-        </div>
-      </div>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle9}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text28}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle10}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text29}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle11}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text30}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle12}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text31}}</p>
-      <p class="article-pagraph">{{articles[4].content.text32}}</p>
+      <h3 class="article-pagraph">{{articles[4].content.subTittle4}}</h3>
+      <p class="article-pagraph">{{articles[4].content.text10}}</p>
+      <p class="article-pagraph">{{articles[4].content.text11}}</p>
       <ul class="article-list">
-        <li class="article-list-2"><h5>{{articles[4].content.textlist1}}</h5></li>
+        <li class="article-list-2">{{articles[4].content.textlist1}}</li>
+        <li class="article-list-1">{{articles[4].content.textlist2}}</li>
+        <li class="article-list-1">{{articles[4].content.textlist3}}</li>
+        <li class="article-list-1">{{articles[4].content.textlist4}}</li>
+        <li class="article-list-1">{{articles[4].content.textlist5}}</li>
+        <li class="article-list-1">{{articles[4].content.textlist6}}</li>
       </ul>
-      <p class="article-pagraph">{{articles[4].content.text33}}</p>
+      <p class="article-pagraph"><b>{{articles[4].content.text12_bold1}}</b><a [href]="articles[4].content.text12_bold2_link"><b>{{articles[4].content.text12_bold2}}</b></a></p>
+      <div class="mt-3 mb-3 article-img">
+        <img *ngFor="let img of articles[4].content.images, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'4'">
+      </div>
+      <a [href]="articles[4].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[4].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+    <div class="article" id="0" *ngIf="art === 0">
+      <h1 class="article-tittle">{{articles[0].name}}</h1>
+      <span class="article-tittle"><i class="fa-solid fa-calendar-days"> - </i> <em>{{articles[0].content.date}}</em></span><br>
+      <span class="article-autor"><i class="fa fa-pencil-square-o" aria-hidden="true"> - </i><em> {{articles[0].content.autor}}</em></span>
+      <p class="article-pagraph">{{articles[0].content.text1}}</p>
+      <p class="article-pagraph">{{articles[0].content.text2}}</p>
+      <p class="article-pagraph">{{articles[0].content.text3}}</p>
+      <h2 class="article-tittle">{{articles[0].content.tittle1}}</h2>
+      <p class="article-pagraph">{{articles[0].content.text4}}</p>
+      <h2 class="article-tittle">{{articles[0].content.tittle2}}</h2>
+      <p class="article-pagraph">{{articles[0].content.text5}}</p>
+      <p class="article-pagraph">{{articles[0].content.text6}}</p>
+      <p class="article-pagraph">{{articles[0].content.text7}}</p>
+      <h2 class="article-tittle">{{articles[0].content.tittle3}}</h2>
+      <p class="article-pagraph">{{articles[0].content.text8}}</p>
+      <p class="article-pagraph">{{articles[0].content.text9}}</p>
+      <h2 class="article-tittle">{{articles[0].content.tittle4}}</h2>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle1}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text10}}</p>
       <div class="article-multimedia">
         <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img9" alt="Image">
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img1)"
+          [src]="articles[0].content.img1" alt="Image Usos posibles Javascript">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[0].content.text11}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle2}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text12}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle3}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text13}}</p>
+      <p class="article-pagraph">{{articles[0].content.text14}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle4}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text15}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle5}}</h3>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img2)" [src]="articles[0].content.img2" alt="Image">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[0].content.text16}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle6}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text17}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle7}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text18}}</p>
+      <p class="article-pagraph">{{articles[0].content.text19}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img3)" [src]="articles[0].content.img3" alt="Image">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[0].content.text20}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img4)" [src]="articles[0].content.img4" alt="Image">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[0].content.text21}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img5)" [src]="articles[0].content.img5" alt="Image">
+        </div>
+      </div>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle8}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text22}}</p>
+      <p class="article-pagraph">{{articles[0].content.text23}}</p>
+      <p class="article-pagraph">{{articles[0].content.text24}}</p>
+      <p class="article-pagraph">{{articles[0].content.text25}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img6)" [src]="articles[0].content.img6" alt="Image">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[0].content.text26}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img7)" [src]="articles[0].content.img7" alt="Image">
+        </div>
+      </div>
+      <p class="article-pagraph">{{articles[0].content.text27}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img8)" [src]="articles[0].content.img8" alt="Image">
+        </div>
+      </div>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle9}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text28}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle10}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text29}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle11}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text30}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle12}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text31}}</p>
+      <p class="article-pagraph">{{articles[0].content.text32}}</p>
+      <ul class="article-list">
+        <li class="article-list-2"><h5>{{articles[0].content.textlist1}}</h5></li>
+      </ul>
+      <p class="article-pagraph">{{articles[0].content.text33}}</p>
+      <div class="article-multimedia">
+        <div>
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img9)" [src]="articles[0].content.img9" alt="Image">
         </div>
       </div><br>
       <ul class="article-list">
-        <li class="article-list-2"><h5>{{articles[4].content.textlist2}}</h5></li>
+        <li class="article-list-2"><h5>{{articles[0].content.textlist2}}</h5></li>
       </ul>
-      <p class="article-pagraph">{{articles[4].content.text34}}</p>
+      <p class="article-pagraph">{{articles[0].content.text34}}</p>
       <div class="article-multimedia">
         <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img10" alt="Image">
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img10)" [src]="articles[0].content.img10" alt="Image">
         </div>
       </div>
-      <h2 class="article-tittle">{{articles[4].content.tittle5}}</h2>
+      <h2 class="article-tittle">{{articles[0].content.tittle5}}</h2>
       <div class="article-multimedia">
         <div>
-          <div (click)="zoom()" ><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-          <img (click)="zoom()" [ngClass]="{'zoomin': zoomin, 'zoomout': !zoomin}" [src]="articles[4].content.img11" alt="Image">
+          <img [lightbox]="0" (click)="openLigthbox(articles[0].content.img11)" [src]="articles[0].content.img11" alt="Image">
         </div>
       </div>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle13}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text35}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle14}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text36}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle15}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text37}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle16}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text38}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle17}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text39}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle18}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text40}}</p>
-      <h2 class="article-tittle">{{articles[4].content.tittle6}}</h2>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle19}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text41}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle20}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text42}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle21}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text43}}</p>
-      <h3 class="article-subtittle">{{articles[4].content.subTittle22}}</h3>
-      <p class="article-pagraph">{{articles[4].content.text44}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle13}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text35}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle14}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text36}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle15}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text37}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle16}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text38}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle17}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text39}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle18}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text40}}</p>
+      <h2 class="article-tittle">{{articles[0].content.tittle6}}</h2>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle19}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text41}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subTittle20}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text02}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subT0ttle21}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text03}}</p>
+      <h3 class="article-subtittle">{{articles[0].content.subT0ttle22}}</h3>
+      <p class="article-pagraph">{{articles[0].content.text04}}</p>
       <div class="mt-3 mb-3 article-img">
-        <img *ngFor="let img of images4, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'4'">
+        <img *ngFor="let img of articles[0].content.images, let i=index" [lightbox]="i" [src]="img" alt="images" [gallery]="'0'">
       </div>
-      <a [href]="articles[4].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[4].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a [href]="articles[0].content.fuente.url" target="_blank" class="article-fuente"><em>{{articles[0].content.fuente.name}} - </em><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
   </section>
 </div>
