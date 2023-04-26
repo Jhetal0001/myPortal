@@ -13,7 +13,7 @@ export const THEMES: ITheme = {
     font1: '"Kaisei Tokumin", serif',
   },
   light: {
-    colorprimary: '#0D47A1',
+    colorprimary: '#0d6efd',
     colorbg: '#E3F2FD',
     colorsecundary: '#BBDEFBE8',
     colorbutton: '#2962FF',

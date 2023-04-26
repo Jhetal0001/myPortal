@@ -1,9 +1,13 @@
 .header {
+  width: 100%;
+  max-height: 60px;
   background-color: var(--colorprimary);
   box-shadow: 0px 4px 6px var(--colorshadow);
-  position: relative;
+  position: absolute;
+  top: 0;
   color: var(--colorfontone);
   justify-content: space-between;
+  align-items: center;
   & h3 {
     width: 80%;
     margin: 0;

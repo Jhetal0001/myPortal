@@ -1,6 +1,6 @@
 /* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Gallery, ImageItem, GalleryItem} from '@ngx-gallery/core';
 import { ArticulosService } from '../../services/articulos.service';
 import { UtilsService } from '../../services/utils.service';
@@ -19,7 +19,7 @@ export class BlogspaceComponent implements OnInit {
 
   constructor(
       public gallery: Gallery,
-      private articulosService: ArticulosService,
+      @Inject(ArticulosService) private articulosService: ArticulosService,
       private UTILS: UtilsService
     ) {
   }
@@ -48,8 +48,8 @@ export class BlogspaceComponent implements OnInit {
       });
       this.open();
       this.UTILS.hideLoad();
-      }).catch((error: string) => {
-        this.UTILS.showAlert(error, 'danger');
+      }).catch((error) => {
+        this.UTILS.showAlert(error.message, 'danger');
         this.UTILS.hideLoad();
     });
   }

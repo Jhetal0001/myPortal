@@ -44,6 +44,23 @@ $proyecto2-theme: mat.define-light-theme((
   --colorfonttwo: #ffffff;
   --font1: 'Kaisei Tokumin', serif;
 }
+
+//Variable para scrollbar
+
+@mixin scrollbars {
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #41474b;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #303436;
+    border-radius: 20px;
+    border: 3px solid #41474b;
+  }
+}
+
 //Fondo ligthbox oscuro
 gallery {
   background: #111111ea !important;
@@ -78,6 +95,27 @@ body {
     border-radius: 20px;
     border: 3px solid var(--colorsecundary);
   }
+}
+
+.popover {
+  background-color: var(--colorprimary);
+  border-radius: 10px;
+}
+.popover-arrow {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--colorprimary);
+  content-visibility: hidden;
+}
+.modal-dialog {
+  max-width: 80%;
+}
+.modal-content {
+  background-color: var(--colorprimary);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 html, body { height: 100%; }

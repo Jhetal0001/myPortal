@@ -19,14 +19,14 @@ import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from "@angula
 
 const app_routes: Routes = [
   {
-    path: 'home', component: HomeComponent, ...canActivate(() => redirectLoggedInTo(['homeSession'])),
+    path: 'home', component: HomeComponent,
     children: [
       { path: '', component: PrincipalComponent },
       { path: 'micv', component: MicvComponent },
       { path: 'proyectos', component: ProyectosComponent },
       { path: 'blogspace', component: BlogspaceComponent },
       {
-        path: 'login', component: LoginComponent,
+        path: 'login', component: LoginComponent, ...canActivate(() => redirectLoggedInTo(['homeSession'])),
         children: [
           { path: '', component: SignupComponent },
           { path: 'signin', component: SigninComponent },

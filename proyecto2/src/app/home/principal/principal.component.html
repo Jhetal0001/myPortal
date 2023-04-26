@@ -2,15 +2,15 @@
   <section class="section-one">
     <div class="section-one--leyend">
       <span *ngIf="leerMas !== 'bienvenida'"
-        >{{principal.intro}}  <span (click)="leerMas = 'bienvenida'"> Leer Mas</span></span
+        >{{principal.intro}}  <span class="cursor-pointer" (click)="leerMas = 'bienvenida'"> Leer Mas</span></span
       >
-      <span *ngIf="leerMas === 'bienvenida'">{{principal.bienvenida}}  <span (click)="leerMas = ''"> Leer Menos</span></span>
+      <span *ngIf="leerMas === 'bienvenida'">{{principal.bienvenida}}  <span class="cursor-pointer" (click)="leerMas = ''"> Leer Menos</span></span>
     </div>
     <div class="section-one--leyend">
       <span *ngIf="leerMas !== 'herramientas'"
-        >{{principal.introherramientas}}  <span (click)="leerMas = 'herramientas'"> Leer Mas</span></span
+        >{{principal.introherramientas}}  <span class="cursor-pointer" (click)="leerMas = 'herramientas'"> Leer Mas</span></span
       >
-      <span *ngIf="leerMas === 'herramientas'">{{principal.herramientas}}  <span (click)="leerMas = ''"> Leer Menos</span></span>
+      <span *ngIf="leerMas === 'herramientas'">{{principal.herramientas}}  <span class="cursor-pointer" (click)="leerMas = ''"> Leer Menos</span></span>
     </div>
   </section>
   <section class="section-two d-flex">
@@ -58,7 +58,7 @@
   <hr>
   <section class="comments">
     <p>“Su opinión es muy importante. Por favor, deja tu opinión en el botón de comentarios”</p>
-    <a class="comments-button" (click)="comments = true">Comentar</a>
+    <a class="cursor-pointer comments-button" (click)="comments = true">Comentar</a>
   </section>
   <div *ngIf="comments" [@enterAnimation] class="app-comments">
     <app-comments [nameProject]="nameProject" [sectionShow]="comments" (sectionHide)="comments = false"></app-comments>

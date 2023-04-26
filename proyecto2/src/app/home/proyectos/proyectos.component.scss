@@ -9,18 +9,23 @@
   color: var(--colorfonttwo);
   &-sections {
     flex-wrap: wrap;
+    position: relative;
     & .card {
       border-radius:10px;
       max-width:170px;
       width: 18rem;
       background-color: var(--colorsecundary);
       &-text {
-        font-size: 10px;
+        font-size: 12px;
+        color: var(--colorfonttwo);
       }
-    }
-    & .btn {
+      &-title {
+        color: var(--colorfonttwo);
+      }
+      & .btn {
       background-color: var(--colorprimary);
-      color: var(--colorfontone);
+        color: var(--colorfontone);
+      }
     }
   }
 }

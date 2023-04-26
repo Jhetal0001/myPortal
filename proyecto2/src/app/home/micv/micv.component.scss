@@ -93,7 +93,16 @@
     }
   }
 }
-
+.btn-certificates {
+  border: 1px solid var(--colorfonttwo);
+  background-color: var(--colorbutton);
+  color: var(--colorfontone);
+  transition: filter 0.2s ease-in-out;
+  &:hover {
+    color: black;
+    filter: brightness(150%);
+  }
+}
 @media screen and (min-width: 768px) {
   .micv-section-two {
     max-width: 400px;

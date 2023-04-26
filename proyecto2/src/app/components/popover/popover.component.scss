@@ -1,0 +1,28 @@
+.target {
+  width: 100%;
+  height: 100%;
+  background: var(--colorbg);
+  border-radius: 10px;
+  & .title {
+    width: 100%;
+    height: auto;
+    background: var(--colorprimary);
+    text-align: center;
+    padding: 2px;
+    & h6 {
+      color: var(--colorfontone);
+    }
+  }
+  & .content {
+    width: 100%;
+    height: 100%;
+    background: var(--colorsecundary);
+    text-align: center;
+    padding: 2px;
+    color: var(--colorfonttwo);
+    border-radius: 10px;
+    &-img img {
+      width: 100%;
+    }
+  }
+}

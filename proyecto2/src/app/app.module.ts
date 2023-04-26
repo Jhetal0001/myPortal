@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { SafePipe } from './safe.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { GalleryModule } from '@ngx-gallery/core';
 import { LightboxModule } from '@ngx-gallery/lightbox';
@@ -46,6 +47,7 @@ import { CommentsComponent } from './home/proyectos/comments/comments.component'
 import { TimmeAgoPipe } from './pipes/timme-ago.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
 import { UtilsService } from './services/utils.service';
+import { PopoverComponent } from './components/popover/popover.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,7 @@ import { UtilsService } from './services/utils.service';
     CommentsComponent,
     TimmeAgoPipe,
     LoaderComponent,
+    PopoverComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +96,7 @@ import { UtilsService } from './services/utils.service';
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
+    NgbModule
   ],
   providers: [UtilsService],
   bootstrap: [AppComponent]

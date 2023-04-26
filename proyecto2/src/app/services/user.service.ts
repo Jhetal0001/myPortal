@@ -10,6 +10,7 @@ import { Auth, createUserWithEmailAndPassword,
   sendEmailVerification,
   sendPasswordResetEmail,
   getAuth,
+  onAuthStateChanged
 } from '@angular/fire/auth';
 import { User } from '../models/user.model';
 
@@ -19,6 +20,7 @@ import {
 } from '@firebase/firestore';
 
 import { Firestore, collection, query, where, getDocs, doc, setDoc, updateDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -89,6 +91,19 @@ export class UserService {
   resetPassword(email: string) {
     const auth = getAuth();
     return sendPasswordResetEmail(auth, email)
+  }
+
+  validatorUser(): Observable<string | boolean> {
+    return new Observable<string | boolean>((observer) => {
+      return onAuthStateChanged(this.auth, (user) => {
+        if (user) {
+          const uid = user.uid;
+          observer.next(uid);
+        } else {
+          observer.next(false);
+        }
+      });
+    });
   }
 
 }

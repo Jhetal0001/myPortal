@@ -1,0 +1,20 @@
+.content {
+  min-height: calc(100vh - 60px);
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+.modal-content {
+  background-color: var(--colorprimary);
+}
+.modal-header {
+  background-color: var(--colorprimary);
+  border-bottom-color: var(--colorsecundary);
+}
+.modal-body {
+  background-color: var(--colorbg);
+}
+.modal-footer {
+  background-color: var(--colorprimary);
+  border-top-color: var(--colorsecundary);
+}

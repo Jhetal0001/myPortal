@@ -3,9 +3,9 @@
   <h3>Portal JF</h3>
   <div class="app-menu-desktop"><app-menu></app-menu></div>
   <div class="modo">
-    <i title="Modo Claro" [ngStyle]="{'opacity': colorTheme === 'light'? '90%' : '10%'}" (click)="changeTheme('light')" class="fa-solid fa-lightbulb"></i>
-    <i title="Modo Oscuro" [ngStyle]="{'opacity': colorTheme === 'default'? '90%' : '10%'}" (click)="changeTheme('default')" class="fa-solid fa-moon" aria-hidden="true"></i></div>
-  <div class="search" ><i title="Buscador" (click)="searchView()" class="fa-solid fa-magnifying-glass"></i></div>
+    <i title="Modo Claro" [ngStyle]="{'opacity': colorTheme === 'light'? '90%' : '10%'}" (click)="changeTheme('light')" class="fa-solid fa-lightbulb cursor-pointer"></i>
+    <i title="Modo Oscuro" [ngStyle]="{'opacity': colorTheme === 'default'? '90%' : '10%'}" (click)="changeTheme('default')" class="fa-solid fa-moon cursor-pointer" aria-hidden="true"></i></div>
+  <div class="search" ><i title="Buscador" (click)="searchView()" class="fa-solid fa-magnifying-glass cursor-pointer"></i></div>
 </header>
 <app-search (closed)="searchView()" [ngClass]="{'searchShow' : searchShow , 'searchHidde' : !searchShow}"></app-search>
 <div class="app-menu" (click)="menuView()" [ngClass]="{'menuShow' : menuShow , 'menuHidde' : !menuShow}">

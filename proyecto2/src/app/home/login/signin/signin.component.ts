@@ -66,7 +66,7 @@ export class SigninComponent  {
     .then(data => {
       validator = data;
     }).catch(error => {
-      this.UTILS.showAlert(error, 'danger')
+      this.UTILS.showAlert(error.message, 'danger')
     });
     return validator;
   }
@@ -87,7 +87,7 @@ export class SigninComponent  {
       setTimeout(()=> {this.router.navigate(['homeSession'])}, 3000)
     })
     .catch(error => {
-        this.UTILS.showAlert(error, 'danger')
+        this.UTILS.showAlert(error.message, 'danger')
     })
   }
 
@@ -113,7 +113,7 @@ export class SigninComponent  {
       this.router.navigate(['homeSession']);}, 1000)
     })
     .catch(error => {
-      this.UTILS.showAlert(error, 'danger')
+      this.UTILS.showAlert(error.message, 'danger')
     })
 
   }

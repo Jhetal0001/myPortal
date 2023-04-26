@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
         this.UTILS.showAlert(`Se ha enviado el link al email: '${this.infoAuth.email}' para restrablecer la contraseña` ,'info');
       })
       .catch((error) => {
-        this.UTILS.showAlert(error ,'danger');
+        this.UTILS.showAlert(error.message ,'danger');
       });
   }
 

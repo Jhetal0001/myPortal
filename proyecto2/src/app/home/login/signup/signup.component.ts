@@ -37,7 +37,7 @@ export class SignupComponent {
         validator = data;
       })
       .catch((error) => {
-        this.UTILS.showAlert(error, 'danger');
+        this.UTILS.showAlert(error.message, 'danger');
       });
     return validator;
   }
@@ -54,7 +54,7 @@ export class SignupComponent {
         this.router.navigate(['homeSession']);
       })
       .catch((error) => {
-        this.UTILS.showAlert(error, 'danger');
+        this.UTILS.showAlert(error.message, 'danger');
       });
   }
 

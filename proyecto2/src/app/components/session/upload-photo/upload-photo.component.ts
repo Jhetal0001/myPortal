@@ -37,7 +37,7 @@ export class UploadPhotoComponent {
       this.UTILS.showAlert('La imagen cargo exitosamente' ,'success');
     })
     .catch(error => {
-      this.UTILS.showAlert(error ,'danger');
+      this.UTILS.showAlert(error.message ,'danger');
     })
 
     getDownloadURL(imgRef)

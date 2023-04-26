@@ -2,6 +2,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommentsService } from 'src/app/services/comments.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import {
   onSnapshot,
   Firestore,
@@ -28,15 +29,13 @@ export class CommentsComponent implements OnInit {
   @Input() sectionShow  = false;
   @Output() sectionHide = new EventEmitter();
 
-  alertActive = '';
-  alertMessage = '';
-
   comments: Comments[] = [];
   unsubscribe: any;
 
   constructor(
     private commentsService: CommentsService,
-    private firestore: Firestore
+    private firestore: Firestore,
+    private UTIL: UtilsService
   ) {
     this.formComment = new FormGroup<object>({
       nombre: new FormControl(
@@ -78,19 +77,12 @@ export class CommentsComponent implements OnInit {
         this.formComment.markAsUntouched();
       })
       .catch((error) => {
-        this.alertActive = 'danger';
-        this.alertMessage = error;
-        this.hideAlert();
+        this.UTIL.showAlert(error.message, 'danger')
       });
   }
   hideSection(e: boolean) {
     this.sectionShow = e;
     this.sectionHide.emit();
   }
-  hideAlert() {
-    setTimeout(() => {
-      this.alertActive = '';
-      this.alertMessage = '';
-    }, 5000);
-  }
+
 }
