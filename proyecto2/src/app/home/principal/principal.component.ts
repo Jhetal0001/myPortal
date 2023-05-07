@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-principal',
@@ -24,12 +25,13 @@ import { Component } from '@angular/core';
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.scss'],
 })
-export class PrincipalComponent {
+export class PrincipalComponent implements OnInit {
   leerMas = '';
 
   comments = false;
   nameProject = 'Portal-JF';
-
+  isAdmin!: boolean;
+  constructor(private UTIL: UtilsService){}
 
   principal = {
     intro: `¡Hola! Mi nombre es Jhon Vásquez, Bienvenida/o a mi proyecto de presentación, aquí podrá conocer acerca de mí,
@@ -50,4 +52,10 @@ export class PrincipalComponent {
       'En esta sección encontrará más acerca de mi experiencia profesional, proyectos y artículos.',
     users: 'Si desea puede registrarse o iniciar sesión en un espacio personal',
   };
+
+  ngOnInit(): void {
+    this.UTIL.role().subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
+  }
 }

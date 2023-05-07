@@ -3,8 +3,9 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
 import {
   Gallery,
   GalleryItem,
-  ImageItem,
+  IframeItem,
 } from '@ngx-gallery/core';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -48,33 +49,35 @@ export class ProyectosComponent implements OnInit {
       img_small : '../../../assets/small/Batatabit.png',
       img : '../../../assets/Batatabit.png',
       description : 'Es un proyecto hecho en clases de platzi basado en la metodología First Mobile',
-      link : 'https://jhetal0001.github.io/'
+      link : 'http://jhetal0001.github.io/'
     },
     {
       name: 'GameCSS',
       img_small : '../../../assets/small/animaciones-css.png',
       img : '../../../assets/animaciones-css.png',
       description : 'Es un proyecto hecho en clases de platzi basado en animaciones CSS',
-      link : 'https://animaciones-css-jf.web.app/'
+      link : 'http://animaciones-css-jf.web.app/'
     },
   ]
+  isAdmin!: boolean;
 
   items: GalleryItem[] = [];
-  constructor(public gallery: Gallery) {
-    for (const image of this.projectsArray){
-    const item = new ImageItem({ src: image.img, thumb: image.img_small });
-    this.items.push(item);
-    }
+  constructor(public gallery: Gallery, private UTIL: UtilsService) {}
+
+  openLigthbox(src: string){
+    this.gallery.ref().setConfig({ thumb: false });
+    const link = new IframeItem({ src: src });
+    this.gallery.ref().load([link]);
   }
-  open() {
-    this.gallery.ref().load(this.items);
-  }
+
   sectionHide(e: boolean, name: string){
     this.comments = e;
     this.nameProject = name;
   }
 
   ngOnInit(): void {
-    this.open();
+    this.UTIL.role().subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
   }
 }

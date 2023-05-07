@@ -1,0 +1,39 @@
+.select {
+  box-shadow: 0px 0px 8px 4px gold;
+}
+.card {
+  max-width: 300px;
+}
+.card-header {
+  background-color: var(--colorprimary);
+  color: var(--colorfontone);
+  border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
+}
+.card-body {
+  background-color: var(--colorbg);
+  color: var(--colorfonttwo);
+  border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);
+}
+.badge {
+  background-color: var(--colorprimary);
+  color: var(--colorfontone);
+  font-weight: 500;
+}
+td, th {
+  color: var(--colorfonttwo);
+}
+
+label {
+  background: var(--colorprimary);
+  color: var(--colorfontone);
+}
+
+input, select, textarea {
+  background: var(--colorbg);
+  color: var(--colorfonttwo);
+}
+
+input:disabled, select:disabled, textarea:disabled {
+  background: var(--colorsecundary);
+  color: var(--colorfonttwo);
+}

@@ -3,7 +3,7 @@ import { ITheme } from './itheme.interface';
 export const THEMES: ITheme = {
 
   blue: {
-    colorprimary: '#303436',
+    colorprimary: '#2a2d2e',
     colorbg: '#303436',
     colorsecundary: '#42494dec',
     colorbutton: '#0d7aa0',

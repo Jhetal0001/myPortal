@@ -1,0 +1,435 @@
+<div>
+
+  <div class="accordion accordion-flush bg-dark" id="accordionFlush">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Datos de Perfil
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush">
+        <div class="accordion-body">
+          <form [formGroup]="profileData" (ngSubmit)="onSubmit(false)">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" class="input-group-text" id="inputGroup-sizing-sm" for="name">Name:</label>
+                    <input class="form-control" type="text" id="First name" formControlName="name">
+                    <input class="form-control" type="text" id="Last name" formControlName="lastname">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="profession">Profession:</label>
+                    <input class="form-control" type="profession" id="profession" formControlName="profession">
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="phone">Phone:</label>
+                    <input class="form-control" type="text" id="phone" formControlName="phone">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="photo">Photo:</label>
+                    <input class="form-control" accept=".jpg,.jpeg,.png" type="file" id="photo" formControlName="photo">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="email">Email:</label>
+                    <input class="form-control" type="email" id="email" formControlName="email">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="address">Adress:</label>
+                    <select class="form-select form-select-sm" aria-label="Default select example" formControlName="departamento" (change)="listCitiesByDepartment(profileData, 'ciudades-data')">
+                      <option selected>Departamento</option>
+                      <option *ngFor="let departament of listaDepartaments" [value]="departament.departamento">{{departament.departamento}}</option>
+                    </select>
+                    <select class="form-select form-select-sm" id="ciudades-data" aria-label="Default select example" formControlName="municipio">
+                      <option selected>Ciudad</option>
+                      <option *ngFor="let citi of listaCiudades" [value]="citi.municipio">{{citi.municipio}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" type="button" (click)="onSubmit(true)" *ngIf="profileData.disabled">Editar</button>
+                <button type="button" class="btn btn-outline-danger mx-2" *ngIf="profileData.enabled" (click)="cancelForm(profileData)">Cancelar</button>
+                <button class="btn btn-outline-primary" type="submit" *ngIf="profileData.enabled" [disabled]="profileData.invalid">Guardar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Perfil Profesional
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlush">
+        <div class="accordion-body">
+          <form [formGroup]="profileProf" (ngSubmit)="onSubmittwo(false)">
+            <div class="container mt-4">
+
+              <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text col-12" id="inputGroup-sizing-sm" for="text_profile">Perfil Profesional</label>
+                <textarea class="form-control scrollTheme col-12" id="text_profile" formControlName="text_profile"></textarea>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" type="button" (click)="onSubmittwo(true)" *ngIf="profileProf.disabled" >Editar</button>
+                <button type="button" class="btn btn-outline-danger mx-2" *ngIf="profileProf.enabled" (click)="cancelForm(profileProf)">Cancelar</button>
+                <button class="btn btn-outline-primary" type="submit" *ngIf="profileProf.enabled" [disabled]="profileProf.invalid">Guardar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Estudios Basicos y Profesionales
+        </button>
+      </h2>
+
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush">
+        <div class="accordion-body">
+
+          <div>
+            <button class="btn btn-outline-primary m-3"
+            [ngClass]="{'select': selectedStudy === '0'}"
+            (click)="profileStudieSelect(); selectedStudy = '0'">+</button>
+            <div class="d-flex p-3 overflow-auto scrollTheme">
+              <div class="card border-warning m-3"
+                [ngClass]="{'select': selectedStudy === item.id}"
+                style="min-width: 250px;"
+                *ngFor="let item of itemsProfileStudies"
+                (click)="profileStudieSelect(item)">
+                <input class="cursor-pointer w-100 h-100 position-absolute opacity-0" [id]="'radio-'+item.id" type="radio" [name]="'studies'" [value]="item.id" [(ngModel)]="selectedStudy">
+                <div class="card-header pe-5">{{item.titulo_obtenido}}
+                  <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 p-2" (click)="confirmAction(item.titulo_obtenido, 'profileStudies', item.id)"></button>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.nombre_institucion}}</h5>
+                  <p class="card-text">{{item.departamento}} - {{item.municipio}}</p>
+                  <table class="table table-sm w-100">
+                    <thead>
+                      <tr>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{item.fecha_inicio | date}}</td>
+                        <td>{{item.fecha_fin | date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form [formGroup]="profileStudies" *ngIf="selectedStudy !== undefined" (ngSubmit)="onSubmitThree(false, selectedStudy === '0'? undefined: selectedStudy)">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="input-group input-group-sm mb-3 col-12">
+                  <label class="input-group-text col-12 col-sm-7 col-lg-4" id="inputGroup-sizing-sm" id="inputGroup-sizing-sm" for="nombre_institucion">Nombre de la Institucion o centro Educativo:</label>
+                  <input class="form-control col-12 col-sm-5 col-lg-8" type="text" id="nombre_institucion" formControlName="nombre_institucion">
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="titulo_obtenido">Titulo Obtenido:</label>
+                    <input class="form-control" type="text" id="titulo_obtenido" formControlName="titulo_obtenido">
+                  </div>
+                </div>
+                  <div class="col-sm-12 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="lugar">Lugar:</label>
+                    <select class="form-select form-select-sm" aria-label="Default select example" formControlName="departamento" (change)="listCitiesByDepartment(profileStudies, 'ciudades-studies')">
+                      <option selected>Departamento</option>
+                      <option *ngFor="let departament of listaDepartaments" [value]="departament.departamento">{{departament.departamento}}</option>
+                    </select>
+                    <select class="form-select form-select-sm" id="ciudades-studies" aria-label="Default select example" formControlName="municipio">
+                      <option selected>Ciudad</option>
+                      <option *ngFor="let citi of listaCiudades" [value]="citi.municipio">{{citi.municipio}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_inicio">Fecha de Inicio:</label>
+                    <input class="form-control" type="date" id="fecha_inicio" formControlName="fecha_inicio">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_fin">Fecha Fin:</label>
+                    <input class="form-control" type="date" id="fecha_fin" formControlName="fecha_fin">
+                  </div>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" type="submit" (click)="onSubmitThree(true)" *ngIf="profileStudies.disabled">Editar</button>
+                <button type="button" class="btn btn-outline-danger mx-2" *ngIf="profileStudies.enabled" (click)="cancelForm(profileStudies); selectedStudy = undefined">Cancelar</button>
+                <button class="btn btn-outline-primary" type="submit" *ngIf="profileStudies.enabled" [disabled]="profileStudies.invalid">Guardar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+          Certificados y Constancias
+        </button>
+      </h2>
+      <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlush">
+        <div class="accordion-body">
+
+          <button class="btn btn-outline-primary m-3"
+          [ngClass]="{'select': selectedCertificate === '0'}"
+          (click)="profileCertificateSelect(); selectedCertificate = '0'">+</button>
+
+          <div class="container p-3 d-flex overflow-auto scrollTheme" >
+
+            <div class="card border-warning mb-3 me-3 cursor-pointer" style="min-width: 150px;"
+            [ngClass]="{'select' : selectedCertificate === item.id}"
+            (click)="profileCertificateSelect(item); selectedCertificate = item.id"
+            *ngFor="let item of itemsProfileCertificates">
+              <div class="card-header p-1 pe-4">{{item.nombre_escuela}}
+                <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 p-2" (click)="confirmAction(item.nombre_curso, 'profileCertificates', item.id)"></button>
+              </div>
+              <div class="card-body p-2">
+                <h5 class="card-title">{{item.nombre_curso}}</h5>
+                <p class="card-text">{{item.fecha_fin | date}}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <form [formGroup]="profileCertificates" *ngIf="selectedCertificate !== undefined" (ngSubmit)="onSubmitFour(false, selectedCertificate=== '0'? undefined: selectedCertificate)">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-12 col-lg-8">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" class="input-group-text" id="inputGroup-sizing-sm" for="nombre_curso">Nombre del curso:</label>
+                    <input class="form-control" type="text" id="nombre_curso" formControlName="nombre_curso">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_fin">Fecha de Finalización:</label>
+                    <input class="form-control" type="date" id="fecha_fin" formControlName="fecha_fin">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="nombre_escuela">Nombre de la escuela:</label>
+                    <input class="form-control" type="text" id="nombre_escuela" formControlName="nombre_escuela">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="categoria">Categoria:</label>
+                    <input class="form-control" type="text" id="categoria" formControlName="categoria">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="url_certificado">Url del Certificado</label>
+                    <input class="form-control" type="text" id="url_certificado" formControlName="url_certificado">
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" type="submit" (click)="onSubmitFour(true)" *ngIf="profileCertificates.disabled">Editar</button>
+                <button type="button" class="btn btn-outline-danger mx-2" *ngIf="profileCertificates.enabled" (click)="cancelForm(profileCertificates); selectedCertificate = undefined">Cancelar</button>
+                <button class="btn btn-outline-primary" type="submit" *ngIf="profileCertificates.enabled" [disabled]="profileCertificates.invalid">Guardar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+          Experiencia Laboral o Profesional
+        </button>
+      </h2>
+      <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlush">
+        <div class="accordion-body">
+
+          <div>
+            <button class="btn btn-outline-primary m-3"
+            [ngClass]="{'select': selectedExperience === '0'}"
+            (click)="profileExperienceSelect(); selectedExperience = '0'">+</button>
+            <div class="d-flex p-3 overflow-auto scrollTheme">
+              <div class="card border-warning m-3"
+                [ngClass]="{'select': selectedExperience === item.id}"
+                style="min-width: 300px;" *ngFor="let item of itemsProfileExperience"
+                (click)="profileExperienceSelect(item)">
+                <input class="cursor-pointer w-100 h-100 position-absolute opacity-0" [id]="'radio-'+item.id" type="radio" [name]="'experience'" [value]="item.id" [(ngModel)]="selectedExperience">
+                <div class="card-header pe-5">{{item.nombre_empresa}}
+                  <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 p-2" (click)="confirmAction(item.nombre_empresa, 'profileExperience', item.id)"></button>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.cargo}}</h5>
+                  <p class="card-text">{{item.departamento}} - {{item.municipio}}</p>
+                  <table class="table table-sm w-100">
+                    <thead>
+                      <tr>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{item.fecha_inicio | date}}</td>
+                        <td>{{item.fecha_fin | date}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="card-text fst-italic" style="white-space: pre-line; font-size: 14px;">{{item.funciones_responsabilidades}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form [formGroup]="profileExperience" *ngIf="selectedExperience !== undefined" (ngSubmit)="onSubmitFive(false, selectedExperience === '0'? undefined: selectedExperience)">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" class="input-group-text" id="inputGroup-sizing-sm" for="nombre_empresa">Nombre de la empresa:</label>
+                    <input class="form-control" type="text" id="nombre_empresa" formControlName="nombre_empresa">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="cargo">Cargo desempeñado:</label>
+                    <input class="form-control" type="text" id="cargo" formControlName="cargo">
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="lugar">Lugar:</label>
+                      <select class="form-select form-select-sm" aria-label="Default select example" formControlName="departamento" (change)="listCitiesByDepartment(profileExperience, 'ciudades-experience')">
+                        <option selected>Departamento</option>
+                        <option *ngFor="let departament of listaDepartaments" [value]="departament.departamento">{{departament.departamento}}</option>
+                      </select>
+                    <select class="form-select form-select-sm" id="ciudades-experience" aria-label="Default select example" formControlName="municipio">
+                      <option selected>Ciudad</option>
+                      <option *ngFor="let citi of listaCiudades" [value]="citi.municipio">{{citi.municipio}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_inicio">Fecha de Inicio:</label>
+                    <input class="form-control" type="date" id="fecha_inicio" formControlName="fecha_inicio">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_fin">Fecha de fin:</label>
+                    <input class="form-control" type="date" id="fecha_fin" formControlName="fecha_fin">
+                  </div>
+                </div>
+              </div>
+
+                <div class="input-group input-group-sm mb-3">
+                  <label class="input-group-text col-12" id="inputGroup-sizing-sm" for="funciones_responsabilidades">Funciones y/o Responsabilidades</label>
+                  <textarea class="form-control col-12" id="funciones_responsabilidades" formControlName="funciones_responsabilidades"></textarea>
+                </div>
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" type="submit" (click)="onSubmitFive(true)" *ngIf="profileExperience.disabled">Editar</button>
+                <button type="button" class="btn btn-outline-danger mx-2" *ngIf="profileExperience.enabled" (click)="cancelForm(profileExperience); selectedExperience = undefined">Cancelar</button>
+                <button class="btn btn-outline-primary" type="submit" *ngIf="profileExperience.enabled" [disabled]="profileExperience.invalid">Guardar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+          Habilidades Tecnicas
+        </button>
+      </h2>
+      <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlush">
+        <div class="accordion-body">
+
+          <div class="container">
+            <span class="badge fs-6 border border-warning cursor-pointer m-2"
+            [ngClass]="{'select' : selectedAbilitie === item.id}"
+            (click)="profileAbilitiesSelect(item); selectedAbilitie = item.id"
+            *ngFor="let item of itemsProfileAbilities">{{item.nombre_habilidad}} : {{item.porcentaje}}%
+            <button type="button" class="btn-close btn-close-white ms-2" (click)="confirmAction(item.nombre_habilidad, 'profileAbilities', item.id)"></button>
+          </span>
+          <button class="btn btn-outline-primary m-3"
+          [ngClass]="{'select': selectedAbilitie === '0'}"
+          (click)="profileAbilitiesSelect(); selectedAbilitie = '0'">+</button>
+          </div>
+
+          <form [formGroup]="profileAbilities" *ngIf="selectedAbilitie !== undefined" (ngSubmit)="onSubmitSix(false,  selectedAbilitie=== '0'? undefined: selectedAbilitie)">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" class="input-group-text" id="inputGroup-sizing-sm" for="nombre_habilidad">Tag:</label>
+                    <input class="form-control" type="text" id="nombre_habilidad" formControlName="nombre_habilidad">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="porcentaje">Pocentaje</label>
+                    <div class="input-group-text">
+                      <input class="form-range" type="range" min="0" max="100" step="5" id="porcentaje" formControlName="porcentaje">
+                    </div>
+                    <label class="input-group-text" >{{ profileAbilities.get('porcentaje')!.value? profileAbilities.get('porcentaje')!.value : '0' }} %</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary" type="submit" (click)="onSubmitSix(true)" *ngIf="profileAbilities.disabled">Editar</button>
+                <button type="button" class="btn btn-outline-danger mx-2" *ngIf="profileAbilities.enabled" (click)="cancelForm(profileAbilities); selectedAbilitie = undefined">Cancelar</button>
+                <button class="btn btn-outline-primary" type="submit" *ngIf="profileAbilities.enabled" [disabled]="profileAbilities.invalid">Guardar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

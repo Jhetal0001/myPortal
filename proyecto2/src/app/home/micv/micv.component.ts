@@ -7,6 +7,7 @@ import {
 } from '@ngx-gallery/core';
 import { InfoJhetalService } from '../../services/info-jhetal.service'
 import { UtilsService } from 'src/app/services/utils.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-micv',
@@ -44,11 +45,13 @@ export class MicvComponent implements OnInit {
   certificates: any;
   studies: any;
   abilities: any;
+  isAdmin!: boolean;
 
   constructor(
     public gallery: Gallery,
     private UTILS: UtilsService,
-    private infoCv: InfoJhetalService
+    private infoCv: InfoJhetalService,
+    private modalService: NgbModal,
     ) {}
 
   setData(){
@@ -88,8 +91,15 @@ export class MicvComponent implements OnInit {
     }
   }
 
+  abrirModal(modal: any) {
+    this.modalService.open(modal, { centered: true });
+  }
+
   ngOnInit(): void {
     this.UTILS.showLoad();
+    this.UTILS.role().subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
     this.infoJhetal();
   }
 }

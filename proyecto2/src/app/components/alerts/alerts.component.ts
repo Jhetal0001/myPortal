@@ -5,7 +5,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
   selector: 'app-alerts',
   template: `<div [@fadeInOut] *ngIf="alert$ | async as alert" class="alert alert-{{ alert.type }}" role="alert">{{ alert.message }}</div>`,
-  styles: [`div {width: 100%; position: fixed; top: 0; left: 0; z-index: 100; }`],
+  styles: [`div {width: 100%; position: fixed; top: 0; left: 0; z-index: 10000; }`],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),

@@ -12,3 +12,6 @@ export interface User {
   emailVerified?: boolean;
   imgFront?: string | null;
 }
+export interface Usertwo {
+  uid: string
+}

@@ -48,6 +48,8 @@ import { TimmeAgoPipe } from './pipes/timme-ago.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
 import { UtilsService } from './services/utils.service';
 import { PopoverComponent } from './components/popover/popover.component';
+import { ModalFormComponent } from './components/modal-form/modal-form.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { PopoverComponent } from './components/popover/popover.component';
     TimmeAgoPipe,
     LoaderComponent,
     PopoverComponent,
+    ModalFormComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,

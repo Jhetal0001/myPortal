@@ -16,13 +16,14 @@ export class BlogspaceComponent implements OnInit {
   // Variable para visualizar articulo
   art!: number;
   articles: Array<any> = [];
+  isAdmin!: boolean;
 
   constructor(
       public gallery: Gallery,
       @Inject(ArticulosService) private articulosService: ArticulosService,
       private UTILS: UtilsService
-    ) {
-  }
+    ) { }
+
   imageArrays: GalleryItem[][] = new Array<Array<GalleryItem>>;
 
   open() {
@@ -51,6 +52,9 @@ export class BlogspaceComponent implements OnInit {
       }).catch((error) => {
         this.UTILS.showAlert(error.message, 'danger');
         this.UTILS.hideLoad();
+    });
+    this.UTILS.role().subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
     });
   }
 }

@@ -17,6 +17,7 @@ import { User } from '../models/user.model';
 import {
   CollectionReference,
   DocumentData,
+  getDoc
 } from '@firebase/firestore';
 
 import { Firestore, collection, query, where, getDocs, doc, setDoc, updateDoc } from '@angular/fire/firestore';
@@ -34,6 +35,9 @@ export class UserService {
     private readonly firestore: Firestore
   ) {
     this.user = collection(this.firestore, 'user');
+    auth.onAuthStateChanged(user => {
+      console.log('el estado de sesion es: ', user)
+    })
    }
 
   register(email: string, password: string) {

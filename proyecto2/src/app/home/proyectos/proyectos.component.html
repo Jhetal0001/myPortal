@@ -7,7 +7,7 @@
   <section class="projects-sections mt-3 mb-3 d-flex justify-content-center">
     <!--Se crean Carta Automaticas-->
     <div *ngFor="let project of projectsArray; let i=index" class="card m-2 overflow-hidden w-50">
-      <img class="card-img-top" [src]="project.img_small" [lightbox]="i" alt="Card image cap" ><!--aqui va el code ligthbox-->
+      <img class="card-img-top" [src]="project.img_small" [lightbox]="0" (click)="openLigthbox(project.link)" alt="Card image cap" ><!--aqui va el code ligthbox-->
       <div class="card-body p-0 text-center">
         <div class="w-100 p-2">
           <h5 class="card-title">{{project.name}}</h5>

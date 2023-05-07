@@ -35,7 +35,7 @@ $proyecto2-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --colorprimary: #303436;
+  --colorprimary: #2a2d2e;
   --colorbg: #303436;
   --colorsecundary: #42494dec;
   --colorbutton: #0d7aa0;
@@ -118,5 +118,52 @@ body {
   cursor: pointer;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; scroll-behavior: smooth; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.scrollTheme {
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: var(--colorsecundary);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--colorprimary);
+    border-radius: 20px;
+    border: 3px solid var(--colorbg);
+  }
+  &::-webkit-resizer {
+    border-top: 50px solid var(--colorbg);
+    border-left: 50px solid var(--colorbg);
+    border-right: 50px solid var(--colorprimary);
+    border-bottom: 50px solid var(--colorprimary);
+  }
+}
+
+.accordion-button {
+  color: var(--colorfonttwo);
+  background-color: var(--colorsecundary);
+}
+.accordion-body {
+  color: var(--colorfonttwo);
+  background-color: var(--colorbg);
+}
+.accordion-button:not(.collapsed) {
+  color: var(--colorfontone);
+  background-color: var(--colorprimary);
+  border-bottom: 1px solid var(--colorshadow);
+}
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0%) invert(100%);
+}
+.accordion-button:focus {
+  box-shadow: inherit;
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+  }
+}
