@@ -4,11 +4,11 @@
   </div>
   <div class="content">
     <div class="content-img" *ngFor="let item of listSchool">
-      <img *ngIf="item.name === content.school" [src]="item.urlImg">
+      <img *ngIf="item.nombre_escuela === content.nombre_escuela" [src]="item.urlImg">
     </div>
-    <p>{{content.date}}</p>
+    <p>{{content.fecha_fin | date }}</p>
     <p>
-      <a [href]="content.url" target="_blank" class="btn btn-outline-primary mr-2">Ver</a>
+      <a [href]="content.url_certificado" target="_blank" class="btn btn-outline-primary mr-2">Ver</a>
     </p>
   </div>
 </div>

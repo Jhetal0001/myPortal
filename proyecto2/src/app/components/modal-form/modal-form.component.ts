@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CiudadesColombiaService } from '../../services/ciudades-colombia.service';
 import { Departments, Cities} from '../../models/departments.model';
-import { ProfileAbilities, ProfileCertificate, ProfileExperience, ProfileStudie } from 'src/app/models/profile.model';
+import { ProfileAbilities, ProfileCertificate, ProfileData, ProfileExperience, ProfileStudie } from 'src/app/models/profile.model';
 import { DataCvService } from '../../services/data-cv.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -69,14 +69,15 @@ export class ModalFormComponent implements OnInit {
       departamento: new FormControl('Departamento'),
       municipio: new FormControl('Ciudad'),
       fecha_inicio: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      fecha_fin: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      en_curso: new FormControl(false),
+      fecha_fin: new FormControl(''),
       titulo_obtenido: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
     this.profileCertificates = this.fb.group({
       nombre_curso: new FormControl('', [Validators.required, Validators.minLength(3)]),
       fecha_fin: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      nombre_escuela: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      categoria: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      nombre_escuela: new FormControl('Platzi', [Validators.required, Validators.minLength(3)]),
+      categoria: new FormControl('Programación', [Validators.required]),
       url_certificado: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
     this.profileExperience = this.fb.group({
@@ -85,7 +86,8 @@ export class ModalFormComponent implements OnInit {
       departamento: new FormControl('Departamento'),
       municipio: new FormControl('Ciudad'),
       fecha_inicio: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      fecha_fin: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      en_curso: new FormControl(false),
+      fecha_fin: new FormControl(''),
       funciones_responsabilidades: new FormControl(''),
     });
     this.profileAbilities = this.fb.group({
@@ -144,9 +146,10 @@ export class ModalFormComponent implements OnInit {
           titulo_obtenido: data2.get('titulo_obtenido'),
           nombre_institucion: data2.get('nombre_institucion'),
           fecha_inicio: new Date(fechaInicio),
-          fecha_fin: new Date(fechaFin),
+          fecha_fin: fechaFin? new Date(fechaFin) : null,
           departamento: data2.get('departamento'),
-          municipio: data2.get('municipio')
+          municipio: data2.get('municipio'),
+          en_curso: data2.get('en_curso')
         };
         this.itemsProfileStudies.push(datos);
       });
@@ -168,9 +171,10 @@ export class ModalFormComponent implements OnInit {
           nombre_empresa: data2.get('nombre_empresa'),
           cargo: data2.get('cargo'),
           fecha_inicio: new Date(fechaInicio),
-          fecha_fin: new Date(fechaFin),
+          fecha_fin: fechaFin? new Date(fechaFin) : null,
           departamento: data2.get('departamento'),
           municipio: data2.get('municipio'),
+          en_curso: data2.get('en_curso'),
           funciones_responsabilidades: arrayFunciones
         };
         this.itemsProfileExperience.push(datos);
@@ -256,7 +260,7 @@ export class ModalFormComponent implements OnInit {
       this.UTIL.showLoad();
       this.profileData.disable();
       const form = this.profileData.value;
-      this.saveForm(form, 'profileData')
+      this.saveFormProfileData(form);
     }
 
   }
@@ -272,15 +276,15 @@ export class ModalFormComponent implements OnInit {
     }
 
   }
-  onSubmitThree(isEdit:boolean, id?: string) {
+  async onSubmitThree(isEdit:boolean, id?: string) {
     if(isEdit){
       this.profileStudies.enable();
     }else if(id != null){
       this.UTIL.showLoad();
       this.profileStudies.disable();
       const form = this.profileStudies.value;
-      this.updateForm(form, 'profileStudies', id);
-      this.getProfileStudies();
+      await this.updateForm(form, 'profileStudies', id);
+      setTimeout(() => {this.getProfileStudies();}, 1);
     }else {
       this.UTIL.showLoad();
       this.profileStudies.disable();
@@ -288,18 +292,19 @@ export class ModalFormComponent implements OnInit {
       this.saveForm(form, 'profileStudies');
       this.profileStudies.reset();
       this.selectedStudy = undefined;
-      this.getProfileStudies();
+      setTimeout(() => {this.getProfileStudies();}, 1);
+
     }
   }
-  onSubmitFour(isEdit:boolean, id?: string) {
+  async onSubmitFour(isEdit:boolean, id?: string) {
     if(isEdit){
       this.profileCertificates.enable();
     }else if (id != null) {
       this.UTIL.showLoad();
       this.profileCertificates.disable();
       const form = this.profileCertificates.value;
-      this.updateForm(form, 'profileCertificates', id);
-      this.getProfileCertificates();
+      await this.updateForm(form, 'profileCertificates', id);
+      setTimeout(() => {this.getProfileCertificates();}, 1);
     } else {
       this.UTIL.showLoad();
       this.profileCertificates.disable();
@@ -307,10 +312,10 @@ export class ModalFormComponent implements OnInit {
       this.saveForm(form, 'profileCertificates');
       this.profileCertificates.reset();
       this.selectedCertificate = undefined;
-      this.getProfileCertificates();
+      setTimeout(() => {this.getProfileCertificates();}, 1);
     }
   }
-  onSubmitFive(isEdit:boolean, id?: string) {
+  async onSubmitFive(isEdit:boolean, id?: string) {
     if(isEdit){
       this.profileExperience.enable();
     }else if(id != null) {
@@ -318,8 +323,8 @@ export class ModalFormComponent implements OnInit {
       this.profileExperience.disable();
       const form = this.profileExperience.value;
       form.funciones_responsabilidades = form.funciones_responsabilidades.split('\n');
-      this.updateForm(form, 'profileExperience', id);
-      this.getProfileExperience();
+      await this.updateForm(form, 'profileExperience', id);
+      setTimeout(() => {this.getProfileExperience();}, 1);
     } else {
       this.UTIL.showLoad();
       this.profileExperience.disable();
@@ -328,18 +333,18 @@ export class ModalFormComponent implements OnInit {
       this.saveForm(form, 'profileExperience');
       this.profileExperience.reset();
       this.selectedExperience = undefined;
-      this.getProfileExperience();
+      setTimeout(() => {this.getProfileExperience();}, 1);
     }
   }
-  onSubmitSix(isEdit:boolean, id?: string) {
+  async onSubmitSix(isEdit:boolean, id?: string) {
     if(isEdit){
       this.profileAbilities.enable();
     }else if (id != null) {
       this.UTIL.showLoad();
       this.profileAbilities.disable();
       const form = this.profileAbilities.value;
-      this.updateForm(form, 'profileAbilities', id);
-      this.getProfileAbilities();
+      await this.updateForm(form, 'profileAbilities', id);
+      setTimeout(() => {this.getProfileAbilities();}, 1);
     } else {
       this.UTIL.showLoad();
       this.profileAbilities.disable();
@@ -347,7 +352,7 @@ export class ModalFormComponent implements OnInit {
       this.saveForm(form, 'profileAbilities');
       this.profileAbilities.reset();
       this.selectedAbilitie = undefined;
-      this.getProfileAbilities();
+      setTimeout(() => {this.getProfileAbilities();}, 1);
     }
   }
 
@@ -361,7 +366,8 @@ export class ModalFormComponent implements OnInit {
         departamento: item.departamento,
         municipio: item.municipio,
         fecha_inicio: item.fecha_inicio.toISOString().substring(0, 10),
-        fecha_fin: item.fecha_fin.toISOString().substring(0, 10)
+        en_curso: item.en_curso,
+        fecha_fin: item.fecha_fin?.toISOString().substring(0, 10)
       });
     } else {
       this.profileStudies.reset();
@@ -392,7 +398,8 @@ export class ModalFormComponent implements OnInit {
         departamento: item.departamento,
         municipio: item.municipio,
         fecha_inicio : item.fecha_inicio.toISOString().substring(0, 10),
-        fecha_fin: item.fecha_fin.toISOString().substring(0, 10),
+        en_curso: item.en_curso,
+        fecha_fin: item.fecha_fin?.toISOString().substring(0, 10),
         funciones_responsabilidades: item.funciones_responsabilidades
       });
     } else {
@@ -426,19 +433,24 @@ export class ModalFormComponent implements OnInit {
 
 
   // Se realiza el consumo de los servicios
-  saveForm(item: object, form: string) {
-    if(['profileData', 'profilePro'].includes(form)) {
-      this.dataCv.saveForm(item, form)
+  saveFormProfileData(item: ProfileData){
+    this.dataCv.saveFormProfileData(item)
+    .then(() => {this.UTIL.showAlert('Se ha guardado exitosamente', 'success'); this.UTIL.hideLoad()})
+    .catch(error => {this.UTIL.showAlert(error.message, 'danger'); this.UTIL.hideLoad()});
+  }
+  async saveForm(item: object, form: string) {
+    if(['profilePro'].includes(form)) {
+      await this.dataCv.saveForm(item, form)
       .then(() => {this.UTIL.showAlert('Se ha guardado exitosamente', 'success'); this.UTIL.hideLoad()})
       .catch(error => {this.UTIL.showAlert(error.message, 'danger'); this.UTIL.hideLoad()});
     } else {
-      this.dataCv.addList(item, form)
+      await this.dataCv.addList(item, form)
       .then(() => this.UTIL.showAlert('Se ha guardado exitosamente', 'success'))
       .catch(error => this.UTIL.showAlert(error.message, 'danger'));
     }
   }
-  updateForm(item: object, form: string, id: string) {
-    this.dataCv.updateProfileList(item, form, id)
+  async updateForm(item: object, form: string, id: string) {
+    await this.dataCv.updateProfileList(item, form, id)
     .then(() => this.UTIL.showAlert('Se ha actualizado exitosamente', 'success'))
     .catch(error => this.UTIL.showAlert(error.message, 'danger'));
   }

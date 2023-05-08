@@ -1,3 +1,18 @@
+export interface ProfileData {
+  departamento?: string,
+  email: string,
+  lastname: string,
+  municipio: string,
+  name: string,
+  phone: string,
+  profession: string,
+  photo?: string
+}
+
+export interface ProfileProf {
+  text_profile: string
+}
+
 export interface ProfileStudie {
   id: string,
   titulo_obtenido: string,
@@ -5,7 +20,8 @@ export interface ProfileStudie {
   departamento?: string,
   municipio?: string,
   fecha_inicio: Date,
-  fecha_fin: Date
+  fecha_fin: Date | null,
+  en_curso: boolean
 }
 
 export interface ProfileCertificate {
@@ -24,8 +40,9 @@ export interface ProfileExperience {
   departamento?: string,
   municipio?: string,
   fecha_inicio : Date,
-  fecha_fin: Date,
-  funciones_responsabilidades: string
+  fecha_fin: Date | null,
+  funciones_responsabilidades: string,
+  en_curso: boolean
 }
 
 export interface ProfileAbilities {

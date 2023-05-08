@@ -8,23 +8,23 @@
       <i class="fa-solid fa-pen-to-square"></i>
     </a>
 
-    <h1 class="micv-section-one__tittle">{{ dateperson.profession }}</h1>
-    <a class="micv-section-one__photo position-relative">
+    <h1 class="micv-section-one__tittle">{{ profileData.profession }}</h1>
+    <div class="micv-section-one__photo position-relative">
       <!--aqui va el anterior componente-->
-      <img
+      <img class="rounded-circle"
         [lightbox]="0"
-        (click)="openLigthbox(dateperson.photo)"
-        [src]="dateperson.photo"
+        (click)="openLigthbox(profileData.photo? profileData.photo : '')"
+        [src]="profileData.photo"
         alt="photo-perfile"
       />
       <a
       class="link-secondary position-absolute end-0 cursor-pointer"
       title="Cambiar Foto"
       *ngIf="(isAdmin)" (click)="abrirModal(updatePhoto)"
-    >
-      <i class="fa-solid fa-camera"></i>
-    </a>
-    </a>
+      >
+        <i class="fa-solid fa-camera"></i>
+      </a>
+    </div>
   </section>
   <section class="micv-section-two">
     <div class="micv-section-two__icons">
@@ -86,7 +86,7 @@
         role="tabpanel"
         aria-labelledby="profile-tab"
       >
-        {{ dateperson.name }}
+        {{ profileData.name }} {{ profileData.lastname }}
       </div>
       <div
         class="tab-pane fade"
@@ -94,7 +94,7 @@
         role="tabpanel"
         aria-labelledby="phone-tab"
       >
-        {{ dateperson.phone }}
+        {{ profileData.phone }}
       </div>
       <div
         class="tab-pane fade"
@@ -102,7 +102,7 @@
         role="tabpanel"
         aria-labelledby="email-tab"
       >
-        {{ dateperson.email }}
+        {{ profileData.email }}
       </div>
       <div
         class="tab-pane fade"
@@ -110,7 +110,7 @@
         role="tabpanel"
         aria-labelledby="address-tab"
       >
-        {{ dateperson.address }}
+        {{ profileData.departamento }} - {{ profileData.municipio}}
       </div>
     </div>
   </section>
@@ -127,7 +127,7 @@
             'fa-plus': viewTrue !== 'profil'
           }"
         ></i>
-        <span>{{ contentcv.profilepro.name }}</span>
+        <span>Perfil Profesional</span>
       </div>
     </div>
     <div
@@ -135,9 +135,7 @@
       [@enterAnimation]
       *ngIf="viewTrue === 'profil'"
     >
-      <p>{{ contentcv.profilepro.details.paragraph1 }}</p>
-      <p>{{ contentcv.profilepro.details.paragraph2 }}</p>
-      <p>{{ contentcv.profilepro.details.paragraph3 }}</p>
+      <p style="white-space: pre-line; font-size: 14px;">{{ profileProf.text_profile }}</p>
     </div>
     <div
       class="micv-section-three__tab cursor-pointer studies"
@@ -151,22 +149,33 @@
             'fa-plus': viewTrue !== 'studies'
           }"
         ></i>
-        <span>{{ contentcv.studies.name }}</span>
+        <span>Estudios</span>
       </div>
     </div>
-    <div
-      class="details studies-details"
-      [@enterAnimation]
-      *ngIf="viewTrue === 'studies'"
-    >
-      <ul>
-        <li *ngFor="let studie of studies">
-          <p>{{ studie.name }},</p>
-          <p>{{ studie.date }},</p>
-          <p>{{ studie.site }},</p>
-          <p>{{ studie.tittle }}.</p>
-        </li>
-      </ul>
+    <div class="details studies-details d-flex flex-wrap" [@enterAnimation] *ngIf="viewTrue === 'studies'">
+      <div class="card border-warning m-3" style="min-width: 250px;" *ngFor="let item of profileStudies">
+        <input class="cursor-pointer w-100 h-100 position-absolute opacity-0" [id]="'radio-'+item.id" type="radio" [name]="'studies'" [value]="item.id">
+        <div class="card-header pe-5">{{item.titulo_obtenido}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{item.nombre_institucion}}</h5>
+          <p class="card-text">{{item.departamento}} - {{item.municipio}}</p>
+          <table class="table table-sm w-100">
+            <thead>
+              <tr>
+                <th>Inicio</th>
+                <th>Fin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{item.fecha_inicio | date}}</td>
+                <td *ngIf="item.fecha_fin">{{item.fecha_fin | date}}</td>
+                <td *ngIf="item.en_curso">En Curso</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div
@@ -181,7 +190,7 @@
             'fa-plus': viewTrue !== 'certif'
           }"
         ></i>
-        <span>{{ contentcv.certificates.name }}</span>
+        <span>Certificados y Constancias</span>
       </div>
     </div>
     <div
@@ -190,7 +199,7 @@
       *ngIf="viewTrue === 'certif'"
     >
       <div class="row">
-        <div class="col-md-3 align-items-start">
+        <div class="col-md-3 align-items-start border-end border-primary">
           <div
             class="nav flex-column nav-pills me-3"
             id="v-pills-tab"
@@ -293,23 +302,23 @@
               aria-labelledby="v-pills-habilidadesblandas-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'habilidadesblandas'"
+                    *ngIf="certificate.categoria === 'habilidadesblandas'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -323,23 +332,23 @@
               aria-labelledby="v-pills-programacion-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'programacion'"
+                    *ngIf="certificate.categoria === 'programacion'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2 btn-certificates"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -353,23 +362,23 @@
               aria-labelledby="v-pills-SQL-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'sql'"
+                    *ngIf="certificate.categoria === 'sql'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2 btn-certificates"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -383,23 +392,23 @@
               aria-labelledby="v-pills-idiomas-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'idiomas'"
+                    *ngIf="certificate.categoria === 'idiomas'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2 btn-certificates"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -413,23 +422,23 @@
               aria-labelledby="v-pills-rutas-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'rutas'"
+                    *ngIf="certificate.categoria === 'rutas'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2 btn-certificates"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -443,23 +452,23 @@
               aria-labelledby="v-pills-qa-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'qa'"
+                    *ngIf="certificate.categoria === 'qa'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2 btn-certificates"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -473,23 +482,23 @@
               aria-labelledby="v-pills-otros-tab"
             >
               <div class="d-flex flex-wrap">
-                <div *ngFor="let certificate of certificates">
+                <div *ngFor="let certificate of profileCertificates">
                   <button
-                    *ngIf="certificate.tag === 'otros'"
+                    *ngIf="certificate.categoria === 'otros'"
                     type="button"
-                    class="btn m-2 btn-certificates"
+                    class="btn btn-outline-primary m-2 btn-certificates"
                     [placement]="['top', 'bottom']"
                     [ngbPopover]="popoverComponent"
                     popoverClass="popover"
                     [autoClose]="'outsideClick'"
                     container="body"
                   >
-                    {{ certificate.name }}
+                    {{ certificate.nombre_curso }}
                   </button>
 
                   <ng-template #popoverComponent>
                     <app-popover
-                      [title]="certificate.name"
+                      [title]="certificate.nombre_curso"
                       [content]="certificate"
                     ></app-popover>
                   </ng-template>
@@ -513,31 +522,43 @@
             'fa-plus': viewTrue !== 'experien'
           }"
         ></i>
-        <span>{{ contentcv.experience.name }}</span>
+        <span>Experiencia Profesional</span>
       </div>
     </div>
     <div
-      class="details experien-details"
+      class="details experien-details d-flex flex-wrap"
       [@enterAnimation]
       *ngIf="viewTrue === 'experien'"
     >
-      <ul>
-        <li>
-          <p>
-            <b>{{ contentcv.experience.details.work2.name }}, </b>
-          </p>
-          <p>{{ contentcv.experience.details.work2.position }},</p>
-          <p>{{ contentcv.experience.details.work2.date }}.</p>
-        </li>
-        <li>
-          <p>
-            <b>{{ contentcv.experience.details.work1.name }}, </b>
-          </p>
-          <p>{{ contentcv.experience.details.work1.position }},</p>
-          <p>{{ contentcv.experience.details.work1.date }}.</p>
-        </li>
-      </ul>
+
+        <div class="card border-warning m-3"
+        style="min-width: 300px;" *ngFor="let item of profileExperience"
+        >
+        <div class="card-header pe-5">{{item.nombre_empresa}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{item.cargo}}</h5>
+          <p class="card-text">{{item.departamento}} - {{item.municipio}}</p>
+          <table class="table table-sm w-100">
+            <thead>
+              <tr>
+                <th>Inicio</th>
+                <th>Fin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{item.fecha_inicio | date}}</td>
+                <td *ngIf="item.fecha_fin">{{item.fecha_fin | date}}</td>
+                <td *ngIf="item.en_curso">En Curso</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="card-text fst-italic" style="white-space: pre-line; font-size: 14px;">{{item.funciones_responsabilidades}}</p>
+        </div>
+      </div>
+
     </div>
+
 
     <div
       class="micv-section-three__tab cursor-pointer abilities"
@@ -551,7 +572,7 @@
             'fa-plus': viewTrue !== 'abilities'
           }"
         ></i>
-        <span>{{ contentcv.abilities.name }}</span>
+        <span>Habilidades Técnicas</span>
       </div>
     </div>
     <div
@@ -559,18 +580,25 @@
       [@enterAnimation]
       *ngIf="viewTrue === 'abilities'"
     >
-      <div *ngFor="let abilitie of abilities">
-        <label for="abilitie">{{ abilitie.name }}</label>
-        <div class="progress">
-          <div
-            class="progress-bar progress-bar-striped progress-bar-animated"
-            role="progressbar"
-            aria-valuenow="75"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            [style]="'width:' + abilitie.nivel + '%;'"
-          >
-            {{ abilitie.name }}
+      <div class="p-4 row">
+        <p class="container fst-italic rounded" style="white-space: pre-line; font-size: 12px;">
+          {{notas[0].nota}}
+        </p>
+      </div>
+      <div class="row">
+        <div class="px-3 pb-3 col-12 col-sm-6 col-lg-4" *ngFor="let abilitie of profileAbilities">
+          <label for="abilitie">{{ abilitie.nombre_habilidad }}</label>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [style]="'width:' + abilitie.porcentaje + '%;'"
+            >
+              {{ abilitie.nombre_habilidad }}
+            </div>
           </div>
         </div>
       </div>

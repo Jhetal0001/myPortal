@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProfileCertificate } from 'src/app/models/profile.model';
 
 @Component({
   selector: 'app-popover',
@@ -8,10 +9,10 @@ import { Component, Input } from '@angular/core';
 export class PopoverComponent {
 
   @Input() title = '';
-  @Input() content = {url: '', school: '', date: '' };
+  @Input() content!: ProfileCertificate;
 
   listSchool = [
-    {name: 'platzi', urlImg: 'https://static.platzi.com/static/images/footer/logo.png'}
+    {nombre_escuela: 'platzi', urlImg: 'https://static.platzi.com/static/images/footer/logo.png'}
   ]
 
 

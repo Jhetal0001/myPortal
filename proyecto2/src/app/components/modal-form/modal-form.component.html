@@ -128,7 +128,8 @@
                     <tbody>
                       <tr>
                         <td>{{item.fecha_inicio | date}}</td>
-                        <td>{{item.fecha_fin | date}}</td>
+                        <td *ngIf="item.fecha_fin">{{item.fecha_fin | date}}</td>
+                        <td *ngIf="item.en_curso">En Curso</td>
                       </tr>
                     </tbody>
                   </table>
@@ -167,19 +168,26 @@
               </div>
 
               <div class="row">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-5">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_inicio">Fecha de Inicio:</label>
                     <input class="form-control" type="date" id="fecha_inicio" formControlName="fecha_inicio">
                   </div>
                 </div>
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-md-3 col-lg-2">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="en_curso_s">En curso</label>
+                    <input type="checkbox" class="btn-check" id="en_curso_s" autocomplete="off" formControlName="en_curso"
+                    (ngModelChange)="profileStudies.get('en_curso')?.value ? [profileStudies.get('fecha_fin')?.disable(), profileStudies.get('fecha_fin')?.reset()] : profileStudies.get('fecha_fin')?.enable()  ">
+                    <label class="btn btn-sm btn-outline-primary" for="en_curso_s"><i class="fa-solid fa-check"></i></label>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-5">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_fin">Fecha Fin:</label>
                     <input class="form-control" type="date" id="fecha_fin" formControlName="fecha_fin">
                   </div>
                 </div>
-
               </div>
               <div class="d-flex justify-content-end">
                 <button class="btn btn-outline-primary" type="submit" (click)="onSubmitThree(true)" *ngIf="profileStudies.disabled">Editar</button>
@@ -215,7 +223,7 @@
                 <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 p-2" (click)="confirmAction(item.nombre_curso, 'profileCertificates', item.id)"></button>
               </div>
               <div class="card-body p-2">
-                <h5 class="card-title">{{item.nombre_curso}}</h5>
+                <h6 class="card-title">{{item.nombre_curso}}</h6>
                 <p class="card-text">{{item.fecha_fin | date}}</p>
               </div>
             </div>
@@ -240,13 +248,23 @@
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="nombre_escuela">Nombre de la escuela:</label>
-                    <input class="form-control" type="text" id="nombre_escuela" formControlName="nombre_escuela">
+                    <select class="form-select form-select-sm" id="nombre_escuela" formControlName="nombre_escuela">
+                      <option value="platzi" selected>Platzi</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="categoria">Categoria:</label>
-                    <input class="form-control" type="text" id="categoria" formControlName="categoria">
+                    <select class="form-select form-select-sm" id="categoria" formControlName="categoria">
+                      <option value="programacion" selected>Programación</option>
+                      <option value="habilidadesblandas">Habilidades Blandas</option>
+                      <option value="sql">BD SQL</option>
+                      <option value="idiomas">Idiomas</option>
+                      <option value="rutas">Ruta de Aprendizaje</option>
+                      <option value="qa">QA</option>
+                      <option value="otros">Otros</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
@@ -303,7 +321,8 @@
                     <tbody>
                       <tr>
                         <td>{{item.fecha_inicio | date}}</td>
-                        <td>{{item.fecha_fin | date}}</td>
+                        <td *ngIf="item.fecha_fin">{{item.fecha_fin | date}}</td>
+                        <td *ngIf="item.en_curso">En Curso</td>
                       </tr>
                     </tbody>
                   </table>
@@ -329,7 +348,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-12 col-lg-4">
+                <div class="col-12 col-md-12 col-lg-6">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="lugar">Lugar:</label>
                       <select class="form-select form-select-sm" aria-label="Default select example" formControlName="departamento" (change)="listCitiesByDepartment(profileExperience, 'ciudades-experience')">
@@ -343,13 +362,21 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-12 col-lg-6">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_inicio">Fecha de Inicio:</label>
                     <input class="form-control" type="date" id="fecha_inicio" formControlName="fecha_inicio">
                   </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-sm-4 col-lg-2">
+                  <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text" id="inputGroup-sizing-sm" for="en_curso">En curso</label>
+                    <input type="checkbox" class="btn-check" id="en_curso" autocomplete="off" formControlName="en_curso"
+                    (ngModelChange)="profileExperience.get('en_curso')?.value ? [profileExperience.get('fecha_fin')?.disable(), profileExperience.get('fecha_fin')?.reset()] : profileExperience.get('fecha_fin')?.enable()">
+                    <label class="btn btn-sm btn-outline-primary" for="en_curso"><i class="fa-solid fa-check"></i></label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-10">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="fecha_fin">Fecha de fin:</label>
                     <input class="form-control" type="date" id="fecha_fin" formControlName="fecha_fin">

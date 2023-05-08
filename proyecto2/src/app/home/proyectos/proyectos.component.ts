@@ -49,14 +49,14 @@ export class ProyectosComponent implements OnInit {
       img_small : '../../../assets/small/Batatabit.png',
       img : '../../../assets/Batatabit.png',
       description : 'Es un proyecto hecho en clases de platzi basado en la metodología First Mobile',
-      link : 'http://jhetal0001.github.io/'
+      link : 'https://jhetal0001.github.io/'
     },
     {
       name: 'GameCSS',
       img_small : '../../../assets/small/animaciones-css.png',
       img : '../../../assets/animaciones-css.png',
       description : 'Es un proyecto hecho en clases de platzi basado en animaciones CSS',
-      link : 'http://animaciones-css-jf.web.app/'
+      link : 'https://animaciones-css-jf.web.app/'
     },
   ]
   isAdmin!: boolean;

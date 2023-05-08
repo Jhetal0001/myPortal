@@ -34,9 +34,9 @@ export class UserService {
     private readonly firestore: Firestore
   ) {
     this.user = collection(this.firestore, 'user');
-    auth.onAuthStateChanged(user => {
-      console.log('el estado de sesion es: ', user)
-    })
+    // auth.onAuthStateChanged(user => {
+    //   console.log('el estado de sesion es: ', user)
+    // })
    }
 
   register(email: string, password: string) {

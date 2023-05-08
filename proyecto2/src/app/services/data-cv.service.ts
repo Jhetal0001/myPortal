@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { v4 as uuidv4 } from 'uuid';
+import { ProfileData } from '../models/profile.model';
 import { Firestore, collection, addDoc, getDocs, doc, setDoc, updateDoc, deleteDoc, getDoc } from '@angular/fire/firestore';
 import { getDownloadURL, ref, uploadBytes, Storage, list, deleteObject } from '@angular/fire/storage';
 
@@ -13,18 +14,30 @@ export class DataCvService {
     private storage: Storage
    ) { }
 
-   saveForm(item: object, form: string) {
-    return setDoc(doc(this.firestore, 'portal-jf', 'CV', 'profile', form), item);
+   async saveForm(item: object, form: string) {
+    return await setDoc(doc(this.firestore, 'portal-jf', 'CV', 'profile', form), item);
    }
 
-   addList(item: object, form: string){
+   async saveFormProfileData(item: ProfileData) {
+    return await updateDoc(doc(this.firestore, 'portal-jf', 'CV', 'profile', 'profileData'), {
+      departamento: item.departamento,
+      email: item.email,
+      lastname: item.lastname,
+      municipio: item.municipio,
+      name: item.name,
+      phone: item.phone,
+      profession: item.profession
+    });
+   }
+
+   async addList(item: object, form: string){
     const refDoc = collection(this.firestore, 'portal-jf', 'CV', 'profile', form, 'list');
-    return addDoc(refDoc, item)
+    return await addDoc(refDoc, item)
   }
 
-   updateProfileList(item: object, form: string, id: string){
+   async updateProfileList(item: object, form: string, id: string){
     const refDoc = doc(this.firestore, 'portal-jf', 'CV', 'profile', form, 'list', id);
-    return updateDoc(refDoc, item)
+    return await updateDoc(refDoc, item)
   }
 
   async deleteDoc(form: string, id: string) {

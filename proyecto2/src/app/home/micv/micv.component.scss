@@ -10,13 +10,16 @@
       color: var(--colorfonttwo);
     }
     &__photo {
-      width: 140px;
-      border-radius: 20px;
+      width: 150px;
+      height: 150px;
       margin: auto auto;
       overflow: hidden;
       & img {
-        width: 160px;
-        margin-left: -10px;
+        background-color: var(--colorbg);
+        object-fit: cover;
+        object-position: center center;
+        width: 100%; height: 100%;
+        border-radius: 10px;
       }
     }
   }
@@ -93,29 +96,24 @@
     }
   }
 }
-.btn-certificates {
-  border: 1px solid var(--colorfonttwo);
-  background-color: var(--colorbutton);
-  color: var(--colorfontone);
-  transition: filter 0.2s ease-in-out;
-  &:hover {
-    color: black;
-    filter: brightness(150%);
-  }
-}
+
 @media screen and (min-width: 768px) {
   .micv-section-two {
     max-width: 400px;
   }
-  .micv-section-three {
-    max-width: 80%;
-    & .abilities-details {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      & > div {
-        width: 40%;
-      }
-    }
+}
+
+.card-header {
+  background-color: var(--colorprimary);
+  color: var(--colorfontone);
+  border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
+}
+.card-body {
+  background-color: var(--colorbg);
+  color: var(--colorfonttwo);
+  border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);
+  & td, th {
+    color: var(--colorfonttwo);
   }
 }
+
