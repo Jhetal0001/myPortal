@@ -59,8 +59,7 @@ export class ModalFormComponent implements OnInit {
       phone: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       departamento: new FormControl('Departamento'),
-      municipio: new FormControl('Ciudad'),
-      photo: new FormControl('')
+      municipio: new FormControl('Ciudad')
     });
     this.profileProf = this.fb.group({
       text_profile: new FormControl('', [Validators.required, Validators.minLength(30)])
@@ -115,8 +114,7 @@ export class ModalFormComponent implements OnInit {
           phone: data.get('phone'),
           email: data.get('email'),
           departamento: data.get('departamento'),
-          municipio: data.get('municipio'),
-          photo: data.get('photo'),
+          municipio: data.get('municipio')
         });
         this.UTIL.hideLoad();
     })

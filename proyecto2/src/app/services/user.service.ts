@@ -17,7 +17,6 @@ import { User } from '../models/user.model';
 import {
   CollectionReference,
   DocumentData,
-  getDoc
 } from '@firebase/firestore';
 
 import { Firestore, collection, query, where, getDocs, doc, setDoc, updateDoc } from '@angular/fire/firestore';

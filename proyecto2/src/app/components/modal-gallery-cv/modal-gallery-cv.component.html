@@ -1,0 +1,21 @@
+<div class="container p-3 rounded">
+  <div class="container position-relative mb-3 w-100">
+    <h3>Seleccione la foto de su CV</h3>
+    <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 p-1" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="container justify-content-evenly d-flex flex-wrap p-0">
+    <div class="card position-relative m-2" [ngClass]="{'selectPhoto': item.data.thumb === photoProfile}" style="max-width: 150px;" *ngFor="let item of images; let i = index">
+      <span class="p-1 position-absolute end-0" *ngIf="item.data.thumb === photoProfile"><i class="fa-solid fa-user-check"></i></span>
+      <img [src]="item.data.thumb" class="img-thumbnail border-0" alt="foto de perfil">
+      <div class="btn-group btn-group-sm position-absolute bottom-0 w-100" role="group">
+        <button type="button" class="btn btn-outline-primary" [lightbox]="i"><i class="fa-regular fa-eye"></i></button>
+        <button type="button" class="btn btn-outline-success" (click)="selecPhotoCv(item.data.thumb)"><i class="fa-solid fa-check"></i></button>
+        <button type="button" class="btn btn-outline-danger" (click)="confirmAction(item.data.id)"><i class="fa-regular fa-trash-can"></i></button>
+      </div>
+    </div>
+    <div class="card upload position-relative m-2" style="width: 150px; height: 150px;">
+      <label class="position-absolute top-50 start-50 translate-middle cursor-pointer p-1 rounded" for="uploadPhoto"><i class="fa-solid fa-upload"></i></label>
+      <input class="d-none" id="uploadPhoto" type="file" name="uploadPhoto" accept=".jpg,.jpeg,.png" (change)="uploadPhoto($event)">
+    </div>
+  </div>
+</div>

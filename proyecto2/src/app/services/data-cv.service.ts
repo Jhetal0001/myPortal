@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 import { Firestore, collection, addDoc, getDocs, doc, setDoc, updateDoc, deleteDoc, getDoc } from '@angular/fire/firestore';
+import { getDownloadURL, ref, uploadBytes, Storage, list, deleteObject } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,8 @@ import { Firestore, collection, addDoc, getDocs, doc, setDoc, updateDoc, deleteD
 export class DataCvService {
 
   constructor(
-    private readonly firestore: Firestore
+    private readonly firestore: Firestore,
+    private storage: Storage
    ) { }
 
    saveForm(item: object, form: string) {
@@ -52,4 +55,39 @@ export class DataCvService {
     return await getDoc(doc(this.firestore, 'portal-jf', 'CV', 'profile', 'profilePro'));
   }
 
+  async uploadImgCv(file: File) {
+    let dataItem = {url: '', path: '' };
+    const fileId = uuidv4();
+    const imgRef = ref(this.storage, `profileCv/profilePhoto/${fileId}`);
+    await uploadBytes(imgRef, file);
+    await getDownloadURL(imgRef).then(data => {
+      dataItem = {
+        path: imgRef.fullPath,
+        url: data
+      };
+    });
+    return await dataItem;
+  }
+
+  async listPhoto() {
+    return await list(ref(this.storage, `profileCv/profilePhoto`));
+  }
+
+  async getUrlPhotos(urlPath: string){
+    return await getDownloadURL(ref(this.storage, urlPath));
+  }
+
+  async deleteitemCv(urlPath: string) {
+    return await deleteObject(ref(this.storage, urlPath));
+  }
+
+  async selectPhotoCv(url: string){
+    const refDoc = doc(this.firestore, 'portal-jf', 'CV', 'profile', 'profileData');
+    updateDoc(refDoc, {photo: url});
+    return await this.getPhotoCv();
+  }
+
+  async getPhotoCv() {
+    return await getDoc(doc(this.firestore, 'portal-jf', 'CV', 'profile', 'profileData'));
+  }
 }

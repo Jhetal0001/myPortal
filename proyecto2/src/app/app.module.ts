@@ -50,6 +50,7 @@ import { UtilsService } from './services/utils.service';
 import { PopoverComponent } from './components/popover/popover.component';
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { ModalGalleryCvComponent } from './components/modal-gallery-cv/modal-gallery-cv.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     PopoverComponent,
     ModalFormComponent,
     ConfirmModalComponent,
+    ModalGalleryCvComponent,
   ],
   imports: [
     BrowserModule,

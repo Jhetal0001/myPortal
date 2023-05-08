@@ -5,6 +5,7 @@ import {
   GalleryItem,
   ImageItem,
 } from '@ngx-gallery/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-gallery',
@@ -18,7 +19,8 @@ export class GalleryComponent implements OnInit {
   images: GalleryItem[] = [];
 
   constructor(
-    public gallery: Gallery
+    public gallery: Gallery,
+    public UTIL: UtilsService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class GalleryComponent implements OnInit {
         .then(result => this.images.push(new ImageItem({src: result, thumb: result})))
       }
     })
-    .catch(error => console.log(error))
+    .catch(error => this.UTIL.showAlert(error.message, 'danger'))
 
     list(ref(this.storage, `users/${this.id}/imgFront`))
     .then(result => {
@@ -40,7 +42,7 @@ export class GalleryComponent implements OnInit {
         .then(result => this.images.push(new ImageItem({src: result, thumb: result})))
       }
     })
-    .catch(error => console.log(error))
+    .catch(error => this.UTIL.showAlert(error.message, 'danger'))
     this.openView();
   }
 

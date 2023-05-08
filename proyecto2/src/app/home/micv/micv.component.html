@@ -9,7 +9,7 @@
     </a>
 
     <h1 class="micv-section-one__tittle">{{ dateperson.profession }}</h1>
-    <a class="micv-section-one__photo">
+    <a class="micv-section-one__photo position-relative">
       <!--aqui va el anterior componente-->
       <img
         [lightbox]="0"
@@ -17,6 +17,13 @@
         [src]="dateperson.photo"
         alt="photo-perfile"
       />
+      <a
+      class="link-secondary position-absolute end-0 cursor-pointer"
+      title="Cambiar Foto"
+      *ngIf="(isAdmin)" (click)="abrirModal(updatePhoto)"
+    >
+      <i class="fa-solid fa-camera"></i>
+    </a>
     </a>
   </section>
   <section class="micv-section-two">
@@ -569,8 +576,12 @@
       </div>
     </div>
   </section>
+  <ng-template #update let-modal>
+    <app-modal-form></app-modal-form>
+  </ng-template>
+
+  <ng-template #updatePhoto let-modal>
+    <app-modal-gallery-cv [modal]="modal"></app-modal-gallery-cv>
+  </ng-template>
 </div>
 
-<ng-template #update let-modal>
-  <app-modal-form></app-modal-form>
-</ng-template>

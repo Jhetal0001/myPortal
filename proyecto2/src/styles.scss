@@ -142,11 +142,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
   }
 }
 
+.cdk-overlay-container {
+  z-index: 10000;
+}
+
 .accordion-button {
   color: var(--colorfonttwo);
   background-color: var(--colorsecundary);
 }
-.accordion-body {
+.accordion-body, .container {
   color: var(--colorfonttwo);
   background-color: var(--colorbg);
 }

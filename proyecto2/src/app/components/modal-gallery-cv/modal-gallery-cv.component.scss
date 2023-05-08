@@ -1,0 +1,52 @@
+.card {
+  border-color: transparent;
+  background-color: var(--colorbg);
+  transition: border-color .3s;
+  max-height: 150px;
+  & span {
+    border-radius: 0 0 0 10px;
+    background-color: var(--colorbutton);
+    color: var(--colorfontone);
+  }
+  & > img {
+    background-color: var(--colorbg);
+    object-fit: cover;
+    object-position: center center;
+    width: 100%; height: 100%;
+    border-radius: 10px;
+  }
+
+  & > div {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  &:hover {
+    border-color: var(--colorbutton);
+  }
+
+  &:hover > div{
+    opacity: 1;
+  }
+}
+
+.selectPhoto {
+  border: 2px double var(--colorbutton);
+}
+
+.container > .upload {
+  border: 1px solid transparent;
+  &:hover {
+    border: 1px solid var(--colorbutton);
+  }
+  & > label {
+    transition: all .3s;
+    & > i {
+      font-size: 50px;
+    }
+  }
+  &:hover > label {
+    color: var(--colorbutton);
+  }
+}

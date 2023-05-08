@@ -12,7 +12,7 @@
           <form [formGroup]="profileData" (ngSubmit)="onSubmit(false)">
             <div class="container mt-4">
               <div class="row">
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-12">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" class="input-group-text" id="inputGroup-sizing-sm" for="name">Name:</label>
                     <input class="form-control" type="text" id="First name" formControlName="name">
@@ -32,13 +32,7 @@
                     <input class="form-control" type="text" id="phone" formControlName="phone">
                   </div>
                 </div>
-                <div class="col-sm-6 col-md-6">
-                  <div class="input-group input-group-sm mb-3">
-                    <label class="input-group-text" id="inputGroup-sizing-sm" for="photo">Photo:</label>
-                    <input class="form-control" accept=".jpg,.jpeg,.png" type="file" id="photo" formControlName="photo">
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-6">
+                <div class="col-sm-12 col-md-6">
                   <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-sm" for="email">Email:</label>
                     <input class="form-control" type="email" id="email" formControlName="email">
