@@ -13,4 +13,8 @@ export interface ITheme {
   default: IThemeProperties;
   light?: IThemeProperties;
   blue?: IThemeProperties;
+  purple?: IThemeProperties;
+  purpleP?: IThemeProperties;
+  green?: IThemeProperties;
+  darkS?: IThemeProperties;
 }
