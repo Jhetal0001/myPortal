@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { mapToCanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, Route } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard {
 
   uidAdmin = '9ZhCxIXQSbciCUzKHBftg48adKA3';
   constructor(private authService: UserService, private router: Router) {
@@ -25,3 +25,8 @@ export class AuthGuard implements CanActivate {
     });
   }
 }
+
+const route: Route = {
+  path: 'admin',
+  canActivate: mapToCanActivate([AuthGuard]),
+};

@@ -7,9 +7,6 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { SafePipe } from './safe.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { GalleryModule } from '@ngx-gallery/core';
-import { LightboxModule } from '@ngx-gallery/lightbox';
-
 //Rutas
 import { app_routing } from "./app.routes";
 
@@ -93,20 +90,19 @@ import { AccordionPlusComponent } from './components/accordion-plus/accordion-pl
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
-    app_routing,
     BrowserAnimationsModule,
-    GalleryModule,
-    LightboxModule,
-    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    app_routing
+
   ],
   providers: [UtilsService],
   bootstrap: [AppComponent]
