@@ -98,15 +98,20 @@ body {
 }
 
 .popover {
-  background-color: var(--colorprimary);
+  &-body {
+    padding: 0;
+  }
+  background-color: transparent;
   border-radius: 10px;
 }
-.popover-arrow {
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid var(--colorprimary);
-  content-visibility: hidden;
+
+.bs-popover-top>.popover-arrow::after {
+  border-top-color: var(--colorprimary);
 }
+.bs-popover-bottom >.popover-arrow::after {
+  border-bottom-color: var(--colorprimary);
+}
+
 .modal-dialog {
   max-width: 80%;
 }

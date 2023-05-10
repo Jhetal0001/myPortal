@@ -1,4 +1,4 @@
-<main id="menu" style="right: 100%;" class="menu">
+<main id="menu" style="right: 100%;" class="menu scrollTheme">
   <a><i class="fa-solid fa-xmark"></i></a>
   <section class="menu-section-one--home">
     <a [routerLink]="['home']"><i class="fa-solid fa-house"></i><div>Home</div></a>
@@ -10,7 +10,7 @@
     <div class="menu-section-card"><a [routerLink]="['login']"><i class="fa-solid fa-right-to-bracket"></i><div>Log In</div></a></div>
   </section>
   <section class="menu-section-three--config">
-    <a href="#"><i class="fa-solid fa-plus"></i></a>
+    <a (click)="abrirModal(popoverPlusComponent)"><i class="fa-solid fa-plus"></i></a>
   </section>
 </main>
 
@@ -20,5 +20,9 @@
     <div class="menu-desktop-section-card"><a title="Mis Articulos" [routerLink]="['blogspace']"><i class="fa-solid fa-blog"></i></a></div>
     <div class="menu-desktop-section-card"><a title="Mis Proyectos" [routerLink]="['proyectos']"><i class="fa-solid fa-briefcase"></i></a></div>
     <div class="menu-desktop-section-card"><a title="Iniciar Sesión" [routerLink]="['login']"><i class="fa-solid fa-right-to-bracket"></i></a></div>
-    <a href="#"><i class="fa-solid fa-plus"></i></a>
+    <a [placement]="['top', 'bottom']" [ngbPopover]="popoverPlusComponent" popoverClass="popover" [triggers]="'click focus'"><i class="fa-solid fa-plus"></i></a>
 </main>
+
+<ng-template #popoverPlusComponent let-c="close">
+  <app-popover-plus></app-popover-plus>
+</ng-template>

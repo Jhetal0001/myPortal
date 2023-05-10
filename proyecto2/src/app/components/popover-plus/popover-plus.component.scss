@@ -1,0 +1,17 @@
+.target {
+  border-radius: 10px;
+}
+.title {
+  background-color: var(--colorsecundary);
+  color: var(--colorfonttwo);
+}
+.table > tbody:hover td{
+  color: var(--colorfonttwo);
+}
+tbody, td, tfoot, th, thead, tr {
+  background-color: var(--colorbg);
+  border-color: var(--colorshadow);
+  border-style: solid;
+  border-bottom-width: 1px;
+  color: var(--colorfonttwo);
+}

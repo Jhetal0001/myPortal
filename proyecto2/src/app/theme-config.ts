@@ -14,7 +14,7 @@ export const THEMES: ITheme = {
   },
   light: {
     colorprimary: '#0d6efd',
-    colorbg: '#d8e9f5',
+    colorbg: '#9fbfd7',
     colorsecundary: '#aed3f1e8',
     colorbutton: '#0c4af3',
     colorshadow: '#60a5dd',

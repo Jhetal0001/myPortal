@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
+  constructor(
+    private modalService: NgbModal
+    ){}
+
+  abrirModal(modal: object) {
+    this.modalService.open(modal, { centered: true });
+  }
 }

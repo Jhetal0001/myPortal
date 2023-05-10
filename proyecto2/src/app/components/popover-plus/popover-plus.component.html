@@ -1,0 +1,10 @@
+<div class="target overflow-hidden">
+  <div class="title px-5 p-1 text-center"><h3 class="m-0">Temas</h3></div>
+  <div class="container p-0">
+    <table class="table m-0 table-hover">
+      <tbody class="cursor-pointer">
+        <tr *ngFor="let item of temas" (click)="changeTheme(item)"><td>{{item}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

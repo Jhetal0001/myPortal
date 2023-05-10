@@ -51,6 +51,8 @@ import { PopoverComponent } from './components/popover/popover.component';
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { ModalGalleryCvComponent } from './components/modal-gallery-cv/modal-gallery-cv.component';
+import { PopoverPlusComponent } from './components/popover-plus/popover-plus.component';
+import { AccordionPlusComponent } from './components/accordion-plus/accordion-plus.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { ModalGalleryCvComponent } from './components/modal-gallery-cv/modal-gal
     ModalFormComponent,
     ConfirmModalComponent,
     ModalGalleryCvComponent,
+    PopoverPlusComponent,
+    AccordionPlusComponent,
   ],
   imports: [
     BrowserModule,
